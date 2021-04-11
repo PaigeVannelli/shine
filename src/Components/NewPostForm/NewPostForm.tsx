@@ -1,32 +1,38 @@
 import React, { Component } from 'react';
 import './NewPostForm.scss';
 // import React from 'react'
+
+interface IAppState {
+  title: string;
+  content: string;
+}
+
 class NewPostForm extends Component {
-  constructor() {
-    super();
+  constructor(props: IAppState) {
+    super(props);
     this.state = {
-      header = '',
-      body = ''
+      title: '',
+      content: ''
     }
   }
 
-  handleChange = event => {
+  handleChange = (event: { target: { name: string; value: string; }; }) => {
     this.setState({ [event.target.name]: event.target.value })
   }
 
-  submitPost = event => {
+  submitPost = (event: { preventDefault: () => void; }) => {
     event.preventDefault();
     const newPost = {
-      id: Date.now(),
+      pid: Date.now(),
+      uid: 42005,
       ...this.state
     }
     this.props.addNewPost(newPost)
-    // not sure if we want this new post adding method here
     this.clearInputs();
   }
 
   clearInputs = () => {
-    this.setState({ header: '', body: '' });
+    this.setState({ title: '', content: '' });
   }
 
   render() {
@@ -36,16 +42,17 @@ class NewPostForm extends Component {
           type='text'
           placeholder='Title of your post*'
           name='title'
-          value={this.state.header}
+          value={this.state.title}
           onChange={event => this.handleChange(event)}
         />
         <input
           type='text'
           placeholder='Body of your post*'
-          name='body'
-          value={this.state.body}
+          name='content'
+          value={this.state.content}
           onChange={event => this.handleChange(event)}
         />
+        <button onClick={event => this.submitPost(event)}>Share</button>
       </form>
     )
   }

@@ -21,6 +21,17 @@ class App extends Component<IAppState> {
     //fetch data locally at first 
   }
 
+  addNewPost = (newPost) => {
+    postPost(newPost)
+      .then(result => {
+        if (result.id) => {
+          this.setState({ allPosts: [...this.state.allPosts, result], error: '' })
+        } else {
+          this.setState({ error: 'Please fill out both fields.' })
+        }
+      })
+  }
+
   render() {
     return (
       <main>
