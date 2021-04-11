@@ -1,7 +1,8 @@
 
 import React from 'react'
 
-const MainPage = () => {
+const MainPage = (props: any) => {
+  console.log(props)
   return (
     <section>
       {/* <Searchbar /> */}
