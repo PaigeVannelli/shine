@@ -30,7 +30,6 @@ class App extends React.Component<{}, IAppState> {
     // const allPostsData = this.state.allPosts
     return (
       <main>
-        <h1>hello world</h1>
         {/* {conditional render} */}
         {/* <Loading /> */}
         <MainPage allPosts={this.state.allPosts}/>

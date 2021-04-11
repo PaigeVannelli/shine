@@ -1,5 +1,6 @@
 
 import React from 'react'
+import './Post.scss'
 interface IPost {
   title: string;
   content: string;
@@ -7,7 +8,7 @@ interface IPost {
 
 const Post = ({title, content}: IPost) => {
   return (
-    <article>
+    <article className='post'>
       {/* <PostHeader /> */}
         <h1>{title}</h1>
         <p>{content}</p>

@@ -3,17 +3,20 @@ import React from 'react'
 import Searchbar from '../Searchbar/Searchbar'
 import AllPosts from '../AllPosts/AllPosts'
 import Nav from '../Nav/Nav'
+import './MainPage.scss'
 
-// interface IMainPage {
-//   props: any
-// }
+interface IMainPage {
+  // allPosts: any
+  allPosts: any
+  // posts: any[];
+}
 
-const MainPage = (props: any) => {
+const MainPage = ({allPosts}: IMainPage) => {
   return (
-    <section>
+    <section className='main-page'>
       <Searchbar />
-      <AllPosts allPosts={props.allPosts.posts} />
-      <Nav />
+      <AllPosts allPosts={allPosts.posts} />
+      {/* <Nav /> */}
     </section>
   )
 }

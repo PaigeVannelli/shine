@@ -1,6 +1,7 @@
 
 import React from 'react'
 import Post from '../Post/Post'
+import './AllPosts.scss'
 
 interface IAllPosts {
   allPosts: any[];
@@ -15,7 +16,7 @@ const AllPosts = ({allPosts}: IAllPosts) => {
   }
 
   return (
-    <section>
+    <section className='all-posts-section'>
       {postData}
     </section>
   )
