@@ -2,13 +2,16 @@
 import React from 'react'
 import Post from '../Post/Post'
 
-const AllPosts = () => {
+interface IAllPosts {
 
-  // const postData = allPosts.map(post => {
-  //   return (
-  //     <h1>posts!</h1>
-  //   )
-  // })
+}
+
+const AllPosts = (props: any) => {
+  if (props.allPosts.allPosts.posts.length > 1) {
+    const postData = props.allPosts.allPosts.posts.map((post: {}) => {
+      console.log(post)
+    })
+  }
 
   return (
     <section>
