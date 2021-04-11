@@ -2,7 +2,7 @@
 import './App.scss';
 import React, { Component } from 'react'
 // import Loading from '../Loading/Loading';
-// import MainPage from '../MainPage/MainPage';
+import MainPage from '../MainPage/MainPage';
 
 interface IAppState {
   allPosts: Array<object>;
@@ -49,10 +49,11 @@ class App extends Component<{}, IAppState> {
         <main>
           <h1>Shine</h1>
           <section className="wrapper">
-            {/*{() => this.renderComponent()}*/}
+            {/*{() => this.renderComponent}*/}
             {/*/!*  router with switch -- home, newPost, 404  *!/*/}
 
-            {this.state.allPosts.map(post => post.id)}
+            {/*{this.state.allPosts.map(post => post.id)}*/}
+            <MainPage posts={this.state.allPosts} />
 
           </section>
         </main>
