@@ -1,11 +1,19 @@
 
 import React from 'react'
+import Post from '../Post/Post'
 
 const AllPosts = () => {
+
+  const postData = allPosts.map(post => {
+    return (
+      <h1>posts!</h1>
+    )
+  })
+
   return (
-    <h1>
-      {/* map over all fetched posts */}
-    </h1>
+    <section>
+      {postData}
+    </section>
   )
 }
 
