@@ -1,7 +1,7 @@
 
 import './App.scss';
 import React, { Component } from 'react'
-// import Loading from '../Loading/Loading';
+import Loading from '../Loading/Loading';
 import MainPage from '../MainPage/MainPage';
 
 interface IAppState {
@@ -50,10 +50,16 @@ class App extends Component<{}, IAppState> {
           <h1>Shine</h1>
           <section className="wrapper">
             {/*{() => this.renderComponent}*/}
-            {/*/!*  router with switch -- home, newPost, 404  *!/*/}
+            {!!this.state.error &&
+              <h2>{this.state.error}</h2>
+            }
 
-            {/*{this.state.allPosts.map(post => post.id)}*/}
-            <MainPage posts={this.state.allPosts} />
+            {!this.state.error && !this.state.allPosts.length &&
+              <Loading />
+            }
+
+            {/*  router with switch -- home, newPost, 404  */}
+            <MainPage posts={this.state.allPosts}/>
 
           </section>
         </main>
