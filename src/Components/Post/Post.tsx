@@ -3,7 +3,9 @@ import React from 'react'
 
 const Post = () => {
   return (
-    <article></article>
+    <article>
+      {/* should be each post from allposts */}
+    </article>
   )
 }
 
