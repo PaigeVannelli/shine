@@ -7,15 +7,17 @@ interface IAllPosts {
 }
 
 const AllPosts = (props: any) => {
-  if (props.allPosts.allPosts.posts.length > 1) {
-    const postData = props.allPosts.allPosts.posts.map((post: {}) => {
+  let postData 
+  if (props.allPosts.allPosts.posts) {
+    postData = props.allPosts.allPosts.posts.map((post: any) => {
       console.log(post)
+      return <Post title={post.title} content={post.content}/>
     })
   }
 
   return (
     <section>
-      {/* {postData} */}
+      {postData}
     </section>
   )
 }

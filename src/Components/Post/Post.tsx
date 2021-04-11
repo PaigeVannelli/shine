@@ -1,12 +1,17 @@
 
 import React from 'react'
+interface IPost {
+  title: string;
+  content: string;
+}
 
-const Post = (_props: any) => {
+const Post = ({title, content}: IPost) => {
   return (
     <article>
-      {/* <PostHeader />
-
-      <PostNav /> */}
+      {/* <PostHeader /> */}
+        <h1>{title}</h1>
+        <p>{content}</p>
+      {/* <PostNav /> */}
       {/* should be each post from allposts */}
     </article>
   )
