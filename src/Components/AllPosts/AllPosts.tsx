@@ -3,7 +3,9 @@ import React from 'react'
 
 const AllPosts = () => {
   return (
-    <h1>test</h1>
+    <h1>
+      {/* map over all fetched posts */}
+    </h1>
   )
 }
 

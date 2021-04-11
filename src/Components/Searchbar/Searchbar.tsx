@@ -3,7 +3,9 @@ import React from 'react'
 
 const Searchbar = () => {
   return (
-    <form></form>
+    <form>
+      {/* class component not yet connect to anything */}
+    </form>
   )
 }
 
