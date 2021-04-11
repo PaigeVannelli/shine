@@ -18,7 +18,10 @@ class App extends Component<IAppState> {
   }
 
   componentDidMount = () => {
-    //fetch data locally at first 
+    return fetch('http://localhost:5000/api/v1/posts')
+    .then(response => response.json())
+    .then(allPosts => this.setState({allPosts: allPosts}))
+    .catch(error => this.setState({ error: error.message }))
   }
 
   render() {
