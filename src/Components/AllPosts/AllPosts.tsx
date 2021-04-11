@@ -3,14 +3,13 @@ import React from 'react'
 import Post from '../Post/Post'
 
 interface IAllPosts {
-
+  allPosts: any[];
 }
 
-const AllPosts = (props: any) => {
+const AllPosts = ({allPosts}: IAllPosts) => {
   let postData 
-  if (props.allPosts.allPosts.posts) {
-    postData = props.allPosts.allPosts.posts.map((post: any) => {
-      console.log(post)
+  if (allPosts) {
+    postData = allPosts.map((post: {title: string; content: string}) => {
       return <Post title={post.title} content={post.content}/>
     })
   }

@@ -12,7 +12,7 @@ const MainPage = (props: any) => {
   return (
     <section>
       <Searchbar />
-      <AllPosts allPosts={props} />
+      <AllPosts allPosts={props.allPosts.posts} />
       <Nav />
     </section>
   )
