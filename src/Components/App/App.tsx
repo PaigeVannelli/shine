@@ -25,7 +25,7 @@ class App extends Component<{}, IAppState> {
         .then(data => {
             this.setState({allPosts: data.posts})
         })
-        .catch(error => console.log(error))
+        .catch(error => this.setState({ error: error.message }))
   }
 
   // renderComponent = () => {

@@ -5,7 +5,6 @@ const MainPage = (props: any) => {
   console.log(props)
   return (
     <section>
-      <h1>main page here</h1>
       {/* <Searchbar /> */}
       {/* <AllPosts /> */}
       {/* <Nav /> */}
