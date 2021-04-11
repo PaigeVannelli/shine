@@ -8,7 +8,7 @@ interface IAppState {
   error: string;
 }
 
-class App extends Component<IAppState> {
+class App extends Component<{}, IAppState> {
   constructor(props: IAppState | Readonly<IAppState>) {
     super(props);
     this.state = {
@@ -21,16 +21,17 @@ class App extends Component<IAppState> {
     //fetch data locally at first 
   }
 
-  addNewPost = (newPost) => {
-    postPost(newPost)
-      .then(result => {
-        if (result.id) => {
-          this.setState({ allPosts: [...this.state.allPosts, result], error: '' })
-        } else {
-          this.setState({ error: 'Please fill out both fields.' })
-        }
-      })
-  }
+  // addNewPost = (newPost) => {
+  //   postPost(newPost)
+  //     .then(result => {
+  //       if (result.id) => {
+  //         this.setState({ allPosts: [...this.state.allPosts, result], error: '' })
+  //       } else {
+  //         this.setState({ error: 'Please fill out both fields.' })
+  //       }
+  //     })
+  // }
+
 
   render() {
     return (

@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import './NewPostForm.scss';
+import { Link } from 'react-router-dom';
+
 // import React from 'react'
 
 interface IAppState {
@@ -27,12 +29,24 @@ class NewPostForm extends Component {
       uid: 42005,
       ...this.state
     }
-    this.props.addNewPost(newPost)
+    // this.props.addNewPost(newPost)
     this.clearInputs();
   }
 
   clearInputs = () => {
     this.setState({ title: '', content: '' });
+  }
+
+  // export const
+  postPost = (newPost: {}) => {
+    return fetch(`http://localhost:5000/api/v1/posts`, {
+      method: 'POST',
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(newPost)
+    })
+      .then(response => response.json())
   }
 
   render() {
@@ -52,8 +66,10 @@ class NewPostForm extends Component {
           value={this.state.content}
           onChange={event => this.handleChange(event)}
         />
-        <button onClick={event => this.submitPost(event)}>Share</button>
-      </form>
+        <Link to={'/'} style={{ textDecoration: 'none' }}>
+          <button onClick={event => this.submitPost(event)}>Share</button>
+        </Link >
+      </form >
     )
   }
 }
