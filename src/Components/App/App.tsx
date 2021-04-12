@@ -1,11 +1,9 @@
-
 import './App.scss';
 import React, { Component } from 'react'
-// import * as React from 'react'
 import NewPostForm from '../NewPostForm/NewPostForm'
-// import MainPage from '../MainPage/MainPage'
+import AllPosts from '../AllPosts/AllPosts'
 import { IPost } from '../../types'
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import { postForm } from '../../apiCalls';
 
 export interface IAppState {
@@ -29,10 +27,10 @@ class App extends Component<{}, IAppState> {
       .catch(error => this.setState({ error: error.message }))
   }
 
-  addNewPost = (newPost: any) => {
+  addNewPost = (newPost: IPost): void => {
     postForm(newPost)
       .then(result => {
-        if (result.id) {
+        if (result.pid) {
           this.setState({ allPosts: [...this.state.allPosts, result], error: '' })
         } else {
           this.setState({ error: 'Please fill out both fields.' })
@@ -46,14 +44,14 @@ class App extends Component<{}, IAppState> {
       <main>
         {/* {conditional render} */}
         {/* <Loading /> */}
-        {/* <section className='main-page'>
-          <Searchbar />
+        <section className='main-page'>
+          {/* <Searchbar /> */}
           <AllPosts allPosts={this.state.allPosts} />
-          <Nav />
-        </section> */}
+          {/* <Nav /> */}
+        </section>
 
         {/* Route here */}
-        <NewPostForm addNewPost={(newPost: IPost) => this.addNewPost(newPost)} />
+        {/* <NewPostForm addNewPost={(newPost) => this.addNewPost(newPost)} /> */}
 
       </main>
     )

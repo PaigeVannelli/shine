@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
 import './NewPostForm.scss';
 import { Link } from 'react-router-dom';
+import { IPost } from '../../types'
 
-interface INewPostFormState {
-  title: string;
-  content: string;
+interface IProps {
+  addNewPost: (newPost: IPost) => void;
 }
 
-class NewPostForm extends Component<{ addNewPost: any }, INewPostFormState> {
-  constructor({ addNewPost }: any) {
-    super({ addNewPost });
+class NewPostForm extends Component<IProps, IPost> {
+  constructor(props: IProps) {
+    super(props);
     this.state = {
       title: '',
       content: ''
