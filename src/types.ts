@@ -1,4 +1,4 @@
-export interface IPosts {
+export interface IPost {
   pid?: number;
   uid?: number;
   title: string;
@@ -6,5 +6,5 @@ export interface IPosts {
 }
 
 export interface IAllPosts {
-  allPosts: Array<IPosts>;
+  allPosts: Array<IPost>;
 }
