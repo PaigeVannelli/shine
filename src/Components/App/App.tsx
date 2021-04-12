@@ -6,7 +6,7 @@ import NewPostForm from '../NewPostForm/NewPostForm'
 import MainPage from '../MainPage/MainPage'
 import { IPosts } from '../../types'
 import { Link } from 'react-router-dom';
-import { postPost } from '../../apiCalls';
+import { postForm } from '../../apiCalls';
 
 export interface IAppState {
   allPosts: Array<IPosts>;
@@ -30,11 +30,10 @@ class App extends Component<{}, IAppState> {
   }
 
   addNewPost = (newPost: any) => {
-    postPost(newPost)
+    postForm(newPost)
 
       //WE LEFT OFF HERE, Created Api calls doc, imported the file in app, that's it
       .then(result => {
-        å
         if (result.id) => {
           this.setState({ allPosts: [...this.state.allPosts, result], error: '' })
         } else {
