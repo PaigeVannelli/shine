@@ -1,16 +1,15 @@
 import React, { Component } from 'react';
 import './NewPostForm.scss';
 import { Link } from 'react-router-dom';
-
 // import React from 'react'
 
-interface IAppState {
+interface INewPostFormState {
   title: string;
   content: string;
 }
 
-class NewPostForm extends Component {
-  constructor(props: IAppState) {
+class NewPostForm extends Component<{}, INewPostFormState> {
+  constructor(props: INewPostFormState) {
     super(props);
     this.state = {
       title: '',
@@ -29,7 +28,7 @@ class NewPostForm extends Component {
       uid: 42005,
       ...this.state
     }
-    // this.props.addNewPost(newPost)
+    this.props.addNewPost(newPost)
     this.clearInputs();
   }
 

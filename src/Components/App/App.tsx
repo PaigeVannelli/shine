@@ -1,7 +1,8 @@
 
 import './App.scss';
-import React, { Component } from 'react'
-import NewPostForm from '../NewPostForm/NewPostForm'
+import React, { Component } from 'react';
+// import { Route, Switch } from 'react-router-dom';
+// import NewPostForm from '../NewPostForm/NewPostForm'
 
 interface IAppState {
   allPosts: Array<object>;
@@ -21,17 +22,16 @@ class App extends Component<{}, IAppState> {
     //fetch data locally at first 
   }
 
-  // addNewPost = (newPost) => {
-  //   postPost(newPost)
-  //     .then(result => {
-  //       if (result.id) => {
-  //         this.setState({ allPosts: [...this.state.allPosts, result], error: '' })
-  //       } else {
-  //         this.setState({ error: 'Please fill out both fields.' })
-  //       }
-  //     })
-  // }
-
+  addNewPost = (newPost: any) => {
+    postPost(newPost)
+      .then(result => {
+        if (result.id) => {
+          this.setState({ allPosts: [...this.state.allPosts, result], error: '' })
+        } else {
+          this.setState({ error: 'Please fill out both fields.' })
+        }
+      })
+  }
 
   render() {
     return (
