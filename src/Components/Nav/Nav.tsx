@@ -6,13 +6,13 @@ import { Link } from 'react-router-dom'
 const Nav = () => {
   return (
     <nav>
-      <button></button>
-      <button></button>
+      <button><img src='../../assets/filter.svg'/></button>
+      <button><img src='../../assets/filter.svg'/></button>
       {/* <Link> */}
-        <button></button>
+        <button><img src='../../assets/filter.svg'/></button>
       {/* </Link> */}
-      <button></button>
-      <button></button>
+      <button><img src='../../assets/filter.svg'/></button>
+      <button><img src='../../assets/filter.svg'/></button>
     </nav>
   )
 }
