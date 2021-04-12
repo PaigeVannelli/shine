@@ -46,7 +46,7 @@ class App extends Component<{}, IAppState> {
         {/* {conditional render} */}
         {/* <Loading /> */}
         <section className='main-page'>
-          {/* <Searchbar /> */}
+          <Searchbar />
           <AllPosts allPosts={this.state.allPosts} />
           {/* <Nav /> */}
         </section>
