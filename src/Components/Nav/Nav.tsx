@@ -7,7 +7,7 @@ import './Nav.scss'
 
 const Nav = () => {
   return (
-    <nav className='nav-bar'>
+    <footer className='nav-bar'>
       <button className='nav-button'>
         <img src={filterIcon} className='nav-button-image'/>
       </button>
@@ -23,7 +23,7 @@ const Nav = () => {
       <button className='nav-button'>
         <img src={filterIcon} className='nav-button-image'/>
       </button>
-    </nav>
+    </footer>
   )
 }
 
