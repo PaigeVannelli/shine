@@ -1,12 +1,32 @@
+import React, {Component} from 'react'
 
-import React from 'react'
-
-const Searchbar = () => {
-  return (
-    <form>
-      {/* class component not yet connect to anything */}
-    </form>
-  )
+interface ISearchbar {
+  searchInput: string
 }
 
+class Searchbar extends Component<{}, ISearchbar> {
+  constructor(props: any) {
+    super(props)
+    this.state = {
+      searchInput: ''
+    }
+  }
+
+  render() {
+    return (
+      <form>
+       <input
+          type='text'
+          placeholder='Body of your post*'
+          name='content'
+          value={this.state.searchInput}
+          // onChange={event => this.handleChange(event)}
+        />
+        <button>Search</button>
+      </form>
+    )
+  }
+}
+
+  
 export default Searchbar

@@ -2,6 +2,7 @@ import './App.scss';
 import React, { Component } from 'react'
 import NewPostForm from '../NewPostForm/NewPostForm'
 import AllPosts from '../AllPosts/AllPosts'
+import Searchbar from '../Searchbar/Searchbar'
 import { IPost } from '../../types'
 // import { Link } from 'react-router-dom';
 import { postForm } from '../../apiCalls';

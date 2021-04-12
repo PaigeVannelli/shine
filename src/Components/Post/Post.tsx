@@ -1,9 +1,9 @@
 
 import React from 'react'
 import './Post.scss'
-import {IPosts} from '../../types'
+import { IPost } from '../../types'
 
-const Post = ({title, content}: IPosts) => {
+const Post = ({title, content}: IPost) => {
   return (
     <article className='post'>
       {/* <PostHeader /> */}
