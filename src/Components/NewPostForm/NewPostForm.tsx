@@ -1,16 +1,15 @@
 import React, { Component } from 'react';
 import './NewPostForm.scss';
 import { Link } from 'react-router-dom';
-// import React from 'react'
 
 interface INewPostFormState {
   title: string;
   content: string;
 }
 
-class NewPostForm extends Component<{}, INewPostFormState> {
-  constructor(props: INewPostFormState) {
-    super(props);
+class NewPostForm extends Component<{ addNewPost: any }, INewPostFormState> {
+  constructor({ addNewPost }: any) {
+    super({ addNewPost });
     this.state = {
       title: '',
       content: ''
@@ -18,7 +17,10 @@ class NewPostForm extends Component<{}, INewPostFormState> {
   }
 
   handleChange = (event: { target: { name: string; value: string; }; }) => {
-    this.setState({ [event.target.name]: event.target.value })
+    this.setState(prevState => ({
+      ...prevState,
+      [event.target.name]: event.target.value
+    }))
   }
 
   submitPost = (event: { preventDefault: () => void; }) => {
@@ -34,18 +36,6 @@ class NewPostForm extends Component<{}, INewPostFormState> {
 
   clearInputs = () => {
     this.setState({ title: '', content: '' });
-  }
-
-  // export const
-  postPost = (newPost: {}) => {
-    return fetch(`http://localhost:5000/api/v1/posts`, {
-      method: 'POST',
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify(newPost)
-    })
-      .then(response => response.json())
   }
 
   render() {
