@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import './Searchbar.scss'
 
 interface ISearchbar {
   searchInput: string
@@ -14,15 +15,18 @@ class Searchbar extends Component<{}, ISearchbar> {
 
   render() {
     return (
-      <form>
-       <input
+      <form className='searchbar'>
+        <input
+          className='search-input'
           type='text'
           placeholder='Body of your post*'
           name='content'
           value={this.state.searchInput}
           // onChange={event => this.handleChange(event)}
         />
-        <button>Search</button>
+        <button className='search-button'>
+          <img className='search-image' src='../../assets/filter.svg'/>
+        </button>
       </form>
     )
   }
