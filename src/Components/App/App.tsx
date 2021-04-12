@@ -1,17 +1,23 @@
 
 import './App.scss';
-// import React, { Component } from 'react'
-import * as React from 'react'
+import React, { Component } from 'react'
+// import * as React from 'react'
 import NewPostForm from '../NewPostForm/NewPostForm'
 import MainPage from '../MainPage/MainPage'
 
+interface Posts {
+  pid: number;
+  uid: number;
+  title: string;
+  content: string;
+}
 interface IAppState {
-  allPosts: Array<any>;
+  allPosts: Array<Posts>;
   error: string;
 }
 
-class App extends React.Component<{}, IAppState> {
-  constructor(props: IAppState | Readonly<IAppState>) {
+class App extends Component<{}, IAppState> {
+  constructor(props: {}) {
     super(props);
     this.state = {
       allPosts: [],
@@ -22,7 +28,7 @@ class App extends React.Component<{}, IAppState> {
   componentDidMount = () => {
     return fetch('http://localhost:5000/api/v1/posts')
     .then(response => response.json())
-    .then(allPosts => this.setState({allPosts: allPosts}))
+    .then(allPosts => this.setState({allPosts: allPosts.posts}))
     .catch(error => this.setState({ error: error.message }))
   }
 

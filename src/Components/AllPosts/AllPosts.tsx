@@ -3,9 +3,18 @@ import React from 'react'
 import Post from '../Post/Post'
 import './AllPosts.scss'
 
-interface IAllPosts {
-  allPosts: any[];
+interface Posts {
+  pid: number;
+  uid: number;
+  title: string;
+  content: string;
 }
+interface IAllPosts {
+  allPosts: Array<Posts>
+}
+// interface IAllPosts {
+//   allPosts: any[];
+// }
 
 const AllPosts = ({allPosts}: IAllPosts) => {
   let postData 
