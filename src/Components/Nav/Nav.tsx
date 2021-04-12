@@ -1,14 +1,19 @@
 
 import React from 'react'
 import NewPostForm from '../NewPostForm/NewPostForm'
+import { Link } from 'react-router-dom'
 
 const Nav = () => {
   return (
-    <button>
-      {/* 4 buttons not connected to anything */}
-      {/* <link to new form> link to form addnewpost */}
-      <NewPostForm children />
-    </button>
+    <nav>
+      <button></button>
+      <button></button>
+      {/* <Link> */}
+        <button></button>
+      {/* </Link> */}
+      <button></button>
+      <button></button>
+    </nav>
   )
 }
 
