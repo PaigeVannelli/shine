@@ -1,13 +1,13 @@
-
 import './App.scss';
 import React, { Component } from 'react'
-// import * as React from 'react'
 import NewPostForm from '../NewPostForm/NewPostForm'
-import MainPage from '../MainPage/MainPage'
-import {IPosts} from '../../types'
+import AllPosts from '../AllPosts/AllPosts'
+import { IPost } from '../../types'
+// import { Link } from 'react-router-dom';
+import { postForm } from '../../apiCalls';
 
 export interface IAppState {
-  allPosts: Array<IPosts>;
+  allPosts: Array<IPost>;
   error: string;
 }
 
@@ -22,9 +22,20 @@ class App extends Component<{}, IAppState> {
 
   componentDidMount = () => {
     return fetch('http://localhost:5000/api/v1/posts')
-    .then(response => response.json())
-    .then(allPosts => this.setState({allPosts: allPosts.posts}))
-    .catch(error => this.setState({ error: error.message }))
+      .then(response => response.json())
+      .then(allPosts => this.setState({ allPosts: allPosts.posts }))
+      .catch(error => this.setState({ error: error.message }))
+  }
+
+  addNewPost = (newPost: IPost): void => {
+    postForm(newPost)
+      .then(result => {
+        if (result.pid) {
+          this.setState({ allPosts: [...this.state.allPosts, result], error: '' })
+        } else {
+          this.setState({ error: 'Please fill out both fields.' })
+        }
+      })
   }
 
   render() {
@@ -33,7 +44,15 @@ class App extends Component<{}, IAppState> {
       <main>
         {/* {conditional render} */}
         {/* <Loading /> */}
-        <MainPage allPosts={this.state.allPosts}/>
+        <section className='main-page'>
+          {/* <Searchbar /> */}
+          <AllPosts allPosts={this.state.allPosts} />
+          {/* <Nav /> */}
+        </section>
+
+        {/* Route here */}
+        {/* <NewPostForm addNewPost={(newPost) => this.addNewPost(newPost)} /> */}
+
       </main>
     )
   }

@@ -1,12 +1,66 @@
+import React, { Component } from 'react';
+import './NewPostForm.scss';
+import { Link } from 'react-router-dom';
+import { IPost } from '../../types'
 
-import React from 'react'
-
-const NewPostForm = () => {
-  return (
-    <form>
-      {/* should have state and be a class*/}
-    </form>
-  )
+interface IProps {
+  addNewPost: (newPost: IPost) => void;
 }
 
-export default NewPostForm
+class NewPostForm extends Component<IProps, IPost> {
+  constructor(props: IProps) {
+    super(props);
+    this.state = {
+      title: '',
+      content: ''
+    }
+  }
+
+  handleChange = (event: { target: { name: string; value: string; }; }) => {
+    this.setState(prevState => ({
+      ...prevState,
+      [event.target.name]: event.target.value
+    }))
+  }
+
+  submitPost = (event: { preventDefault: () => void; }) => {
+    event.preventDefault();
+    const newPost = {
+      pid: Date.now(),
+      uid: 42005,
+      ...this.state
+    }
+    this.props.addNewPost(newPost)
+    this.clearInputs();
+  }
+
+  clearInputs = () => {
+    this.setState({ title: '', content: '' });
+  }
+
+  render() {
+    return (
+      <form>
+        <input
+          type='text'
+          placeholder='Title of your post*'
+          name='title'
+          value={this.state.title}
+          onChange={event => this.handleChange(event)}
+        />
+        <input
+          type='text'
+          placeholder='Body of your post*'
+          name='content'
+          value={this.state.content}
+          onChange={event => this.handleChange(event)}
+        />
+        <Link to={'/'} style={{ textDecoration: 'none' }}>
+          <button onClick={event => this.submitPost(event)}>Share</button>
+        </Link >
+      </form >
+    )
+  }
+}
+
+export default NewPostForm;
