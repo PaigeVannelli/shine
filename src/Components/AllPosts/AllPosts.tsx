@@ -3,23 +3,20 @@ import React from 'react'
 import Post from '../Post/Post'
 import './AllPosts.scss'
 
-interface Posts {
+interface Post {
   pid: number;
   uid: number;
   title: string;
   content: string;
 }
 interface IAllPosts {
-  allPosts: Array<Posts>
+  allPosts: Array<Post>
 }
-// interface IAllPosts {
-//   allPosts: any[];
-// }
 
 const AllPosts = ({allPosts}: IAllPosts) => {
   let postData 
   if (allPosts) {
-    postData = allPosts.map((post: {title: string; content: string}) => {
+    postData = allPosts.map((post: Post) => {
       return <Post title={post.title} content={post.content}/>
     })
   }

@@ -2,6 +2,8 @@
 import React from 'react'
 import './Post.scss'
 interface IPost {
+  pid: number;
+  uid: number;
   title: string;
   content: string;
 }
