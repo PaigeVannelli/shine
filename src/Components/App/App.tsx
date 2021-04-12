@@ -4,19 +4,12 @@ import React, { Component } from 'react'
 // import * as React from 'react'
 import NewPostForm from '../NewPostForm/NewPostForm'
 import MainPage from '../MainPage/MainPage'
-import {IAppState} from '../../types'
-// import {IAppState} 
+import {IPosts} from '../../types'
 
-// interface IPosts {
-//   pid: number;
-//   uid: number;
-//   title: string;
-//   content: string;
-// }
-// interface IAppState {
-//   allPosts: Array<IPosts>;
-//   error: string;
-// }
+export interface IAppState {
+  allPosts: Array<IPosts>;
+  error: string;
+}
 
 class App extends Component<{}, IAppState> {
   constructor(props: {}) {

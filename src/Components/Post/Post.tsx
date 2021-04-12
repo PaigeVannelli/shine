@@ -1,14 +1,9 @@
 
 import React from 'react'
 import './Post.scss'
-interface IPost {
-  pid?: number;
-  uid?: number;
-  title: string;
-  content: string;
-}
+import {IPosts} from '../../types'
 
-const Post = ({title, content}: IPost) => {
+const Post = ({title, content}: IPosts) => {
   return (
     <article className='post'>
       {/* <PostHeader /> */}

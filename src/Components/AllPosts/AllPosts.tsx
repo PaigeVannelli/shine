@@ -2,21 +2,12 @@
 import React from 'react'
 import Post from '../Post/Post'
 import './AllPosts.scss'
-
-interface IPost {
-  pid: number;
-  uid: number;
-  title: string;
-  content: string;
-}
-interface IAllPosts {
-  allPosts: Array<IPost>
-}
+import {IPosts, IAllPosts} from '../../types'
 
 const AllPosts = ({allPosts}: IAllPosts) => {
   let postData 
   if (allPosts) {
-    postData = allPosts.map((post: IPost) => {
+    postData = allPosts.map((post: IPosts) => {
       return <Post title={post.title} content={post.content}/>
     })
   }

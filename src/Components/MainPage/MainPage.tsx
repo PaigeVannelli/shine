@@ -4,18 +4,9 @@ import Searchbar from '../Searchbar/Searchbar'
 import AllPosts from '../AllPosts/AllPosts'
 import Nav from '../Nav/Nav'
 import './MainPage.scss'
+import {IAllPosts} from '../../types'
 
-interface Posts {
-  pid: number;
-  uid: number;
-  title: string;
-  content: string;
-}
-interface IMainPage {
-  allPosts: Array<Posts>
-}
-
-const MainPage = ({allPosts}: IMainPage) => {
+const MainPage = ({allPosts}: IAllPosts) => {
   return (
     <section className='main-page'>
       <Searchbar />
