@@ -8,3 +8,4 @@ export interface IPost {
 export interface IAllPosts {
   allPosts: Array<IPost>;
 }
+
