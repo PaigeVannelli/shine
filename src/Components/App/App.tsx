@@ -1,16 +1,18 @@
 
 import './App.scss';
-import React, { Component } from 'react';
-// import { Route, Switch } from 'react-router-dom';
-// import NewPostForm from '../NewPostForm/NewPostForm'
+import React, { Component } from 'react'
+// import * as React from 'react'
+import NewPostForm from '../NewPostForm/NewPostForm'
+import MainPage from '../MainPage/MainPage'
+import { IPosts } from '../../types'
 
-interface IAppState {
-  allPosts: Array<object>;
+export interface IAppState {
+  allPosts: Array<IPosts>;
   error: string;
 }
 
 class App extends Component<{}, IAppState> {
-  constructor(props: IAppState | Readonly<IAppState>) {
+  constructor(props: {}) {
     super(props);
     this.state = {
       allPosts: [],
@@ -19,7 +21,10 @@ class App extends Component<{}, IAppState> {
   }
 
   componentDidMount = () => {
-    //fetch data locally at first 
+    return fetch('http://localhost:5000/api/v1/posts')
+      .then(response => response.json())
+      .then(allPosts => this.setState({ allPosts: allPosts.posts }))
+      .catch(error => this.setState({ error: error.message }))
   }
 
   addNewPost = (newPost: any) => {
@@ -34,12 +39,12 @@ class App extends Component<{}, IAppState> {
   }
 
   render() {
+    // const allPostsData = this.state.allPosts
     return (
       <main>
-        <h1>hello world</h1>
         {/* {conditional render} */}
         {/* <Loading /> */}
-        {/* <MainPage /> */}
+        <MainPage allPosts={this.state.allPosts} />
       </main>
     )
   }
