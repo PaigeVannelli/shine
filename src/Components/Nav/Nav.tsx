@@ -19,8 +19,6 @@ const Nav = () => {
           <img src={filterIcon} className='nav-button-image' />
         </button>
       </Link>
-
-
       <button className='nav-button'>
         <img src={filterIcon} className='nav-button-image' />
       </button>
