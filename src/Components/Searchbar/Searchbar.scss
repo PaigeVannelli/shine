@@ -5,7 +5,9 @@
   display: flex;
   justify-content: center;
   align-items: flex-end;
-  background-color: rgb(182, 177, 177);
+  // background-color: rgb(182, 177, 177);
+  background-color: #ffd435;
+  background-image: linear-gradient(0deg, #ffd435 0%, #ffec65 100%);
   position: fixed;
   top: 0;
 }
