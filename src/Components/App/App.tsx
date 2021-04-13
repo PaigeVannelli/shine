@@ -64,8 +64,19 @@ class App extends Component<{}, IAppState> {
   render() {
     return (
       <main className='app'>
-        {this.renderComponent()}
-        {/* <NewPostForm addNewPost={(newPost) => this.addNewPost(newPost)} /> */}
+        <Switch>
+          <Route
+            exact
+            path="/"
+            render={this.renderComponent}
+          />
+          {/* <Route
+              exact
+              path="/:id"
+            <NewPostForm addNewPost={(newPost) => this.addNewPost(newPost)}/>
+          /> */}
+
+        </Switch>
       </main>
     )
   }
