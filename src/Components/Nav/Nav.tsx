@@ -1,14 +1,29 @@
 
 import React from 'react'
 import NewPostForm from '../NewPostForm/NewPostForm'
+import { Link } from 'react-router-dom'
+import filterIcon from '../../assets/filter.svg'
+import './Nav.scss'
 
 const Nav = () => {
   return (
-    <button>
-      {/* 4 buttons not connected to anything */}
-      {/* <link to new form> link to form addnewpost */}
-      <NewPostForm children />
-    </button>
+    <footer className='nav-bar'>
+      <button className='nav-button'>
+        <img src={filterIcon} className='nav-button-image'/>
+      </button>
+      <button className='nav-button'>
+        <img src={filterIcon} className='nav-button-image'/>
+      </button>
+      <button className='nav-button'>
+        <img src={filterIcon} className='nav-button-image'/>
+      </button>
+      <button className='nav-button'>
+        <img src={filterIcon} className='nav-button-image'/>
+      </button>
+      <button className='nav-button'>
+        <img src={filterIcon} className='nav-button-image'/>
+      </button>
+    </footer>
   )
 }
 
