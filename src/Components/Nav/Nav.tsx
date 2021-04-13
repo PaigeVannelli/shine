@@ -9,19 +9,23 @@ const Nav = () => {
   return (
     <footer className='nav-bar'>
       <button className='nav-button'>
-        <img src={filterIcon} className='nav-button-image'/>
+        <img src={filterIcon} className='nav-button-image' />
       </button>
       <button className='nav-button'>
-        <img src={filterIcon} className='nav-button-image'/>
+        <img src={filterIcon} className='nav-button-image' />
+      </button>
+      <Link to='/new-post'>
+        <button className='nav-button'>
+          <img src={filterIcon} className='nav-button-image' />
+        </button>
+      </Link>
+
+
+      <button className='nav-button'>
+        <img src={filterIcon} className='nav-button-image' />
       </button>
       <button className='nav-button'>
-        <img src={filterIcon} className='nav-button-image'/>
-      </button>
-      <button className='nav-button'>
-        <img src={filterIcon} className='nav-button-image'/>
-      </button>
-      <button className='nav-button'>
-        <img src={filterIcon} className='nav-button-image'/>
+        <img src={filterIcon} className='nav-button-image' />
       </button>
     </footer>
   )

@@ -1,11 +1,12 @@
 import './App.scss';
 import React, { Component } from 'react'
 import NewPostForm from '../NewPostForm/NewPostForm'
+import Loading from '../Loading/Loading'
 import AllPosts from '../AllPosts/AllPosts'
 import Searchbar from '../Searchbar/Searchbar'
 import Nav from '../Nav/Nav'
 import { IPost } from '../../types'
-// import { Link } from 'react-router-dom';
+import { Route, Switch, Link } from 'react-router-dom';
 import { postForm } from '../../apiCalls';
 
 export interface IAppState {
@@ -40,21 +41,46 @@ class App extends Component<{}, IAppState> {
       })
   }
 
-  render() {
-    // const allPostsData = this.state.allPosts
-    return (
-      <main>
-        {/* {conditional render} */}
-        {/* <Loading /> */}
+  renderComponent = () => {
+    if (this.state.allPosts.length > 0) {
+      return (
         <section className='main-page'>
           <Searchbar />
           <AllPosts allPosts={this.state.allPosts} />
           <Nav />
         </section>
+      )
+    } else if (this.state.error) {
+      return (
+        <h2>{this.state.error}</h2>
+      )
+    } else {
+      return (
+        <Loading />
+      )
+    }
+  }
 
-        {/* Route here */}
-        {/* <NewPostForm addNewPost={(newPost) => this.addNewPost(newPost)} /> */}
+  render() {
+    return (
+      <main className='app'>
+        <Switch>
+          <Route
+            exact
+            path="/"
+            render={this.renderComponent}
+          />
+          <Route
+            exact
+            path="/new-post"
+            render={() => {
+              <NewPostForm
+                addNewPost={(newPost) => this.addNewPost(newPost)} />
+            }
+            }
+          />
 
+        </Switch>
       </main>
     )
   }

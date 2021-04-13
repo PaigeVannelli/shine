@@ -23,8 +23,7 @@ class NewPostForm extends Component<IProps, IPost> {
     }))
   }
 
-  submitPost = (event: { preventDefault: () => void; }) => {
-    event.preventDefault();
+  submitPost = () => {
     const newPost = {
       pid: Date.now(),
       uid: 42005,
@@ -55,9 +54,9 @@ class NewPostForm extends Component<IProps, IPost> {
           value={this.state.content}
           onChange={event => this.handleChange(event)}
         />
-        <Link to={'/'} style={{ textDecoration: 'none' }}>
+        <Link to='/'>
           <button onClick={event => this.submitPost(event)}>Share</button>
-        </Link >
+        </Link>
       </form >
     )
   }
