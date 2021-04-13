@@ -6,7 +6,7 @@ import AllPosts from '../AllPosts/AllPosts'
 import Searchbar from '../Searchbar/Searchbar'
 import Nav from '../Nav/Nav'
 import { IPost } from '../../types'
-import { Route, Switch, Link } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import { postForm } from '../../apiCalls';
 
 export interface IAppState {
@@ -74,8 +74,7 @@ class App extends Component<{}, IAppState> {
             exact
             path="/new-post"
             render={() => {
-              <NewPostForm
-                addNewPost={(newPost) => this.addNewPost(newPost)} />
+              return <NewPostForm addNewPost={(newPost) => this.addNewPost(newPost)} />
             }
             }
           />

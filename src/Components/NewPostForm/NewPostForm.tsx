@@ -47,15 +47,14 @@ class NewPostForm extends Component<IProps, IPost> {
           value={this.state.title}
           onChange={event => this.handleChange(event)}
         />
-        <input
-          type='text'
+        <textarea
           placeholder='Body of your post*'
           name='content'
           value={this.state.content}
           onChange={event => this.handleChange(event)}
         />
         <Link to='/'>
-          <button onClick={event => this.submitPost(event)}>Share</button>
+          <button onClick={this.submitPost}>Share</button>
         </Link>
       </form >
     )
