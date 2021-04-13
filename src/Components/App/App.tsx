@@ -74,7 +74,7 @@ class App extends Component<{}, IAppState> {
             exact
             path="/new-post"
             render={() => {
-              return <NewPostForm
+              <NewPostForm
                 addNewPost={(newPost) => this.addNewPost(newPost)} />
             }
             }
