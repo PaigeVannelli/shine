@@ -72,8 +72,8 @@ class App extends Component<{}, IAppState> {
           />
           {/* <Route
               exact
-              path="/:id"
-            <NewPostForm addNewPost={(newPost) => this.addNewPost(newPost)}/>
+              path="/:pid"
+              render=<NewPostForm addNewPost={(newPost) => this.addNewPost(newPost)}/>
           /> */}
 
         </Switch>
