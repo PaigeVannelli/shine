@@ -43,18 +43,18 @@ class App extends Component<{}, IAppState> {
 
   renderComponent = () => {
     if (this.state.allPosts.length > 0) {
-      return (
-        <section className='main-page'>
-          <Searchbar />
-          <AllPosts allPosts={this.state.allPosts} />
-          <Nav />
-        </section>
-      )
-    } else if (this.state.error) {
-      return (
-        <h2>{this.state.error}</h2>
-      )
-    } else {
+      //   return (
+      //     <section className='main-page'>
+      //       <Searchbar />
+      //       <AllPosts allPosts={this.state.allPosts} />
+      //       <Nav />
+      //     </section>
+      //   )
+      // } else if (this.state.error) {
+      //   return (
+      //     <h2>{this.state.error}</h2>
+      //   )
+      // } else {
       return (
         <Loading />
       )
