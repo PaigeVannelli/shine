@@ -20,8 +20,13 @@
 }
 
 span {
-  border-bottom: 2px solid $black;
+  border-bottom: 2px solid $dark-grey;
+  color: $dark-grey;
   margin-right: 10px;
   padding-bottom: 0;
   margin-bottom: 0;
+}
+
+h1 {
+  color: $dark-grey;
 }
