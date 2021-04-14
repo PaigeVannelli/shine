@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import './NewPostForm.scss';
 import { Link } from 'react-router-dom';
 import { IPost } from '../../types'
+import closeIcon from '../../assets/close.svg';
+import sendIcon from '../../assets/send.svg';
 
 interface IProps {
   addNewPost: (newPost: IPost) => void;
@@ -41,29 +43,36 @@ class NewPostForm extends Component<IProps, IPost> {
   render() {
     return (
       <form>
-        <div className='title-container'>
-          <h1>New Post</h1>
-        </div>
-        <input className='input__title'
+        <section className='header'>
+          <h1 className='header__title'>New Post</h1>
+          <Link to='/'>
+            <img className='icon' src={closeIcon} alt="close icon" />
+          </Link>
+        </section>
+        <input
           type='text'
           placeholder='Title of your post*'
           name='title'
           value={this.state.title}
           onChange={event => this.handleChange(event)}
         />
-        <textarea className='input__body'
+        <textarea
           placeholder='Body of your post*'
+          cols='30'
+          rows='15'
           name='content'
           value={this.state.content}
           onChange={event => this.handleChange(event)}
         />
-        <Link to='/' onClick={() => this.submitPost}>
-          <button>Share</button>
+        <Link
+          to='/'
+          style={{ textDecoration: 'none' }}
+          onClick={() => this.submitPost}>
+          <button className='share'>
+            <img className='icon' src={sendIcon} alt="send icon" />
+            <span>Share</span>
+          </button>
         </Link>
-
-        {/* <Link to='/' >
-          <button onClick={() => this.submitPost}>Share</button>
-        </Link> */}
       </form >
     )
   }
