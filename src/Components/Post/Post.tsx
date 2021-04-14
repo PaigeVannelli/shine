@@ -10,18 +10,19 @@ const Post = ({title, content}: IPost) => {
     <article className='post'>
       {/* <PostHeader /> */}
       <header className='post-header'> 
-        <img src={userPhoto1} alt='user-profile-photo' className='user-photo'/>
-        <div>
-          <h1>NAME</h1>
-          <p>DATE</p>
+        <div className='post-user-info'>
+          <img src={userPhoto1} alt='user-profile-photo' className='user-photo'/>
+          <div className='user-info'>
+            <h1 className='name'>First Last</h1>
+            <p className='date'>April 13, 6:00pm</p>
+          </div>
         </div>
         <button className='bookmark-button'>
           <img src={bookmarkIcon} alt='bookmark-icon' className='bookmark'/>
         </button>
       </header>
-        <h1>{title}</h1>
-      {/* <PostNav /> */}
-        <p>{content}</p>
+        <h1 className='post-title'>{title}</h1>
+        <p className='post-content'>{content}</p>
       {/* should be each post from allposts */}
     </article>
   )
