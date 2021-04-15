@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import './Searchbar.scss'
-import filterIcon from '../../assets/filter.svg'
+import search from '../../assets/search.svg'
 
 interface ISearchbar {
   searchInput: string
@@ -26,7 +26,7 @@ class Searchbar extends Component<{}, ISearchbar> {
         // onChange={event => this.handleChange(event)}
         />
         <button className='search-button'>
-          <img className='search-image' src={filterIcon} />
+          <img className='search-image' src={search} />
         </button>
       </form>
     )
