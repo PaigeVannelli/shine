@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './NewPostForm.scss';
 import { Link } from 'react-router-dom';
-// import { IPost } from '../../types'
+import { IPost } from '../../types'
 import closeIcon from '../../assets/close.svg';
 import sendIcon from '../../assets/send.svg';
 
@@ -15,7 +15,6 @@ interface IForm {
   disabled: boolean;
 }
 
-// class NewPostForm extends Component<IProps, IPost> {
 class NewPostForm extends Component<IProps, IForm> {
 
   constructor(props: IProps) {
