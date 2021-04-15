@@ -22,11 +22,11 @@ class Searchbar extends Component<{}, ISearchbar> {
           type='text'
           placeholder='Body of your post*'
           name='content'
-          value={this.state.searchInput}
+          // value={this.state.searchInput}
           // onChange={event => this.handleChange(event)}
         />
         <button className='search-button'>
-          <img className='search-image' src={search}/>
+          <img className='search-image' alt='search-icon' src={search}/>
         </button>
       </form>
     )
