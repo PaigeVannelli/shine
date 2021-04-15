@@ -1,4 +1,4 @@
-import React, {Component} from 'react'
+import React, { Component } from 'react'
 import './Searchbar.scss'
 import search from '../../assets/search.svg'
 
@@ -23,15 +23,15 @@ class Searchbar extends Component<{}, ISearchbar> {
           placeholder='Body of your post*'
           name='content'
           value={this.state.searchInput}
-          // onChange={event => this.handleChange(event)}
+        // onChange={event => this.handleChange(event)}
         />
         <button className='search-button'>
-          <img className='search-image' src={search}/>
+          <img className='search-image' src={search} />
         </button>
       </form>
     )
   }
 }
 
-  
+
 export default Searchbar
