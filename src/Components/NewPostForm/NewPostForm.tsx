@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './NewPostForm.scss';
 import { Link } from 'react-router-dom';
-import { IPost } from '../../types'
+// import { IPost } from '../../types'
 import closeIcon from '../../assets/close.svg';
 import sendIcon from '../../assets/send.svg';
 
@@ -9,12 +9,21 @@ interface IProps {
   addNewPost: (newPost: IPost) => void;
 }
 
-class NewPostForm extends Component<IProps, IPost> {
+interface IForm {
+  title: string;
+  content: string;
+  disabled: boolean;
+}
+
+// class NewPostForm extends Component<IProps, IPost> {
+class NewPostForm extends Component<IProps, IForm> {
+
   constructor(props: IProps) {
     super(props);
     this.state = {
       title: '',
-      content: ''
+      content: '',
+      disabled: true
     }
   }
 
@@ -23,23 +32,31 @@ class NewPostForm extends Component<IProps, IPost> {
       ...prevState,
       [event.target.name]: event.target.value
     }))
+    if (this.state.title !== '' && this.state.content !== '') {
+      this.setState({ disabled: false });
+    }
   }
 
   submitPost = (event: { preventDefault: () => void; }) => {
     event.preventDefault();
-    const newPost = {
-      pid: Date.now(),
-      uid: 42005,
-      ...this.state
+    if (this.state.title !== '' && this.state.content !== '') {
+      const newPost = {
+        pid: Date.now(),
+        uid: 42005,
+        ...this.state
+      }
+      // this.setState({ disabled: false });
+      this.props.addNewPost(newPost);
+      window.location.assign('/');
+      this.clearInputs();
+    } else {
+      console.log('woops')
+      // this.props.stateChange('error', 'Please fill out both fields')
     }
-    console.log(newPost)
-    this.props.addNewPost(newPost);
-    window.location.assign('/');
-    this.clearInputs();
   }
 
   clearInputs = () => {
-    this.setState({ title: '', content: '' });
+    this.setState({ title: '', content: '', disabled: true });
   }
 
   render() {
@@ -66,15 +83,13 @@ class NewPostForm extends Component<IProps, IPost> {
           value={this.state.content}
           onChange={event => this.handleChange(event)}
         />
-        {/* <Link */}
-        {/* to='/' */}
-        {/* style={{ textDecoration: 'none' }} */}
-        {/* onClick={() => this.submitPost}> */}
-        <button className='share' onClick={this.submitPost}>
+        <button
+          disabled={this.state.disabled}
+          className='share'
+          onClick={this.submitPost}>
           <img className='icon' src={sendIcon} alt="send icon" />
           <span>Share</span>
         </button>
-        {/* </Link> */}
       </form >
     )
   }
