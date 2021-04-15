@@ -4,8 +4,8 @@ export interface IPost {
   title: string;
   content: string;
   author?: string;
-  timestamp?: number;
-  date?: string;
+  timestamp?: any
+  // date?: string;
 }
 
 export interface IAllPosts {
