@@ -16,7 +16,7 @@ class Searchbar extends Component<{}, ISearchbar> {
 
   render() {
     return (
-      <form className='searchbar'>
+      <form className='searchbar' data-cy='searchbar'>
         <input
           className='search-input'
           type='text'

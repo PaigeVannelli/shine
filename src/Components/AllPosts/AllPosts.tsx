@@ -20,7 +20,7 @@ const AllPosts = ({allPosts}: IAllPosts) => {
   })
 
   return (
-    <section className='all-posts-section'>
+    <section className='all-posts-section' data-cy='all-posts-section'>
       {postData}
     </section>
   )
