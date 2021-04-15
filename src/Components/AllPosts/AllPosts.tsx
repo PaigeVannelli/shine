@@ -8,7 +8,7 @@ const AllPosts = ({allPosts}: IAllPosts) => {
   let postData 
   if (allPosts) {
     postData = allPosts.map((post: IPost) => {
-      return <Post title={post.title} content={post.content}/>
+      return <Post title={post.title} content={post.content} key={post.pid}/>
     })
   }
 
