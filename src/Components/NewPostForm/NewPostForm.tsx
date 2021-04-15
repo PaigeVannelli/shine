@@ -32,7 +32,9 @@ class NewPostForm extends Component<IProps, IPost> {
       uid: 42005,
       ...this.state
     }
-    this.props.addNewPost(newPost)
+    console.log(newPost)
+    this.props.addNewPost(newPost);
+    window.location.assign('/');
     this.clearInputs();
   }
 
@@ -58,21 +60,21 @@ class NewPostForm extends Component<IProps, IPost> {
         />
         <textarea
           placeholder='Body of your post*'
-          cols='30'
-          rows='15'
+          cols={30}
+          rows={15}
           name='content'
           value={this.state.content}
           onChange={event => this.handleChange(event)}
         />
-        <Link
-          to='/'
-          style={{ textDecoration: 'none' }}
-          onClick={() => this.submitPost}>
-          <button className='share'>
-            <img className='icon' src={sendIcon} alt="send icon" />
-            <span>Share</span>
-          </button>
-        </Link>
+        {/* <Link */}
+        {/* to='/' */}
+        {/* style={{ textDecoration: 'none' }} */}
+        {/* onClick={() => this.submitPost}> */}
+        <button className='share' onClick={this.submitPost}>
+          <img className='icon' src={sendIcon} alt="send icon" />
+          <span>Share</span>
+        </button>
+        {/* </Link> */}
       </form >
     )
   }
