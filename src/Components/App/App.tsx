@@ -41,8 +41,6 @@ class App extends Component<{}, IAppState> {
       })
   }
 
-
-
   renderComponent = () => {
     if (this.state.allPosts.length > 0) {
       return (

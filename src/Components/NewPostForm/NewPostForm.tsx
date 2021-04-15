@@ -32,27 +32,26 @@ class NewPostForm extends Component<IProps, IForm> {
       ...prevState,
       [event.target.name]: event.target.value
     }))
+  }
+
+  deactivateReactivate = () => {
     if (this.state.title !== '' && this.state.content !== '') {
       this.setState({ disabled: false });
+    } else {
+      this.setState({ disabled: true });
     }
   }
 
   submitPost = (event: { preventDefault: () => void; }) => {
     event.preventDefault();
-    if (this.state.title !== '' && this.state.content !== '') {
-      const newPost = {
-        pid: Date.now(),
-        uid: 42005,
-        ...this.state
-      }
-      // this.setState({ disabled: false });
-      this.props.addNewPost(newPost);
-      window.location.assign('/');
-      this.clearInputs();
-    } else {
-      console.log('woops')
-      // this.props.stateChange('error', 'Please fill out both fields')
+    const newPost = {
+      pid: Date.now(),
+      uid: 42005,
+      ...this.state
     }
+    this.props.addNewPost(newPost);
+    window.location.assign('/');
+    this.clearInputs();
   }
 
   clearInputs = () => {
@@ -74,6 +73,7 @@ class NewPostForm extends Component<IProps, IForm> {
           name='title'
           value={this.state.title}
           onChange={event => this.handleChange(event)}
+          onKeyUp={this.deactivateReactivate}
         />
         <textarea
           placeholder='Body of your post*'
@@ -82,6 +82,7 @@ class NewPostForm extends Component<IProps, IForm> {
           name='content'
           value={this.state.content}
           onChange={event => this.handleChange(event)}
+          onKeyUp={this.deactivateReactivate}
         />
         <button
           disabled={this.state.disabled}
