@@ -3,6 +3,8 @@ export interface IPost {
   uid?: number;
   title: string;
   content: string;
+  author: string;
+  timestamp: number;
 }
 
 export interface IAllPosts {
