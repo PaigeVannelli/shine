@@ -46,10 +46,31 @@
   margin: 5px 7px 0 0;
 }
 
+.footer-button {
+  height: 40px;
+  background: transparent;
+  border: none;
+}
+
 .bookmark {
   height: 22px;
 }
 
+.icon {
+  height: 30px;
+  width: 30px;
+  background: transparent;
+}
+
 .post-title, .post-content {
   margin-left: 7px
+}
+
+.post-content {
+  min-height: 6em;
+}
+
+footer {
+  bottom: 0;
+  margin-bottom: 0;
 }
