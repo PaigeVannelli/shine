@@ -1,9 +1,3 @@
-describe('Feedback Loop', () => {
-  it('Should confirm that true is equal to true', () => {
-    expect(true).to.equal(true)
-  });
-});
-
 describe('Loading Page View', () => {
   it('Should display a loading page appears before data is fetched', () => {
     cy.intercept('http://localhost:5000/api/v1/posts', {
@@ -17,6 +11,7 @@ describe('Loading Page View', () => {
 
 describe('Main Page View', () => {
   before(() => {
+    // cy.intercept('http://localhost:5000/api/v1/posts', {fixture: 'posts.json'})
     cy.intercept('http://localhost:5000/api/v1/posts', {fixture: 'posts.json'})
     cy.visit('http://localhost:3000/')
   })
@@ -31,6 +26,7 @@ describe('Main Page View', () => {
   it('Should display a search bar', () => {
     cy.get('[data-cy=searchbar-input]')
     .should('be.visible')
+    //check for the icon file name is visible 
   })
 
   it('Should display the nav menu', () => {
@@ -48,7 +44,7 @@ describe('Form View and Functionality', () => {
     .click()
   });
 
-  it.only('Should display the add post form when the add post button is clicked', () => {
+  it('Should display the add post form when the add post button is clicked', () => {
     cy.get('section')
     .contains('New Post')
     cy.get('input')
@@ -63,11 +59,8 @@ describe('Form View and Functionality', () => {
     cy.get('input')
     .type('Test title')
     cy.get('textarea')
+    .type('Test content')
+    cy.get('[data-cy=form-submit-button]')
+    // .click()
   })
-
-  // it('Should display the nav menu', () => {
-  //   cy.get('[data-cy=nav-bar]')
-  //   .children()
-  //   .should('have.length', 5)
-  // })
 });
