@@ -3,15 +3,27 @@ import './Searchbar.scss'
 import search from '../../assets/search.svg'
 
 interface ISearchbar {
-  searchInput: string
+    searchInput: string,
+    feedback: string
 }
 
 class Searchbar extends Component<{}, ISearchbar> {
   constructor(props: any) {
     super(props)
-    this.state = {
-      searchInput: ''
-    }
+
+      this.state = {
+          searchInput: '',
+          feedback: ''
+      }
+  }
+
+  handleChange = (event: { target: { name: string, value: string } ; }) => {
+    this.setState({ searchInput: event.target.value })
+  }
+
+  handleSubmit = (event: { preventDefault: () => void; }) => {
+      event.preventDefault();
+
   }
 
   render() {
@@ -23,10 +35,10 @@ class Searchbar extends Component<{}, ISearchbar> {
           placeholder='Body of your post*'
           name='content'
           value={this.state.searchInput}
-        // onChange={event => this.handleChange(event)}
+          onChange={this.handleChange}
         />
         <button className='search-button'>
-          <img className='search-image' src={search} />
+          <img className='search-image' src={search} alt="magnifying glass"/>
         </button>
       </form>
     )

@@ -9,7 +9,7 @@ const Post = ({title, content}: IPost) => {
   return (
     <article className='post'>
       {/* <PostHeader /> */}
-      <header className='post-header'> 
+      <header className='post-header'>
         <div className='post-user-info'>
           <img src={userPhoto1} alt='user-profile-photo' className='user-photo'/>
           <div className='user-info'>
