@@ -1,4 +1,4 @@
-import React, {Component} from 'react'
+import React, { Component } from 'react'
 import './Searchbar.scss'
 import search from '../../assets/search.svg'
 
@@ -33,5 +33,5 @@ class Searchbar extends Component<{}, ISearchbar> {
   }
 }
 
-  
+
 export default Searchbar

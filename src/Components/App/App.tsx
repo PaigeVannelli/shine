@@ -73,10 +73,10 @@ class App extends Component<{}, IAppState> {
             exact
             path="/new-post"
             render={() => {
-               return <NewPostForm addNewPost={(newPost) => this.addNewPost(newPost)} />
-            }}
+              return <NewPostForm addNewPost={this.addNewPost} />
+            }
+            }
           />
-
         </Switch>
       </main>
     )
