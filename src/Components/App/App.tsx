@@ -8,10 +8,15 @@ import Nav from '../Nav/Nav'
 import { IPost } from '../../types'
 import { Route, Switch } from 'react-router-dom';
 import { postForm, getPosts } from '../../apiCalls';
+import ExpandedPost from '../ExpandedPost/ExpandedPost'
 
 export interface IAppState {
   allPosts: Array<IPost>;
   error: string;
+}
+
+interface IRouteProps {
+  
 }
 
 class App extends Component<{}, IAppState> {
@@ -60,6 +65,12 @@ class App extends Component<{}, IAppState> {
     }
   }
 
+  findPost = () => {
+    const currentPost = this.state.allPosts.find(post => {
+      return post.pid === 
+    })
+  }
+
   render() {
     return (
       <main className='app'>
@@ -76,6 +87,15 @@ class App extends Component<{}, IAppState> {
               return <NewPostForm addNewPost={this.addNewPost} />
             }
             }
+          />
+          <Route
+            exact path='/:pid'
+            render={({ match }) => <ExpandedPost match={match} expandedPost={this.state.expandedPost}/>
+              // const currentPost = this.state.allPosts.find(post => {
+              //   return post.pid === parseInt(match.params.pid)
+              // })
+            }}
+
           />
         </Switch>
       </main>
