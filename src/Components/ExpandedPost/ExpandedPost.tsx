@@ -23,11 +23,11 @@ class ExpandedPosts extends Component<{}, IExpandedPosts> {
 
   render() {
     return (
-      <>
-      // <Post />
-      <AllReplies />
-      < ReplyForm addReply = { this.addReply } />
-        < />
+      <section>
+        <Post />
+        <AllReplies />
+        < ReplyForm addReply={this.addReply} />
+      </section>
     )
   }
 }

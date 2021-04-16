@@ -47,16 +47,17 @@ class ReplyForm extends Component<IProps, IReply> {
   render() {
     return (
       <form>
-      <input 
-        type= 'text'
-    placeholder = 'Add a comment'
-    // name = 'title'
-    value = { this.state.reply }
-    onChange = { event => this.handleChange(event) }
-    onKeyUp = { this.deactivateReactivate }
-      />
-      <button className='share' > Share < /button>
-        < /form>
+        <input
+          type='text'
+          placeholder='Add a comment'
+          // name = 'title'
+          value={this.state.reply}
+          onChange={event => this.handleChange(event)}
+          onKeyUp={this.deactivateReactivate}
+        />
+        <button className='share' > Share
+        </button>
+      </form>
     )
   }
 }
