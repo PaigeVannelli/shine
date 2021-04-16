@@ -4,7 +4,7 @@ export interface IPost {
   title?: string;
   content?: string;
   author?: string;
-  timestamp?: any
+  timestamp?: any;
   // date?: string;
 }
 

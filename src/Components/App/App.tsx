@@ -65,11 +65,11 @@ class App extends Component<{}, IAppState> {
     }
   }
 
-  findPost = () => {
-    const currentPost = this.state.allPosts.find(post => {
-      return post.pid === 
-    })
-  }
+  // findPost = () => {
+  //   const currentPost = this.state.allPosts.find(post => {
+  //     return post.pid === 
+  //   })
+  // }
 
   render() {
     return (
@@ -88,7 +88,7 @@ class App extends Component<{}, IAppState> {
             }
             }
           />
-          <Route
+          {/* <Route
             exact path='/:pid'
             render={({ match }) => <ExpandedPost match={match} expandedPost={this.state.expandedPost}/>
               // const currentPost = this.state.allPosts.find(post => {
@@ -96,7 +96,7 @@ class App extends Component<{}, IAppState> {
               // })
             }}
 
-          />
+          /> */}
         </Switch>
       </main>
     )

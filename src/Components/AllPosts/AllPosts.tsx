@@ -7,7 +7,7 @@ import { IPost, IAllPosts} from '../../types'
 const AllPosts = ({allPosts}: IAllPosts) => {
   const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }
   const postData = allPosts.map((post: IPost) => {
-    const formattedDate = new Date(post.timestamp).toLocaleDateString('en-US', options)
+  const formattedDate = new Date(post.timestamp).toLocaleDateString('en-US', options)
     return (
       <Post 
         key={post.pid}
