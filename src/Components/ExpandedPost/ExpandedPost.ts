@@ -4,7 +4,7 @@ import Post from '../Post/Post'
 import AllReplies from '../AllReplies/AllReplies'
 
 interface IExpandedPosts {
-  replies: Array<IReplies>
+  replies: Array<string>
 }
 
 class ExpandedPosts extends Component<{}, IExpandedPosts> {
@@ -14,8 +14,6 @@ class ExpandedPosts extends Component<{}, IExpandedPosts> {
       replies: []
     }
   }
-
-
 
   render() {
     return (
