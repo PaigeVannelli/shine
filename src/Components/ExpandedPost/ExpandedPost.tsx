@@ -22,7 +22,7 @@ class ExpandedPosts extends Component<{}, IExpandedPosts> {
         <section>
         <Post />
         <AllReplies />
-        <Form />
+        <ReplyForm />
       </section>
     )
   }
