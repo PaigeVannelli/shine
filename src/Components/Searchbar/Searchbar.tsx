@@ -1,14 +1,19 @@
 import React, { Component } from 'react'
 import './Searchbar.scss'
 import search from '../../assets/search.svg'
+import {IPost} from "../../types";
+
+interface IProps {
+    findPostsWithSearchTerm: (searchTerm: string) => void;
+}
 
 interface ISearchbar {
     searchInput: string,
-    feedback: string
+    feedback: string,
 }
 
 class Searchbar extends Component<{}, ISearchbar> {
-  constructor(props: any) {
+  constructor(props: IProps) {
     super(props)
 
       this.state = {
@@ -22,8 +27,8 @@ class Searchbar extends Component<{}, ISearchbar> {
   }
 
   handleSubmit = (event: { preventDefault: () => void; }) => {
-      event.preventDefault();
-
+    event.preventDefault();
+    this.props.findPostsWithSearchTerm(this.state.searchInput)
   }
 
   render() {
@@ -38,7 +43,7 @@ class Searchbar extends Component<{}, ISearchbar> {
           value={this.state.searchInput}
           onChange={this.handleChange}
         />
-        <button className='search-button'>
+        <button className='search-button' onClick={this.handleSubmit}>
           <img className='search-image' alt='search-icon' src={search}/>
         </button>
       </form>

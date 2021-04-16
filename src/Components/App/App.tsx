@@ -12,11 +12,12 @@ import ExpandedPost from '../ExpandedPost/ExpandedPost'
 
 export interface IAppState {
   allPosts: Array<IPost>;
+  foundPosts: Array<IPost>;
   error: string;
 }
 
 interface IRouteProps {
-  
+
 }
 
 class App extends Component<{}, IAppState> {
@@ -24,6 +25,7 @@ class App extends Component<{}, IAppState> {
     super(props);
     this.state = {
       allPosts: [],
+      foundPosts: [],
       error: ''
     }
   }
@@ -45,11 +47,16 @@ class App extends Component<{}, IAppState> {
       })
   }
 
+  findPostsWithSearchTerm = (searchTerm: string): void => {
+    console.log(searchTerm)
+    // this.setState({ foundPosts: this.state.allPosts.filter(post => post.includes(searchTerm))} )
+  }
+
   renderComponent = () => {
     if (this.state.allPosts.length > 0) {
       return (
         <section className='main-page'>
-          <Searchbar />
+          <Searchbar findPostsWithSearchTerm={this.findPostsWithSearchTerm} />
           <AllPosts allPosts={this.state.allPosts} />
           <Nav />
         </section>
@@ -67,7 +74,7 @@ class App extends Component<{}, IAppState> {
 
   // findPost = () => {
   //   const currentPost = this.state.allPosts.find(post => {
-  //     return post.pid === 
+  //     return post.pid ===
   //   })
   // }
 
