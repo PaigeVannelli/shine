@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import './ExpandedPost.scss';
-import Post from '../Post/Post'
-import AllReplies from '../AllReplies/AllReplies'
-import ReplyForm from '../ReplyForm/ReplyForm'
+import AllReplies from '../AllReplies/AllReplies';
+import ReplyForm from '../ReplyForm/ReplyForm';
+import Post from '../Post/Post';
 
 interface IExpandedPosts {
   replies: Array<string>
@@ -16,7 +16,7 @@ class ExpandedPosts extends Component<{}, IExpandedPosts> {
     }
   }
 
-  addReply = (newReply: string) => {
+  addReply = (newReply: string): void => {
     let totalReplies = this.state.replies.concat(newReply)
     this.setState({ replies: totalReplies })
   }
@@ -24,10 +24,12 @@ class ExpandedPosts extends Component<{}, IExpandedPosts> {
   render() {
     return (
       <>
-      <Post />
-      < AllReplies />
-      <ReplyForm />
-      < />
+      // <Post />
+      <AllReplies />
+      < ReplyForm addReply = { this.addReply } />
+        < />
     )
   }
 }
+
+export default ExpandedPosts;
