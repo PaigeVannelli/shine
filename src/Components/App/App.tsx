@@ -15,10 +15,6 @@ export interface IAppState {
   error: string;
 }
 
-interface IRouteProps {
-  
-}
-
 class App extends Component<{}, IAppState> {
   constructor(props: {}) {
     super(props);
@@ -65,38 +61,25 @@ class App extends Component<{}, IAppState> {
     }
   }
 
-  // findPost = () => {
-  //   const currentPost = this.state.allPosts.find(post => {
-  //     return post.pid === 
-  //   })
-  // }
-
   render() {
     return (
       <main className='app'>
         <Switch>
           <Route
-            exact
-            path="/"
+            exact path="/"
             render={this.renderComponent}
           />
           <Route
-            exact
-            path="/new-post"
+            exact path="/new-post"
             render={() => {
               return <NewPostForm addNewPost={this.addNewPost} />
             }
             }
           />
-          {/* <Route
+          <Route
             exact path='/:pid'
-            render={({ match }) => <ExpandedPost match={match} expandedPost={this.state.expandedPost}/>
-              // const currentPost = this.state.allPosts.find(post => {
-              //   return post.pid === parseInt(match.params.pid)
-              // })
-            }}
-
-          /> */}
+            render={({ match }) => <ExpandedPost match={match}/>}
+          />
         </Switch>
       </main>
     )

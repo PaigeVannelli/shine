@@ -12,7 +12,6 @@ import commentsIcon from '../../assets/send.svg'
 const Post = ({title, content, author, timestamp, pid}: IPost) => {
   return (
     <article className='post'>
-      {/* <PostHeader /> */}
       <header className='post-header'> 
         <div className='post-user-info'>
           <img src={userPhoto1} alt='user-profile-photo' className='user-photo'/>
