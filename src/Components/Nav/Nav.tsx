@@ -10,7 +10,7 @@ import './Nav.scss'
 
 const Nav = () => {
   return (
-    <footer className='nav-bar'>
+    <footer className='nav-bar' data-cy='nav-bar'>
       <button className='nav-button'>
         <img src={homeIcon} alt='home-icon' className='nav-button-image' />
       </button>
@@ -18,7 +18,7 @@ const Nav = () => {
         <img src={bellIcon} alt='bell-icon' className='nav-button-image' />
       </button>
       <Link to='/new-post'>
-        <button className='nav-button'>
+        <button className='nav-button' data-cy='add-post-button'>
           <img src={plusIcon} alt='plus-icon' className='nav-button-image' />
         </button>
       </Link>

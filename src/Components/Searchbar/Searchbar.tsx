@@ -30,6 +30,7 @@ class Searchbar extends Component<{}, ISearchbar> {
     return (
       <form className='searchbar'>
         <input
+          data-cy='searchbar-input'
           className='search-input'
           type='text'
           placeholder='Body of your post*'
@@ -38,7 +39,7 @@ class Searchbar extends Component<{}, ISearchbar> {
           onChange={this.handleChange}
         />
         <button className='search-button'>
-          <img className='search-image' src={search} alt="magnifying glass"/>
+          <img className='search-image' alt='search-icon' src={search}/>
         </button>
       </form>
     )

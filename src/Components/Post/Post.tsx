@@ -5,7 +5,7 @@ import { IPost } from '../../types'
 import userPhoto1 from '../../assets/people-1.svg'
 import bookmarkIcon from '../../assets/bookmark.svg'
 
-const Post = ({title, content}: IPost) => {
+const Post = ({title, content, author, timestamp}: IPost) => {
   return (
     <article className='post'>
       {/* <PostHeader /> */}
@@ -13,8 +13,8 @@ const Post = ({title, content}: IPost) => {
         <div className='post-user-info'>
           <img src={userPhoto1} alt='user-profile-photo' className='user-photo'/>
           <div className='user-info'>
-            <h1 className='name'>First Last</h1>
-            <p className='date'>April 13, 6:00pm</p>
+            <h1 className='name'>{author}</h1>
+            <p className='date'>{timestamp}</p>
           </div>
         </div>
         <button className='bookmark-button'>
