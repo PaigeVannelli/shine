@@ -11,6 +11,7 @@ const AllPosts = ({allPosts}: IAllPosts) => {
     return (
       <Post 
         key={post.pid}
+        pid={post.pid}
         title={post.title} 
         content={post.content}
         author={post.author}
