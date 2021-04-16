@@ -1,4 +1,7 @@
 .post {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   height: 15em;
   min-height: 15em;
   width: 99%;
@@ -48,8 +51,14 @@
 
 .footer-button {
   height: 40px;
+  width: 40px;
   background: transparent;
   border: none;
+}
+
+.share-button {
+  height: 40px;
+  width: 40px;
 }
 
 .bookmark {
@@ -60,6 +69,7 @@
   height: 30px;
   width: 30px;
   background: transparent;
+  margin: 10px;
 }
 
 .post-title, .post-content {
@@ -71,6 +81,7 @@
 }
 
 footer {
-  bottom: 0;
+  display: flex;
+  align-content: center;
   margin-bottom: 0;
 }

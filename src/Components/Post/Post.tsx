@@ -28,15 +28,17 @@ const Post = ({title, content, author, timestamp, pid}: IPost) => {
       <h1 className='post-title'>{title}</h1>
       <p className='post-content'>{content}</p>
       <footer>
-        {/* <button>
-          <img src={shareIcon} alt='share-icon' className='share icon'/>
-        </button> */}
+        <button className='footer-button'>
+          <img src={heartIcon} alt='share-icon' className='icon'/>
+        </button>
+        <Link to={`/${pid}`}>
+          <button className='footer-button'>
+            <img src={commentsIcon} alt='share-icon' className='comments icon'/>
+          </button>
+        </Link>
         <button className='footer-button'>
           <img src={heartIcon} alt='heart-icon' className='heart icon'/>
         </button>
-        <Link to={`/${pid}`}>
-          <img src={commentsIcon} alt='share-icon' className='comments icon'/>
-        </Link>
       </footer>
     </article>
   )
