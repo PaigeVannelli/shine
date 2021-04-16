@@ -55,8 +55,8 @@ class ReplyForm extends Component<IProps, IReply> {
     onChange = { event => this.handleChange(event) }
     onKeyUp = { this.deactivateReactivate }
       />
-      <button></button>
-      < /form>
+      <button className='share' > Share < /button>
+        < /form>
     )
   }
 }
