@@ -18,15 +18,16 @@ class Searchbar extends Component<{}, ISearchbar> {
     return (
       <form className='searchbar'>
         <input
+          data-cy='searchbar-input'
           className='search-input'
           type='text'
           placeholder='Body of your post*'
           name='content'
-          value={this.state.searchInput}
-        // onChange={event => this.handleChange(event)}
+          // value={this.state.searchInput}
+          // onChange={event => this.handleChange(event)}
         />
         <button className='search-button'>
-          <img className='search-image' src={search} />
+          <img className='search-image' alt='search-icon' src={search}/>
         </button>
       </form>
     )
