@@ -3,7 +3,7 @@ import './Searchbar.scss'
 import search from '../../assets/search.svg'
 
 interface ISearchbar {
-    searchInput: string
+  searchInput: string
 }
 
 class Searchbar extends Component<{}, ISearchbar> {
@@ -11,7 +11,7 @@ class Searchbar extends Component<{}, ISearchbar> {
     super(props)
 
     this.state = {
-        searchInput: ''
+      searchInput: ''
     }
   }
 
@@ -24,7 +24,7 @@ class Searchbar extends Component<{}, ISearchbar> {
           type='text'
           placeholder='Body of your post*'
           name='content'
-          value={this.state.searchInput}
+          // value={this.state.searchInput}
           // onChange={this.handleChange}
         />
         <button className='search-button'>
