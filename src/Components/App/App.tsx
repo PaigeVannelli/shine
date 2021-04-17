@@ -16,7 +16,7 @@ export interface IAppState {
 }
 
 interface IRouteProps {
-  
+
 }
 
 class App extends Component<{}, IAppState> {

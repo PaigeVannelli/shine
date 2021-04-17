@@ -23,12 +23,17 @@ class ExpandedPost extends Component<{}, IExpandedPost> {
     }
   };
 
+  addReply = (newReply: string): void => {
+    let totalReplies = this.state.replies.concat(newReply)
+    this.setState({ replies: totalReplies })
+  }
+
   render() {
     return (
       <section>
         <Post />
         <AllReplies />
-        <ReplyForm />
+        <ReplyForm addReply={this.addReply} />
       </section>
     )
   }
