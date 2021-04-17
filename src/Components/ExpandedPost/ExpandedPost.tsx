@@ -7,7 +7,7 @@ import Post from '../Post/Post'
 import { IPost } from '../../types'
 import { getPost } from '../../apiCalls';
 import Loading from '../Loading/Loading'
-
+import AllReplies from '../AllReplies/AllReplies'
 
 interface ICurrentPost {
   pid: number;
@@ -57,7 +57,8 @@ class ExpandedPost extends Component<IExpandedPostProps, IExpandedPost> {
     getPost(this.props.match.params.pid)
     .then(post => this.setState(prevState => ({
       ...prevState,
-      currentPost: post
+      currentPost: post,
+      replies: post.replies
     })))
   }
 
@@ -83,8 +84,8 @@ class ExpandedPost extends Component<IExpandedPostProps, IExpandedPost> {
     return (
       <section>
         {this.renderPost()}
-        {/* <AllReplies />
-        <ReplyForm /> */}
+        <AllReplies allReplies={this.state.currentPost.replies}/>
+        {/* <ReplyForm /> */}
       </section>
     )
   }
