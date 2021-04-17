@@ -84,6 +84,7 @@ class NewPostForm extends Component<IProps, IForm> {
           onKeyUp={this.deactivateReactivate}
         />
         <button
+          data-cy='form-submit-button'
           disabled={this.state.disabled}
           className='share'
           onClick={this.submitPost}>

@@ -1,20 +1,27 @@
 import React, { Component } from 'react';
 import './ExpandedPost.scss';
-import AllReplies from '../AllReplies/AllReplies';
-import ReplyForm from '../ReplyForm/ReplyForm';
-import Post from '../Post/Post';
+import Post from '../Post/Post'
+import AllReplies from '../AllReplies/AllReplies'
+import ReplyForm from '../ReplyForm/ReplyForm'
+import { IPost } from '../../types'
+// import AllReplies from '../AllReplies/AllReplies'
 
-interface IExpandedPosts {
-  replies: Array<string>
+interface IExpandedPost {
+  replies: Array<any>
+  currentPost: IPost
 }
 
-class ExpandedPosts extends Component<{}, IExpandedPosts> {
+interface ICurrentPost {
+
+}
+class ExpandedPost extends Component<{}, IExpandedPost> {
   constructor(props: {}) {
     super(props)
     this.state = {
       replies: [],
+      currentPost: {}
     }
-  }
+  };
 
   addReply = (newReply: string): void => {
     let totalReplies = this.state.replies.concat(newReply)
@@ -32,4 +39,4 @@ class ExpandedPosts extends Component<{}, IExpandedPosts> {
   }
 }
 
-export default ExpandedPosts;
+export default ExpandedPost

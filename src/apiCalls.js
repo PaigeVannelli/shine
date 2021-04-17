@@ -10,3 +10,8 @@ export const postForm = (newPost: {}) => {
       return response.json()
     })
 }
+
+export const getPosts = () => {
+  return fetch('http://localhost:5000/api/v1/posts')
+    .then(response => response.json())
+}
