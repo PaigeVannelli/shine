@@ -33,7 +33,7 @@ class ExpandedPost extends Component<{}, IExpandedPost> {
       <section>
         <Post />
         <AllReplies />
-        < ReplyForm addReply={this.addReply} />
+        <ReplyForm addReply={this.addReply} />
       </section>
     )
   }

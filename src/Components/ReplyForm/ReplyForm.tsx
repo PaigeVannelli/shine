@@ -55,9 +55,14 @@ class ReplyForm extends Component<IProps, IReply> {
           onChange={event => this.handleChange(event)}
           onKeyUp={this.deactivateReactivate}
         />
-        <button className='share' > Share
+        <button
+          disabled={this.state.disabled}
+          className='share'
+          onClick={this.submitReply}>
+          <img className='icon' src={sendIcon} alt="send icon" /></form>
+        <span>Share</span>
         </button>
-      </form>
+      </form >
     )
   }
 }
