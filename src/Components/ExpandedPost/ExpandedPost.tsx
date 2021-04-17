@@ -6,7 +6,6 @@ import Post from '../Post/Post'
 import { IPost } from '../../types'
 import { getPost } from '../../apiCalls';
 import Loading from '../Loading/Loading'
-// import AllReplies from '../AllReplies/AllReplies'
 
 
 interface ICurrentPost {
@@ -47,9 +46,7 @@ class ExpandedPost extends Component<IExpandedPostProps, IExpandedPost> {
   };
   
   componentDidMount = () => {
-    // console.log(this.props)
     getPost(this.props.match.params.pid)
-    // .then(data => console.log(data))
     .then(post => this.setState(prevState => ({
       ...prevState,
       currentPost: post
