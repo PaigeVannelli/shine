@@ -16,10 +16,10 @@ class Searchbar extends Component<{}, ISearchbar> {
   constructor(props: IProps) {
     super(props)
 
-      this.state = {
-          searchInput: '',
-          feedback: ''
-      }
+    this.state = {
+        searchInput: '',
+        feedback: ''
+    }
   }
 
   handleChange = (event: { target: { name: string, value: string } ; }) => {
