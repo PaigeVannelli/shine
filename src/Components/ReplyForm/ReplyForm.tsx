@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './ReplyForm.scss';
+import sendIcon from '../../assets/send.svg';
 
 interface IProps {
   addReply: (newPost: string) => void;
@@ -19,14 +20,14 @@ class ReplyForm extends Component<IProps, IReply> {
     }
   }
 
-  handleChange = (event: { target: { reply: string; value: string; }; }) => {
+  handleChange = (event: { target: { name: string; value: string; }; }) => {
     this.setState(prevState => ({
       ...prevState,
-      reply: event.target.value
+      [event.target.name]: event.target.value
     }))
   }
 
-  deactivateReactivate = () => {
+  toggleButton = () => {
     if (this.state.reply !== '') {
       this.setState({ disabled: false });
     } else {
@@ -50,17 +51,16 @@ class ReplyForm extends Component<IProps, IReply> {
         <input
           type='text'
           placeholder='Add a comment'
-          // name = 'title'
+          name='reply'
           value={this.state.reply}
           onChange={event => this.handleChange(event)}
-          onKeyUp={this.deactivateReactivate}
+          onKeyUp={this.toggleButton}
         />
         <button
           disabled={this.state.disabled}
           className='share'
           onClick={this.submitReply}>
-          <img className='icon' src={sendIcon} alt="send icon" /></form>
-        <span>Share</span>
+          <img className='icon' src={sendIcon} alt="send icon" />
         </button>
       </form >
     )
