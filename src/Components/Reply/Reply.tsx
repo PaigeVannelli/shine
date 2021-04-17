@@ -9,7 +9,10 @@ interface IReply {
 
 const Reply = ({key, author, timestamp, body, cid, uid}: IReply) => {
   return (
-    <h1>{author}</h1>
+    <article>
+      <h1>{author}</h1>
+      <p>{body}</p>
+    </article>
   )
 }
 

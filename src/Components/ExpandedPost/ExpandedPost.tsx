@@ -92,10 +92,6 @@ class ExpandedPost extends Component<IExpandedPostProps, IExpandedPost> {
     }))
   }
 
-  renderAllReplies = () => {
-    // if (this.state)
-  }
-
   render() {
     return (
       <section>

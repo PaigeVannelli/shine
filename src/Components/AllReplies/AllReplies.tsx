@@ -5,10 +5,10 @@ import Reply from '../Reply/Reply'
 
 
 interface IReply {
-  key: number;
+  key?: number;
   author: string;
   timestamp: number;
-  body: string;
+  body?: string;
   cid: number;
   uid: number
 }
