@@ -18,7 +18,7 @@ const Search: React.FC<SearchProps> = (props) => {
     const handleSubmit = (event: React.FormEvent) => {
       event.preventDefault();
       const enteredText = searchInputRef.current!.value; // ! tells TS to chill until it's set (it's okay to be null)
-      // this.props.findPostsWithSearchTerm(this.state.searchInput)
+      console.log(enteredText)
     }
 
     return (
@@ -29,7 +29,7 @@ const Search: React.FC<SearchProps> = (props) => {
                 type='text'
                 placeholder='Body of your post*'
                 name='content'
-                ref={textInputRef}
+                ref={searchInputRef}
                 // value={this.state.searchInput}
                 // onChange={this.handleChange}
             />
