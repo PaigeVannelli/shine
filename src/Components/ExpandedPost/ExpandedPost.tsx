@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { RouteComponentProps } from 'react-router-dom'
 import './ExpandedPost.scss';
 import Post from '../Post/Post'
 // import AllReplies from '../AllReplies/AllReplies'
@@ -36,6 +37,13 @@ interface IReply {
 interface IExpandedPostProps {
   match?: any;
 }
+
+// type TParams = { 
+//   pid: string, 
+//   histroy: any, 
+//   location: any
+// }
+
 class ExpandedPost extends Component<IExpandedPostProps, IExpandedPost> {
   constructor(props: IExpandedPostProps) {
     super(props)

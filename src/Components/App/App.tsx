@@ -6,7 +6,7 @@ import AllPosts from '../AllPosts/AllPosts'
 import Searchbar from '../Searchbar/Searchbar'
 import Nav from '../Nav/Nav'
 import { IPost } from '../../types'
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, RouteComponentProps } from 'react-router-dom';
 import { postForm, getPosts } from '../../apiCalls';
 import ExpandedPost from '../ExpandedPost/ExpandedPost'
 
@@ -14,6 +14,8 @@ export interface IAppState {
   allPosts: Array<IPost>;
   error: string;
 }
+
+type TParams = { pid: string }
 
 class App extends Component<{}, IAppState> {
   constructor(props: {}) {
@@ -78,7 +80,7 @@ class App extends Component<{}, IAppState> {
           />
           <Route
             exact path='/:pid'
-            render={({ match }) => <ExpandedPost match={match}/>}
+            render={({ match }: RouteComponentProps<TParams>) => <ExpandedPost match={match}/>}
           />
         </Switch>
       </main>
