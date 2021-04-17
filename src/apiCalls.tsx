@@ -19,6 +19,7 @@ export const getPosts = () => {
 export const getPost = (id: string) => {
   return fetch(`http://localhost:5000/api/v1/posts/${id}`)
   .then(response => response.json())
+  // .then(data => console.log(data))
 }
 
 // export default {
