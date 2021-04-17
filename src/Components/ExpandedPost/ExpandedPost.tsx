@@ -17,6 +17,7 @@ interface ICurrentPost {
   title: string;
   content: string;
   comments: Array<IReply | undefined>
+  replies: Array<IReply>
 }
 
 interface IExpandedPost {
@@ -65,13 +66,16 @@ class ExpandedPost extends Component<IExpandedPostProps, IExpandedPost> {
   renderPost = () => {
     if (this.state.currentPost.message) {
       return (
-        <Post 
-            title={this.state.currentPost.post.title}
-            content={this.state.currentPost.post.content}
-            author={this.state.currentPost.post.author}
-            timestamp={this.state.currentPost.post.timestamp}
-            pid={this.state.currentPost.post.pid}
-          /> 
+        <section>
+          <Post 
+              title={this.state.currentPost.post.title}
+              content={this.state.currentPost.post.content}
+              author={this.state.currentPost.post.author}
+              timestamp={this.state.currentPost.post.timestamp}
+              pid={this.state.currentPost.post.pid}
+            /> 
+          <AllReplies allReplies={this.state.currentPost.post.replies}/>
+        </section>
       )
     } else {
       return (
@@ -88,11 +92,15 @@ class ExpandedPost extends Component<IExpandedPostProps, IExpandedPost> {
     }))
   }
 
+  renderAllReplies = () => {
+    // if (this.state)
+  }
+
   render() {
     return (
       <section>
         {this.renderPost()}
-        <AllReplies allReplies={this.state.currentPost.replies}/>
+        {/* <AllReplies allReplies={this.state.currentPost.post.replies}/> */}
         <ReplyForm addReply={this.addReply} />
       </section>
     )
