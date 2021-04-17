@@ -24,6 +24,7 @@ export interface IAppState {
 class App extends Component<{}, IAppState> {
   constructor(props: {}) {
     super(props);
+
     this.state = {
       allPosts: [],
       foundPosts: [],
@@ -50,11 +51,22 @@ class App extends Component<{}, IAppState> {
 
   findPostsWithSearchTerm = (searchTerm: string) => {
     console.log("SEARCH TERM: ",searchTerm)
-    // this.setState({ foundPosts: this.state.allPosts.filter(post => post.includes(searchTerm))} )
+
+    // this is only finding the first one, not sure why, but also TS doesn't like my post, thinks the type is possibly undefined
+    return this.setState({ foundPosts: this.state.allPosts.filter(post => post.content.includes(searchTerm))} )
+
   }
 
   renderComponent = () => {
-    if (this.state.allPosts.length > 0) {
+    if (this.state.foundPosts.length > 0) {
+      return (
+          <section className='main-page'>
+            <Search findPostsWithSearchTerm={this.findPostsWithSearchTerm} />
+            <AllPosts allPosts={this.state.foundPosts} />
+            <Nav />
+          </section>
+      )
+    } else if (this.state.allPosts.length > 0) {
       return (
         <section className='main-page'>
           <Search findPostsWithSearchTerm={this.findPostsWithSearchTerm} />
