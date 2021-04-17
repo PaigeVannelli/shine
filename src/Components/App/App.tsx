@@ -3,12 +3,13 @@ import React, { Component } from 'react'
 import NewPostForm from '../NewPostForm/NewPostForm'
 import Loading from '../Loading/Loading'
 import AllPosts from '../AllPosts/AllPosts'
-import Searchbar from '../Searchbar/Searchbar'
+// import Searchbar from '../Searchbar/Searchbar'
+import Search from "../../Search";
 import Nav from '../Nav/Nav'
 import { IPost } from '../../types'
 import { Route, Switch } from 'react-router-dom';
 import { postForm, getPosts } from '../../apiCalls';
-import ExpandedPost from '../ExpandedPost/ExpandedPost'
+// import ExpandedPost from '../ExpandedPost/ExpandedPost'
 
 export interface IAppState {
   allPosts: Array<IPost>;
@@ -16,9 +17,9 @@ export interface IAppState {
   error: string;
 }
 
-interface IRouteProps {
-
-}
+// interface IRouteProps {
+//
+// }
 
 class App extends Component<{}, IAppState> {
   constructor(props: {}) {
@@ -56,7 +57,7 @@ class App extends Component<{}, IAppState> {
     if (this.state.allPosts.length > 0) {
       return (
         <section className='main-page'>
-          <Searchbar findPostsWithSearchTerm={this.findPostsWithSearchTerm} />
+          <Search findPostsWithSearchTerm={this.findPostsWithSearchTerm} />
           <AllPosts allPosts={this.state.allPosts} />
           <Nav />
         </section>

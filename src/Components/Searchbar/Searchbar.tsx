@@ -1,35 +1,34 @@
 import React, { Component } from 'react'
 import './Searchbar.scss'
 import search from '../../assets/search.svg'
-import {IPost} from "../../types";
 
-interface IProps {
-    findPostsWithSearchTerm: (searchTerm: string) => void;
-}
+// interface IProps {
+//     findPostsWithSearchTerm: (searchTerm: string) => void;
+// }
 
 interface ISearchbar {
-    searchInput: string,
-    feedback: string,
+    searchInput: string
+    // feedback: string,
 }
 
 class Searchbar extends Component<{}, ISearchbar> {
-  constructor(props: IProps) {
+  constructor(props: any) {
     super(props)
 
     this.state = {
-        searchInput: '',
-        feedback: ''
+        searchInput: ''
+        // feedback: ''
     }
   }
 
-  handleChange = (event: { target: { name: string, value: string } ; }) => {
-    this.setState({ searchInput: event.target.value })
-  }
-
-  handleSubmit = (event: { preventDefault: () => void; }) => {
-    event.preventDefault();
-    this.props.findPostsWithSearchTerm(this.state.searchInput)
-  }
+  // handleChange = (event: { target: { name: string, value: string } ; }) => {
+  //   this.setState({ searchInput: event.target.value })
+  // }
+  //
+  // handleSubmit = (event: { preventDefault: () => void; }) => {
+  //   event.preventDefault();
+  //   this.props.findPostsWithSearchTerm(this.state.searchInput)
+  // }
 
   render() {
     return (
@@ -41,9 +40,10 @@ class Searchbar extends Component<{}, ISearchbar> {
           placeholder='Body of your post*'
           name='content'
           value={this.state.searchInput}
-          onChange={this.handleChange}
+          // onChange={this.handleChange}
         />
-        <button className='search-button' onClick={this.handleSubmit}>
+        <button className='search-button'>
+        {/*<button className='search-button' onClick={this.handleSubmit}>*/}
           <img className='search-image' alt='search-icon' src={search}/>
         </button>
       </form>
