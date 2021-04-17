@@ -48,8 +48,8 @@ class App extends Component<{}, IAppState> {
       })
   }
 
-  findPostsWithSearchTerm = (searchTerm: string): void => {
-    console.log(searchTerm)
+  findPostsWithSearchTerm = (searchTerm: string) => {
+    console.log("SEARCH TERM: ",searchTerm)
     // this.setState({ foundPosts: this.state.allPosts.filter(post => post.includes(searchTerm))} )
   }
 

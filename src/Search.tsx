@@ -2,9 +2,13 @@ import React, { useRef } from 'react';
 import './Components/Searchbar/Searchbar.scss'
 import search from './assets/search.svg'
 
-interface SearchProps {
-    findPostsWithSearchTerm: any
+// can do as type or interface -- either way works
+type SearchProps = {
+    findPostsWithSearchTerm: (searchTerm: string) => void;
 }
+// interface SearchProps {
+//     findPostsWithSearchTerm: (searchTerm: string) => void
+// }
 
 const Search: React.FC<SearchProps> = (props) => {
     // refers to the type of data that will be stored inside the ref, default or initialized with null
@@ -18,7 +22,8 @@ const Search: React.FC<SearchProps> = (props) => {
     const handleSubmit = (event: React.FormEvent) => {
       event.preventDefault();
       const enteredText = searchInputRef.current!.value; // ! tells TS to chill until it's set (it's okay to be null)
-      console.log(enteredText)
+      console.log("ENTERED TEXT: ", enteredText)
+        props.findPostsWithSearchTerm(enteredText)
     }
 
     return (
