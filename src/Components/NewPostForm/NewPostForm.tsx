@@ -33,7 +33,7 @@ class NewPostForm extends Component<IProps, IForm> {
     }))
   }
 
-  deactivateReactivate = () => {
+  toggleButton = () => {
     if (this.state.title !== '' && this.state.content !== '') {
       this.setState({ disabled: false });
     } else {
@@ -72,7 +72,7 @@ class NewPostForm extends Component<IProps, IForm> {
           name='title'
           value={this.state.title}
           onChange={event => this.handleChange(event)}
-          onKeyUp={this.deactivateReactivate}
+          onKeyUp={this.toggleButton}
         />
         <textarea
           placeholder='Body of your post*'
@@ -81,7 +81,7 @@ class NewPostForm extends Component<IProps, IForm> {
           name='content'
           value={this.state.content}
           onChange={event => this.handleChange(event)}
-          onKeyUp={this.deactivateReactivate}
+          onKeyUp={this.toggleButton}
         />
         <button
           data-cy='form-submit-button'

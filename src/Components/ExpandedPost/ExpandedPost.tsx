@@ -3,7 +3,7 @@ import { RouteComponentProps } from 'react-router-dom'
 import './ExpandedPost.scss';
 import Post from '../Post/Post'
 // import AllReplies from '../AllReplies/AllReplies'
-// import ReplyForm from '../ReplyForm/ReplyForm'
+import ReplyForm from '../ReplyForm/ReplyForm'
 import { IPost } from '../../types'
 import { getPost } from '../../apiCalls';
 import Loading from '../Loading/Loading'
@@ -58,7 +58,7 @@ class ExpandedPost extends Component<IExpandedPostProps, IExpandedPost> {
     .then(post => this.setState(prevState => ({
       ...prevState,
       currentPost: post,
-      replies: post.replies
+      // replies: post.replies
     })))
   }
 
@@ -80,12 +80,20 @@ class ExpandedPost extends Component<IExpandedPostProps, IExpandedPost> {
     }
   }
 
+  addReply = (newReply: string): void => {
+    // let totalReplies = this.state.replies.concat(newReply)
+    this.setState(prevState => ({
+      ...prevState,
+      replies: this.state.currentPost.replies
+    }))
+  }
+
   render() {
     return (
       <section>
         {this.renderPost()}
         <AllReplies allReplies={this.state.currentPost.replies}/>
-        {/* <ReplyForm /> */}
+        <ReplyForm addReply={this.addReply} />
       </section>
     )
   }
