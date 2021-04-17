@@ -17,7 +17,7 @@ interface IReply {
 }
 
 const AllReplies = ({allReplies}: IAllReplies) => {
-  const replyData = allReplies.map(reply => {
+  const replyData = allReplies.map((reply: IReply) => {
     return (
       <Reply
         key={reply.cid}
@@ -29,8 +29,11 @@ const AllReplies = ({allReplies}: IAllReplies) => {
       />
     )
   })
+
   return (
-    <h1>Replies</h1>
+    <section>
+      { replyData }
+    </section>
   )
 }
 

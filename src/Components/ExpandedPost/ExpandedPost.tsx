@@ -20,7 +20,7 @@ interface ICurrentPost {
 }
 
 interface IExpandedPost {
-  replies: Array<any>;
+  // replies: Array<any>;
   currentPost: {
     [key: string]: ICurrentPost,
   };
@@ -48,7 +48,7 @@ class ExpandedPost extends Component<IExpandedPostProps, IExpandedPost> {
   constructor(props: IExpandedPostProps) {
     super(props)
     this.state = {
-      replies: [],
+      // replies: [],
       currentPost: {}
     }
   };
