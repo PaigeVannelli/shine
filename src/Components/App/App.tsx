@@ -52,8 +52,8 @@ class App extends Component<{}, IAppState> {
   findPostsWithSearchTerm = (searchTerm: string) => {
     console.log("SEARCH TERM: ",searchTerm)
 
-    // this is only finding the first one, not sure why, but also TS doesn't like my post, thinks the type is possibly undefined
-    return this.setState({ foundPosts: this.state.allPosts.filter(post => post.content?.includes(searchTerm))} )
+    // this is only finding the first one, not sure why
+    return this.setState({ foundPosts: this.state.allPosts.filter(post => post.content.includes(searchTerm))} )
 
   }
 
