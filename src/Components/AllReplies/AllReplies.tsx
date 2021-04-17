@@ -4,7 +4,16 @@ import React from 'react'
 import Reply from '../Reply/Reply'
 
 interface IAllReplies {
-  allReplies: Array<any>
+  allReplies: Array<IReply>
+}
+
+interface IReply {
+  key: number,
+  author: string,
+  timestamp: number,
+  body: string,
+  cid: number,
+  uid: number
 }
 
 const AllReplies = ({allReplies}: IAllReplies) => {
