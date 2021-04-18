@@ -8,31 +8,22 @@ interface IReply {
   key?: number;
   author: string;
   timestamp: number;
-  body?: string;
+  body?: string
   cid: number;
   uid: number
 }
 interface IAllReplies {
-  allReplies: Array<any>
-}
-
-interface IPost {
-  key: number;
-  author: string;
-  timestamp: number;
-  body: string;
-  cid: number;
-  uid: number
+  allReplies: Array<IReply>
 }
 
 const AllReplies = ({allReplies}: IAllReplies) => {
-   const replyData = allReplies.map((reply: IPost) => {
+   const replyData = allReplies.map((reply: IReply) => {
       return (
         <Reply
           key={reply.cid}
           author={reply.author}
           timestamp={reply.timestamp}
-          body={reply.body}
+          body={reply.body!}
           cid={reply.cid}
           uid={reply.uid}
         />
