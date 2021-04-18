@@ -14,16 +14,10 @@ const Search: React.FC<SearchProps> = (props) => {
     // refers to the type of data that will be stored inside the ref, default or initialized with null
     const searchInputRef = useRef<HTMLInputElement>(null);
 
-
-    // handleChange = (event: { target: { name: string, value: string } ; }) => {
-    //   this.setState({ searchInput: event.target.value })
-    // }
-    //
     const handleSubmit = (event: React.FormEvent) => {
       event.preventDefault();
       const enteredText = searchInputRef.current!.value; // ! tells TS to chill until it's set (it's okay to be null)
-      console.log("ENTERED TEXT: ", enteredText)
-        props.findPostsWithSearchTerm(enteredText)
+         props.findPostsWithSearchTerm(enteredText)
     }
 
     return (

@@ -1,9 +1,9 @@
 export interface IPost {
   pid?: number;
   uid?: number;
-  title?: string;
+  title: string;
   content: string;
-  author?: string;
+  author: string;
   timestamp?: any;
   // date?: string;
 }
