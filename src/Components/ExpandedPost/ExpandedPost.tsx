@@ -36,7 +36,7 @@ interface IReply {
 }
 
 interface IExpandedPostProps {
-  match?: any;
+  match: string
 }
 
 // type TParams = { 
@@ -55,7 +55,7 @@ class ExpandedPost extends Component<IExpandedPostProps, IExpandedPost> {
   };
   
   componentDidMount = () => {
-    getPost(this.props.match.params.pid)
+    getPost(this.props.match)
     .then(post => this.setState(prevState => ({
       ...prevState,
       currentPost: post,

@@ -80,7 +80,7 @@ class App extends Component<{}, IAppState> {
           />
           <Route
             exact path='/:pid'
-            render={({ match }: RouteComponentProps<TParams>) => <ExpandedPost match={match}/>}
+            render={({ match }: RouteComponentProps<TParams>) => <ExpandedPost match={match.params.pid}/>}
           />
         </Switch>
       </main>
