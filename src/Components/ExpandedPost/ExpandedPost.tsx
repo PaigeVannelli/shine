@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
-import { RouteComponentProps } from 'react-router-dom'
 import './ExpandedPost.scss';
 import Post from '../Post/Post'
 // import AllReplies from '../AllReplies/AllReplies'
 import ReplyForm from '../ReplyForm/ReplyForm'
-import { IPost } from '../../types'
 import { getPost } from '../../apiCalls';
 import Loading from '../Loading/Loading'
 import AllReplies from '../AllReplies/AllReplies'

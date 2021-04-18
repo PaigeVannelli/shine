@@ -5,7 +5,7 @@ import './Post.scss'
 import { IPost } from '../../types'
 import userPhoto1 from '../../assets/people-1.svg'
 import bookmarkIcon from '../../assets/bookmark.svg'
-import shareIcon from '../../assets/share.svg'
+// import shareIcon from '../../assets/share.svg'
 import heartIcon from '../../assets/heart.svg'
 import commentsIcon from '../../assets/send.svg'
 
