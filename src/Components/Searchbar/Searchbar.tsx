@@ -7,7 +7,7 @@ interface ISearchbar {
 }
 
 class Searchbar extends Component<{}, ISearchbar> {
-  constructor(props: any) {
+  constructor(props: {}) {
     super(props)
     this.state = {
       searchInput: ''
