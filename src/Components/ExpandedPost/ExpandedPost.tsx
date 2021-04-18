@@ -70,15 +70,15 @@ class ExpandedPost extends Component<IExpandedPostProps, IExpandedPost> {
     if (this.state.currentPost.message) {
       return (
         <section>
-          <Post 
-              title={this.state.currentPost.post.title}
-              content={this.state.currentPost.post.content}
-              author={this.state.currentPost.post.author}
-              timestamp={this.state.currentPost.post.timestamp}
-              pid={this.state.currentPost.post.pid}
-            /> 
-          <AllReplies allReplies={this.state.currentPost.post.replies}/>
-        </section>
+        <Post 
+            title={this.state.currentPost.post.title}
+            content={this.state.currentPost.post.content}
+            author={this.state.currentPost.post.author}
+            timestamp={this.state.currentPost.post.timestamp}
+            pid={this.state.currentPost.post.pid}
+          /> 
+        {this.checkForReplies()}
+      </section>
       )
     } else if (this.state.error) {
       return (
@@ -87,6 +87,18 @@ class ExpandedPost extends Component<IExpandedPostProps, IExpandedPost> {
     } else {
       return (
         <Loading />
+      )
+    }
+  }
+
+  checkForReplies = () => {
+    if (this.state.currentPost.post.replies.length > 0) {
+      return (
+        <AllReplies allReplies={this.state.currentPost.post.replies}/>
+      )
+    } else {
+      return (
+        <h1>It's quiet... too quiet. Add a comment below!</h1>
       )
     }
   }
