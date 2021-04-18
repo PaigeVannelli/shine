@@ -35,8 +35,7 @@ const Search: React.FC<SearchProps> = (props) => {
                 placeholder='Body of your post*'
                 name='content'
                 ref={searchInputRef}
-                // value={this.state.searchInput}
-                // onChange={this.handleChange}
+
             />
             <button className='search-button' onClick={handleSubmit}>
                 <img className='search-image' alt='search-icon' src={search}/>

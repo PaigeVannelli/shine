@@ -57,6 +57,10 @@ class App extends Component<{}, IAppState> {
 
   }
 
+  resetFoundPosts = () => {
+    this.setState({ foundPosts: [] })
+  }
+
   renderComponent = () => {
     if (this.state.foundPosts.length > 0) {
       return (
@@ -70,20 +74,22 @@ class App extends Component<{}, IAppState> {
       return (
         <section className='main-page'>
           <Search findPostsWithSearchTerm={this.findPostsWithSearchTerm} />
-          <AllPosts allPosts={this.state.allPosts} />
+          <AllPosts allPosts={this.state.allPosts} resetFoundPosts={this.resetFoundPosts}/>
           <Nav />
         </section>
       )
-    } else if (this.state.error) {
-      return (
-        <h2>{this.state.error}</h2>
-      )
-    } else {
-      return (
-        <Loading />
-      )
+    // } else if (this.state.error) {
+    //   return (
+    //     <h2>{this.state.error}</h2>
+    //   )
+    // } else {
+    //   return (
+    //     <Loading />
+    //   )
     }
   }
+
+
 
   // findPost = () => {
   //   const currentPost = this.state.allPosts.find(post => {
@@ -94,6 +100,13 @@ class App extends Component<{}, IAppState> {
   render() {
     return (
       <main className='app'>
+          {!!this.state.error &&
+            <h2 className="error-feedback">{this.state.error}</h2>
+          }
+
+          {!this.state.error && !this.state.allPosts.length &&
+            <Loading />
+          }
         <Switch>
           <Route
             exact
