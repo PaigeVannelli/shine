@@ -27,14 +27,21 @@ interface IExpandedPost {
   };
 };
 
+// interface IReply {
+//   cid: number;
+//   uid: number;
+//   author: string;
+//   timestamp: number;
+//   comment: string;
+// }
 interface IReply {
-  cid: number;
-  uid: number;
-  author: string;
-  timestamp: number;
-  comment: string;
+  key: number,
+  author: string,
+  timestamp: number,
+  body: string,
+  cid: string,
+  uid: number,
 }
-
 interface IExpandedPostProps {
   match: string
 }
@@ -53,28 +60,33 @@ class ExpandedPost extends Component<IExpandedPostProps, IExpandedPost> {
       currentPost: {}
     }
   };
-  
+
   componentDidMount = () => {
     getPost(this.props.match)
-    .then(post => this.setState(prevState => ({
-      ...prevState,
-      currentPost: post,
-      // replies: post.replies
-    })))
+      .then(post => this.setState(prevState => ({
+        ...prevState,
+        currentPost: post,
+        // replies: post.replies
+      })))
   }
 
   renderPost = () => {
     if (this.state.currentPost.message) {
       return (
         <section>
-          <Post 
-              title={this.state.currentPost.post.title}
-              content={this.state.currentPost.post.content}
-              author={this.state.currentPost.post.author}
-              timestamp={this.state.currentPost.post.timestamp}
-              pid={this.state.currentPost.post.pid}
-            /> 
-          <AllReplies allReplies={this.state.currentPost.post.replies}/>
+          <Post
+            title={this.state.currentPost.post.title}
+            content={this.state.currentPost.post.content}
+            author={this.state.currentPost.post.author}
+            timestamp={this.state.currentPost.post.timestamp}
+            pid={this.state.currentPost.post.pid}
+          />
+          <AllReplies allReplies={this.state.currentPost.post.replies} />
+          <ReplyForm
+            pid={this.state.currentPost.post.pid}
+            replyCount={this.state.currentPost.post.replies}
+            addReply={this.addReply}
+          />
         </section>
       )
     } else {
@@ -84,12 +96,23 @@ class ExpandedPost extends Component<IExpandedPostProps, IExpandedPost> {
     }
   }
 
-  addReply = (newReply: string): void => {
-    // let totalReplies = this.state.replies.concat(newReply)
-    this.setState(prevState => ({
-      ...prevState,
-      replies: this.state.currentPost.replies
-    }))
+  // addReply = (newReply: string): void => {
+  //   // let totalReplies = this.state.replies.concat(newReply)
+  //   this.setState(prevState => ({
+  //     currentPost: {
+  //       ...prevState.currentPost,
+  //       post: {
+  //         ...prevState.currentPost.replies,
+  //         replies: [...this.state.currentPost.post.replies, newReply]
+  //       },
+  //     }
+  //   })
+  //   })
+  //   )
+  addReply = (newReply: IReply): void => {
+    let updatedCurrentPost = this.state.currentPost
+    updatedCurrentPost.post.replies.push(newReply)
+    this.setState({ currentPost: updatedCurrentPost })
   }
 
   render() {
@@ -97,7 +120,7 @@ class ExpandedPost extends Component<IExpandedPostProps, IExpandedPost> {
       <section>
         {this.renderPost()}
         {/* <AllReplies allReplies={this.state.currentPost.post.replies}/> */}
-        <ReplyForm addReply={this.addReply} />
+
       </section>
     )
   }

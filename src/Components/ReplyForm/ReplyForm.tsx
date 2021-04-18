@@ -3,8 +3,9 @@ import './ReplyForm.scss';
 import sendIcon from '../../assets/send.svg';
 
 interface IProps {
-  addReply: (newPost: string) => void;
+  addReply: (newPost: IReply) => void;
   pid: number;
+  replyCount: Array<any>;
 }
 
 interface IReplyForm {
@@ -17,7 +18,7 @@ interface IReply {
   author: string,
   timestamp: number,
   body: string,
-  cid: number,
+  cid: string,
   uid: number,
 }
 
@@ -30,7 +31,7 @@ class ReplyForm extends Component<IProps, IReplyForm> {
         author: 'Lara',
         timestamp: 0,
         body: '',
-        cid: 0,
+        cid: `${this.props.pid}-${this.props.replyCount.length + 1}`,
         uid: 0,
       },
       disabled: true,
@@ -39,13 +40,16 @@ class ReplyForm extends Component<IProps, IReplyForm> {
 
   handleChange = (event: { target: { name: string; value: string; }; }) => {
     this.setState(prevState => ({
-      ...prevState,
-      [event.target.name]: event.target.value
-    }))
+      reply: {
+        ...prevState.reply,
+        [event.target.name]: event.target.value
+      }
+    })
+    )
   }
 
   toggleButton = () => {
-    if (this.state.body !== '') {
+    if (this.state.reply.body !== '') {
       this.setState({ disabled: false });
     } else {
       this.setState({ disabled: true });
@@ -54,12 +58,30 @@ class ReplyForm extends Component<IProps, IReplyForm> {
 
   submitReply = (event: { preventDefault: () => void; }) => {
     event.preventDefault();
-    this.props.addReply(this.state.body);
+    this.assignTimestamp();
+    this.props.addReply(this.state.reply);
     this.clearInput();
   }
 
+  assignTimestamp = () => {
+    this.setState(prevState => ({
+      reply: {
+        ...prevState.reply,
+        timestamp: Date.now()
+      }
+    })
+    )
+  }
+
   clearInput = () => {
-    this.setState({ body: '' });
+    this.setState(prevState => ({
+      reply: {
+        ...prevState.reply,
+        body: '',
+        timestamp: 0
+      }
+    })
+    )
   }
 
   render() {
@@ -69,7 +91,7 @@ class ReplyForm extends Component<IProps, IReplyForm> {
           type='text'
           placeholder='Add a comment'
           name='body'
-          value={this.state.body}
+          value={this.state.reply.body}
           onChange={event => this.handleChange(event)}
           onKeyUp={this.toggleButton}
         />
