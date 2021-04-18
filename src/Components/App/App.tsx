@@ -6,7 +6,7 @@ import AllPosts from '../AllPosts/AllPosts'
 import Searchbar from '../Searchbar/Searchbar'
 import Nav from '../Nav/Nav'
 import { IPost } from '../../types'
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, RouteComponentProps } from 'react-router-dom';
 import { postForm, getPosts } from '../../apiCalls';
 import ExpandedPost from '../ExpandedPost/ExpandedPost'
 
@@ -15,9 +15,7 @@ export interface IAppState {
   error: string;
 }
 
-interface IRouteProps {
-
-}
+type TParams = { pid: string }
 
 class App extends Component<{}, IAppState> {
   constructor(props: {}) {
@@ -65,38 +63,25 @@ class App extends Component<{}, IAppState> {
     }
   }
 
-  // findPost = () => {
-  //   const currentPost = this.state.allPosts.find(post => {
-  //     return post.pid === 
-  //   })
-  // }
-
   render() {
     return (
       <main className='app'>
         <Switch>
           <Route
-            exact
-            path="/"
+            exact path="/"
             render={this.renderComponent}
           />
           <Route
-            exact
-            path="/new-post"
+            exact path="/new-post"
             render={() => {
               return <NewPostForm addNewPost={this.addNewPost} />
             }
             }
           />
-          {/* <Route
+          <Route
             exact path='/:pid'
-            render={({ match }) => <ExpandedPost match={match} expandedPost={this.state.expandedPost}/>
-              // const currentPost = this.state.allPosts.find(post => {
-              //   return post.pid === parseInt(match.params.pid)
-              // })
-            }}
-
-          /> */}
+            render={({ match }: RouteComponentProps<TParams>) => <ExpandedPost match={match.params.pid}/>}
+          />
         </Switch>
       </main>
     )
