@@ -48,9 +48,9 @@ class NewPostForm extends Component<IProps, IForm> {
     const newPost = {
       pid: Date.now(),
       uid: 42005,
-      author: 'Princess Bubblegum',
       title: this.state.title,
-      content: this.state.content
+      content: this.state.content,
+      author: 'Princess Bubblegum'
     }
     this.props.addNewPost(newPost);
     window.location.assign('/');

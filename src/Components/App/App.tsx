@@ -61,20 +61,21 @@ class App extends Component<{}, IAppState> {
   renderComponent = () => {
     if (this.state.foundPosts.length > 0) {
       return (
-          <section className='main-page'>
+        <>
             <Search findPostsWithSearchTerm={this.findPostsWithSearchTerm} />
             <AllPosts allPosts={this.state.foundPosts} />
             <Nav resetFoundPosts={this.resetFoundPosts}/>
-          </section>
+        </>
       )
     } else if (this.state.allPosts.length > 0) {
       return (
-        <section className='main-page'>
+        <>
           <Search findPostsWithSearchTerm={this.findPostsWithSearchTerm} />
           <AllPosts allPosts={this.state.allPosts} />
           <Nav resetFoundPosts={this.resetFoundPosts}/>
-        </section>
+        </>
       )
+
     // } else if (this.state.error) {
     //   return (
     //     <h2>{this.state.error}</h2>
@@ -102,23 +103,25 @@ class App extends Component<{}, IAppState> {
           {!this.state.error && !this.state.allPosts.length &&
             <Loading />
           }
-        <Switch>
-          <Route
-            exact path="/"
-            render={this.renderComponent}
-          />
-          <Route
-            exact path="/new-post"
-            render={() => {
-              return <NewPostForm addNewPost={this.addNewPost} />
-            }
-            }
-          />
-          <Route
-            exact path='/:pid'
-            render={({ match }: RouteComponentProps<TParams>) => <ExpandedPost match={match.params.pid}/>}
-          />
-        </Switch>
+        <section className='main-page'>
+            <Switch>
+              <Route
+                exact path="/"
+                render={this.renderComponent}
+              />
+              <Route
+                exact path="/new-post"
+                render={() => {
+                  return <NewPostForm addNewPost={this.addNewPost} />
+                }
+                }
+              />
+              <Route
+                exact path='/:pid'
+                render={({ match }: RouteComponentProps<TParams>) => <ExpandedPost match={match.params.pid}/>}
+              />
+            </Switch>
+        </section>
       </main>
     )
   }
