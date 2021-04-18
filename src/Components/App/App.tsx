@@ -67,15 +67,15 @@ class App extends Component<{}, IAppState> {
           <section className='main-page'>
             <Search findPostsWithSearchTerm={this.findPostsWithSearchTerm} />
             <AllPosts allPosts={this.state.foundPosts} />
-            <Nav />
+            <Nav resetFoundPosts={this.resetFoundPosts}/>
           </section>
       )
     } else if (this.state.allPosts.length > 0) {
       return (
         <section className='main-page'>
           <Search findPostsWithSearchTerm={this.findPostsWithSearchTerm} />
-          <AllPosts allPosts={this.state.allPosts} resetFoundPosts={this.resetFoundPosts}/>
-          <Nav />
+          <AllPosts allPosts={this.state.allPosts} />
+          <Nav resetFoundPosts={this.resetFoundPosts}/>
         </section>
       )
     // } else if (this.state.error) {
