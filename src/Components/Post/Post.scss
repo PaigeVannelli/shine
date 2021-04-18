@@ -1,14 +1,15 @@
+@import '../../Scss/index.scss';
+
 .post {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   height: 15em;
-  min-height: 15em;
   width: 99%;
   margin: 5px 0 0 0;
   background-color: white;
   border-radius: 5%;
-  box-shadow: 1px 2px 5px #333740;
+  border-bottom: 1px solid $light-grey;
+  line-height: 1.2;
 }
 
 .post-header {
@@ -76,9 +77,9 @@
   margin-left: 7px
 }
 
-.post-content {
-  min-height: 6em;
-}
+// .post-content {
+//   min-height: 6em;
+// }
 
 footer {
   display: flex;
