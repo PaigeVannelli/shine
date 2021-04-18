@@ -61,35 +61,45 @@ class App extends Component<{}, IAppState> {
     this.setState({ foundPosts: [] })
   }
 
-  renderComponent = () => {
-    if (this.state.foundPosts.length > 0) {
-      return (
-          <section className='main-page'>
-            <Search findPostsWithSearchTerm={this.findPostsWithSearchTerm} />
-            <AllPosts allPosts={this.state.foundPosts} />
-            <Nav resetFoundPosts={this.resetFoundPosts}/>
-          </section>
-      )
-    } else if (this.state.allPosts.length > 0) {
-      return (
-        <section className='main-page'>
-          <Search findPostsWithSearchTerm={this.findPostsWithSearchTerm} />
-          <AllPosts allPosts={this.state.allPosts} />
-          <Nav resetFoundPosts={this.resetFoundPosts}/>
-        </section>
-      )
-    // } else if (this.state.error) {
-    //   return (
-    //     <h2>{this.state.error}</h2>
-    //   )
-    // } else {
-    //   return (
-    //     <Loading />
-    //   )
+  // renderComponent = () => {
+  //   if (this.state.foundPosts.length > 0) {
+  //     return (
+  //         <section className='main-page'>
+  //           <Search findPostsWithSearchTerm={this.findPostsWithSearchTerm} />
+  //           <AllPosts allPosts={this.state.foundPosts} />
+  //           <Nav resetFoundPosts={this.resetFoundPosts}/>
+  //         </section>
+  //     )
+  //   } else if (this.state.allPosts.length > 0) {
+  //     return (
+  //       <section className='main-page'>
+  //         <Search findPostsWithSearchTerm={this.findPostsWithSearchTerm} />
+  //         <AllPosts allPosts={this.state.allPosts} />
+  //       {/*  <Nav resetFoundPosts={this.resetFoundPosts}/>*/}
+  //       {/*</section>*/}
+  //     )
+  //   } else if (this.state.error) {
+  //     return (
+  //       <h2>{this.state.error}</h2>
+  //     )
+  //   } else {
+  //     return (
+  //       <Loading />
+  //     )
+  //   }
+  // }
+
+    renderComponent = () => {
+        if (this.state.foundPosts.length > 0) {
+            return (
+                <AllPosts allPosts={this.state.foundPosts} />
+            )
+        } else if (this.state.allPosts.length > 0) {
+            return (
+                <AllPosts allPosts={this.state.allPosts} />
+            )
+        }
     }
-  }
-
-
 
   // findPost = () => {
   //   const currentPost = this.state.allPosts.find(post => {
@@ -111,7 +121,15 @@ class App extends Component<{}, IAppState> {
           <Route
             exact
             path="/"
-            render={this.renderComponent}
+            render={() => {
+              return (
+                <section className='main-page'>
+                  <Search findPostsWithSearchTerm={this.findPostsWithSearchTerm} />
+                  {this.renderComponent}
+                  <Nav resetFoundPosts={this.resetFoundPosts}/>
+                </section>
+              )
+            }}
           />
           <Route
             exact
