@@ -8,7 +8,7 @@ import { IPost } from '../../types'
 import { getPost, addReplyCall } from '../../apiCalls';
 import Loading from '../Loading/Loading'
 import AllReplies from '../AllReplies/AllReplies'
-import backIcon from '../../assets.arrow.svg'
+import backIcon from '../../assets/arrow.svg'
 
 interface ICurrentPost {
   pid: number;
@@ -62,14 +62,22 @@ class ExpandedPost extends Component<IExpandedPostProps, IExpandedPost> {
       })))
   }
 
+  returnHome = (event: { preventDefault: () => void; }) => {
+    event.preventDefault();
+    window.location.href = '/'
+  }
+
   renderExpandedPost = () => {
     if (this.state.currentPost.message) {
       return (
         <section>
-          <section>
+          <button
+            data-cy='expanded-post-back-button'
+            className='back-btn'
+            onClick={this.returnHome}
+          >
             <img className='icon' src={backIcon} alt="back icon" />
-
-          </section>
+          </button>
           <Post
             title={this.state.currentPost.post.title}
             content={this.state.currentPost.post.content}
@@ -83,7 +91,7 @@ class ExpandedPost extends Component<IExpandedPostProps, IExpandedPost> {
             replyCount={this.state.currentPost.post.replies}
             addReply={this.addReply}
           />
-        </section>
+        </section >
       )
     } else {
       return (
