@@ -11,7 +11,7 @@ interface IOptions {
 const AllPosts = ({allPosts}: IAllPosts) => {
   // const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }
   const postData = allPosts.map((post: IPost) => {
-  const formattedDate = new Date(post.timestamp).toLocaleDateString('en-US')
+  // const formattedDate = new Date(post.timestamp).toLocaleDateString('en-US')
     return (
       <Post 
         key={post.pid}
@@ -19,7 +19,8 @@ const AllPosts = ({allPosts}: IAllPosts) => {
         title={post.title} 
         content={post.content}
         author={post.author}
-        timestamp={formattedDate}
+        timestamp={post.timestamp}
+        // timestamp={formattedDate}
       />
     )
   })

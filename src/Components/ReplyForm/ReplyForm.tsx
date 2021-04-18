@@ -11,6 +11,15 @@ interface IReply {
   disabled: boolean;
 }
 
+// interface IReply {
+//   key?: number,
+//   author?: string,
+//   timestamp?: number,
+//   body: string,
+//   cid?: number,
+//   uid?: number
+// }
+
 class ReplyForm extends Component<IProps, IReply> {
   constructor(props: IProps) {
     super(props);
