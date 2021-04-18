@@ -78,7 +78,8 @@ class ReplyForm extends Component<IProps, IReplyForm> {
       reply: {
         ...prevState.reply,
         body: '',
-        timestamp: 0
+        timestamp: 0,
+        cid: `${this.props.pid}-${this.props.replyCount.length + 1}`,
       }
     })
     )

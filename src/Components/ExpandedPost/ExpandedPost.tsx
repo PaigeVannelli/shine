@@ -70,7 +70,7 @@ class ExpandedPost extends Component<IExpandedPostProps, IExpandedPost> {
       })))
   }
 
-  renderPost = () => {
+  renderExpandedPost = () => {
     if (this.state.currentPost.message) {
       return (
         <section>
@@ -96,19 +96,6 @@ class ExpandedPost extends Component<IExpandedPostProps, IExpandedPost> {
     }
   }
 
-  // addReply = (newReply: string): void => {
-  //   // let totalReplies = this.state.replies.concat(newReply)
-  //   this.setState(prevState => ({
-  //     currentPost: {
-  //       ...prevState.currentPost,
-  //       post: {
-  //         ...prevState.currentPost.replies,
-  //         replies: [...this.state.currentPost.post.replies, newReply]
-  //       },
-  //     }
-  //   })
-  //   })
-  //   )
   addReply = (newReply: IReply): void => {
     let updatedCurrentPost = this.state.currentPost
     updatedCurrentPost.post.replies.push(newReply)
@@ -118,9 +105,7 @@ class ExpandedPost extends Component<IExpandedPostProps, IExpandedPost> {
   render() {
     return (
       <section>
-        {this.renderPost()}
-        {/* <AllReplies allReplies={this.state.currentPost.post.replies}/> */}
-
+        {this.renderExpandedPost()}
       </section>
     )
   }
