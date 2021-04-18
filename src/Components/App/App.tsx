@@ -48,9 +48,9 @@ class App extends Component<{}, IAppState> {
   }
 
   findPostsWithSearchTerm = (searchTerm: string) => {
+      searchTerm = searchTerm.toLowerCase()
     return this.setState({ foundPosts: this.state.allPosts.filter(post => {
-        console.log('POST', post.title)
-           return post.content.includes(searchTerm) || post.title.toLowerCase().includes(searchTerm) || post.author.toLowerCase().includes(searchTerm)
+           return post.content.toLowerCase().includes(searchTerm) || post.title.toLowerCase().includes(searchTerm) || post.author.toLowerCase().includes(searchTerm)
         })})
   }
 
@@ -75,15 +75,6 @@ class App extends Component<{}, IAppState> {
           <Nav resetFoundPosts={this.resetFoundPosts}/>
         </>
       )
-
-    // } else if (this.state.error) {
-    //   return (
-    //     <h2>{this.state.error}</h2>
-    //   )
-    // } else {
-    //   return (
-    //     <Loading />
-    //   )
     }
   }
 

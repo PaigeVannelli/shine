@@ -12,7 +12,7 @@ type SearchProps = {
 
 const Search: React.FC<SearchProps> = (props) => {
     // refers to the type of data that will be stored inside the ref, default or initialized with null
-    const searchInputRef = useRef<HTMLInputElement>(null);
+    const searchInputRef = useRef<HTMLInputElement | null>(null);
 
     const handleSubmit = (event: React.FormEvent) => {
       event.preventDefault();
