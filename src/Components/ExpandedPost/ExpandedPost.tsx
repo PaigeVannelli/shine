@@ -56,7 +56,6 @@ class ExpandedPost extends Component<IExpandedPostProps, IExpandedPost> {
   constructor(props: IExpandedPostProps) {
     super(props)
     this.state = {
-      // replies: [],
       currentPost: {}
     }
   };
@@ -66,7 +65,6 @@ class ExpandedPost extends Component<IExpandedPostProps, IExpandedPost> {
       .then(post => this.setState(prevState => ({
         ...prevState,
         currentPost: post,
-        // replies: post.replies
       })))
   }
 

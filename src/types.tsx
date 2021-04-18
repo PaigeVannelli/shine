@@ -8,6 +8,15 @@ export interface IPost {
   // date?: string;
 }
 
+export interface IReply {
+  key: number,
+  author: string,
+  timestamp: number,
+  body: string,
+  cid: string,
+  uid: number,
+}
+
 export interface IAllPosts {
   allPosts: Array<IPost>;
 }

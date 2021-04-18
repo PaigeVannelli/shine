@@ -1,3 +1,6 @@
+import { IReply } from './types';
+
+
 export const postForm = (newPost: {}) => {
   return fetch(`http://localhost:5000/api/v1/posts`, {
     method: 'POST',
@@ -18,9 +21,26 @@ export const getPosts = () => {
 
 export const getPost = (id: string) => {
   return fetch(`http://localhost:5000/api/v1/posts/${id}`)
-  .then(response => response.json())
+    .then(response => response.json())
   // .then(data => console.log(data))
 }
+
+export const addReply = (newReply: IReply) => {
+  return fetch(`http://localhost:5000/api/v1/posts`, {
+    method: 'PATCH',
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(newReply)
+  })
+    .then(response => {
+      console.log(response)
+      return response.json()
+
+    })
+}
+
+
 
 // export default {
 //   getPosts,
