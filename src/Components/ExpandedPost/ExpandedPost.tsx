@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import { RouteComponentProps } from 'react-router-dom'
+// import { RouteComponentProps } from 'react-router-dom'
 import './ExpandedPost.scss';
 import Post from '../Post/Post'
 // import AllReplies from '../AllReplies/AllReplies'
 import ReplyForm from '../ReplyForm/ReplyForm'
-import { IPost } from '../../types'
-import { getPost } from '../../apiCalls';
+// import { IPost } from '../../types'
+import { getPost, addReplyCall } from '../../apiCalls';
 import Loading from '../Loading/Loading'
 import AllReplies from '../AllReplies/AllReplies'
 
@@ -27,13 +27,6 @@ interface IExpandedPost {
   };
 };
 
-// interface IReply {
-//   cid: number;
-//   uid: number;
-//   author: string;
-//   timestamp: number;
-//   comment: string;
-// }
 interface IReply {
   key: number,
   author: string,
@@ -98,6 +91,7 @@ class ExpandedPost extends Component<IExpandedPostProps, IExpandedPost> {
     let updatedCurrentPost = this.state.currentPost
     updatedCurrentPost.post.replies.push(newReply)
     this.setState({ currentPost: updatedCurrentPost })
+    addReplyCall(this.state.currentPost);
   }
 
   render() {

@@ -44,8 +44,10 @@ class NewPostForm extends Component<IProps, IForm> {
   submitPost = (event: { preventDefault: () => void; }) => {
     event.preventDefault();
     const newPost = {
-      pid: Date.now(),
-      uid: 42005,
+      // pid: Date.now(),
+      pid: 1001,
+
+      uid: 42001,
       title: this.state.title,
       content: this.state.content
     }

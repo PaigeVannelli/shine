@@ -21,3 +21,13 @@ export interface IAllPosts {
   allPosts: Array<IPost>;
 }
 
+export interface ICurrentPost {
+  pid: number;
+  uid: number;
+  author: string;
+  timestamp: number;
+  title: string;
+  content: string;
+  comments: Array<IReply | undefined>
+  replies: Array<IReply>
+}

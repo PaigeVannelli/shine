@@ -1,4 +1,4 @@
-import { IReply } from './types';
+import { IPost } from './types';
 
 
 export const postForm = (newPost: {}) => {
@@ -25,15 +25,16 @@ export const getPost = (id: string) => {
   // .then(data => console.log(data))
 }
 
-export const addReply = (newReply: IReply) => {
-  return fetch(`http://localhost:5000/api/v1/posts`, {
+export const addReplyCall = (newPost: IPost) => {
+  return fetch(`http://localhost:5000/api/v1/posts/${newPost.pid}`, {
     method: 'PATCH',
     headers: {
       "Content-Type": "application/json"
     },
-    body: JSON.stringify(newReply)
+    body: JSON.stringify(newPost)
   })
     .then(response => {
+      console.log(newPost)
       console.log(response)
       return response.json()
 

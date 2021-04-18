@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import './ReplyForm.scss';
 import sendIcon from '../../assets/send.svg';
+import { addReplyCall } from '../../apiCalls';
+// import { ICurrentPost } from '../../types';
 
 interface IProps {
-  addReply: (newPost: IReply) => void;
+  addReply: (newReply: IReply) => void;
   pid: number;
   replyCount: Array<any>;
 }
