@@ -29,7 +29,7 @@ class ReplyForm extends Component<IProps, IReplyForm> {
       reply: {
         key: 0,
         author: 'Lara',
-        timestamp: 0,
+        timestamp: Date.now(),
         body: '',
         cid: `${this.props.pid}-${this.props.replyCount.length + 1}`,
         uid: 0,
@@ -78,7 +78,6 @@ class ReplyForm extends Component<IProps, IReplyForm> {
       reply: {
         ...prevState.reply,
         body: '',
-        timestamp: 0,
         cid: `${this.props.pid}-${this.props.replyCount.length + 1}`,
       }
     })
