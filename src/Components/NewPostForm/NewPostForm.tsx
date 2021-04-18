@@ -12,6 +12,7 @@ interface IProps {
 interface IForm {
   title: string;
   content: string;
+  author: string;
   disabled: boolean;
 }
 
@@ -22,6 +23,7 @@ class NewPostForm extends Component<IProps, IForm> {
     this.state = {
       title: '',
       content: '',
+      author: '',
       disabled: true
     }
   }
@@ -33,7 +35,7 @@ class NewPostForm extends Component<IProps, IForm> {
     }))
   }
 
-  deactivateReactivate = () => {
+  toggleButton = () => {
     if (this.state.title !== '' && this.state.content !== '') {
       this.setState({ disabled: false });
     } else {
@@ -46,7 +48,9 @@ class NewPostForm extends Component<IProps, IForm> {
     const newPost = {
       pid: Date.now(),
       uid: 42005,
-      ...this.state
+      author: 'Princess Bubblegum',
+      title: this.state.title,
+      content: this.state.content
     }
     this.props.addNewPost(newPost);
     window.location.assign('/');
@@ -72,7 +76,7 @@ class NewPostForm extends Component<IProps, IForm> {
           name='title'
           value={this.state.title}
           onChange={event => this.handleChange(event)}
-          onKeyUp={this.deactivateReactivate}
+          onKeyUp={this.toggleButton}
         />
         <textarea
           placeholder='Body of your post*'
@@ -81,7 +85,7 @@ class NewPostForm extends Component<IProps, IForm> {
           name='content'
           value={this.state.content}
           onChange={event => this.handleChange(event)}
-          onKeyUp={this.deactivateReactivate}
+          onKeyUp={this.toggleButton}
         />
         <button
           data-cy='form-submit-button'

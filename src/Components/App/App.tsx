@@ -7,9 +7,9 @@ import AllPosts from '../AllPosts/AllPosts'
 import Search from "../../Search";
 import Nav from '../Nav/Nav'
 import { IPost } from '../../types'
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, RouteComponentProps } from 'react-router-dom';
 import { postForm, getPosts } from '../../apiCalls';
-// import ExpandedPost from '../ExpandedPost/ExpandedPost'
+import ExpandedPost from '../ExpandedPost/ExpandedPost'
 
 export interface IAppState {
   allPosts: Array<IPost>;
@@ -17,9 +17,7 @@ export interface IAppState {
   error: string;
 }
 
-// interface IRouteProps {
-//
-// }
+type TParams = { pid: string }
 
 class App extends Component<{}, IAppState> {
   constructor(props: {}) {
@@ -88,8 +86,6 @@ class App extends Component<{}, IAppState> {
     }
   }
 
-
-
   // findPost = () => {
   //   const currentPost = this.state.allPosts.find(post => {
   //     return post.pid ===
@@ -108,27 +104,20 @@ class App extends Component<{}, IAppState> {
           }
         <Switch>
           <Route
-            exact
-            path="/"
+            exact path="/"
             render={this.renderComponent}
           />
           <Route
-            exact
-            path="/new-post"
+            exact path="/new-post"
             render={() => {
               return <NewPostForm addNewPost={this.addNewPost} />
             }
             }
           />
-          {/* <Route
+          <Route
             exact path='/:pid'
-            render={({ match }) => <ExpandedPost match={match} expandedPost={this.state.expandedPost}/>
-              // const currentPost = this.state.allPosts.find(post => {
-              //   return post.pid === parseInt(match.params.pid)
-              // })
-            }}
-
-          /> */}
+            render={({ match }: RouteComponentProps<TParams>) => <ExpandedPost match={match.params.pid}/>}
+          />
         </Switch>
       </main>
     )
