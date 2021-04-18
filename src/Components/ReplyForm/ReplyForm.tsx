@@ -4,27 +4,35 @@ import sendIcon from '../../assets/send.svg';
 
 interface IProps {
   addReply: (newPost: string) => void;
+  pid: number;
+}
+
+interface IReplyForm {
+  reply: IReply,
+  disabled: boolean,
 }
 
 interface IReply {
-  reply: string;
-  disabled: boolean;
+  key: number,
+  author: string,
+  timestamp: number,
+  body: string,
+  cid: number,
+  uid: number,
 }
 
-// interface IReply {
-//   key?: number,
-//   author?: string,
-//   timestamp?: number,
-//   body: string,
-//   cid?: number,
-//   uid?: number
-// }
-
-class ReplyForm extends Component<IProps, IReply> {
+class ReplyForm extends Component<IProps, IReplyForm> {
   constructor(props: IProps) {
     super(props);
     this.state = {
-      reply: '',
+      reply: {
+        key: 0,
+        author: 'Lara',
+        timestamp: 0,
+        body: '',
+        cid: 0,
+        uid: 0,
+      },
       disabled: true,
     }
   }
@@ -37,7 +45,7 @@ class ReplyForm extends Component<IProps, IReply> {
   }
 
   toggleButton = () => {
-    if (this.state.reply !== '') {
+    if (this.state.body !== '') {
       this.setState({ disabled: false });
     } else {
       this.setState({ disabled: true });
@@ -46,12 +54,12 @@ class ReplyForm extends Component<IProps, IReply> {
 
   submitReply = (event: { preventDefault: () => void; }) => {
     event.preventDefault();
-    this.props.addReply(this.state.reply);
+    this.props.addReply(this.state.body);
     this.clearInput();
   }
 
   clearInput = () => {
-    this.setState({ reply: '' });
+    this.setState({ body: '' });
   }
 
   render() {
@@ -60,8 +68,8 @@ class ReplyForm extends Component<IProps, IReply> {
         <input
           type='text'
           placeholder='Add a comment'
-          name='reply'
-          value={this.state.reply}
+          name='body'
+          value={this.state.body}
           onChange={event => this.handleChange(event)}
           onKeyUp={this.toggleButton}
         />
