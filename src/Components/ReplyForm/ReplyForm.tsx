@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './ReplyForm.scss';
 import sendIcon from '../../assets/send.svg';
 import { addReplyCall } from '../../apiCalls';
-// import { ICurrentPost } from '../../types';
+import { ICurrentPost } from '../../types';
 
 interface IProps {
   addReply: (newReply: IReply) => void;

@@ -25,8 +25,8 @@ export const getPost = (id: string) => {
   // .then(data => console.log(data))
 }
 
-export const addReplyCall = (newPost: IPost) => {
-  return fetch(`http://localhost:5000/api/v1/posts/${newPost.pid}`, {
+export const addReplyCall = (id: string, newPost: IPost) => {
+  return fetch(`http://localhost:5000/api/v1/posts/${id}`, {
     method: 'PATCH',
     headers: {
       "Content-Type": "application/json"
@@ -34,7 +34,7 @@ export const addReplyCall = (newPost: IPost) => {
     body: JSON.stringify(newPost)
   })
     .then(response => {
-      console.log(newPost)
+      console.log('newPost', newPost)
       console.log(response)
       return response.json()
 

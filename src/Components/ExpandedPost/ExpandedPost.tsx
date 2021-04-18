@@ -4,10 +4,11 @@ import './ExpandedPost.scss';
 import Post from '../Post/Post'
 // import AllReplies from '../AllReplies/AllReplies'
 import ReplyForm from '../ReplyForm/ReplyForm'
-// import { IPost } from '../../types'
+import { IPost } from '../../types'
 import { getPost, addReplyCall } from '../../apiCalls';
 import Loading from '../Loading/Loading'
 import AllReplies from '../AllReplies/AllReplies'
+import backIcon from '../../assets.arrow.svg'
 
 interface ICurrentPost {
   pid: number;
@@ -65,6 +66,10 @@ class ExpandedPost extends Component<IExpandedPostProps, IExpandedPost> {
     if (this.state.currentPost.message) {
       return (
         <section>
+          <section>
+            <img className='icon' src={backIcon} alt="back icon" />
+
+          </section>
           <Post
             title={this.state.currentPost.post.title}
             content={this.state.currentPost.post.content}
@@ -91,7 +96,7 @@ class ExpandedPost extends Component<IExpandedPostProps, IExpandedPost> {
     let updatedCurrentPost = this.state.currentPost
     updatedCurrentPost.post.replies.push(newReply)
     this.setState({ currentPost: updatedCurrentPost })
-    addReplyCall(this.state.currentPost);
+    addReplyCall('1001', this.state.currentPost);
   }
 
   render() {
