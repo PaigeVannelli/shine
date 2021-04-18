@@ -4,9 +4,9 @@ import Post from '../Post/Post'
 import './AllPosts.scss'
 import { IPost, IAllPosts} from '../../types'
 
-interface IOptions {
+// interface IOptions {
 
-}
+// }
 
 const AllPosts = ({allPosts}: IAllPosts) => {
   // const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }

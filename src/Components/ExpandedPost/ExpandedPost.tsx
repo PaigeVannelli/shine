@@ -25,6 +25,7 @@ interface IExpandedPost {
   currentPost: {
     [key: string]: ICurrentPost,
   };
+  error: string
 };
 
 interface IReply {
@@ -50,7 +51,8 @@ class ExpandedPost extends Component<IExpandedPostProps, IExpandedPost> {
     super(props)
     this.state = {
       // replies: [],
-      currentPost: {}
+      currentPost: {},
+      error: ''
     }
   };
   
@@ -61,6 +63,7 @@ class ExpandedPost extends Component<IExpandedPostProps, IExpandedPost> {
       currentPost: post,
       // replies: post.replies
     })))
+    .catch(error => this.setState({ error: error.message }))
   }
 
   renderPost = () => {
@@ -76,6 +79,10 @@ class ExpandedPost extends Component<IExpandedPostProps, IExpandedPost> {
             /> 
           <AllReplies allReplies={this.state.currentPost.post.replies}/>
         </section>
+      )
+    } else if (this.state.error) {
+      return (
+        <h1>{this.state.error}</h1>
       )
     } else {
       return (
