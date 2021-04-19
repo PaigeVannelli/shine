@@ -51,7 +51,7 @@ class NewPostForm extends Component<IProps, IForm> {
       title: this.state.title,
       content: this.state.content,
       //Edited merge conflict on 58 and 59
-      replies: []
+      replies: [],
       author: 'Princess Bubblegum'
     }
     this.props.addNewPost(newPost);
