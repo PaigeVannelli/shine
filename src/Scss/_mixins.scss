@@ -17,10 +17,11 @@
   border-right: none;
   border-left: none;
   height: 70px;
+  @include focus;
+}
 
-  &:focus {
-    outline: none;
-  }
+@mixin focus {
+  outline: none;
 }
 
 @mixin shadow {
