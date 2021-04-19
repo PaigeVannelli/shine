@@ -22,16 +22,9 @@ textarea {
   margin: 0 20px 0 20px;
 }
 
-input {
-  border-top: 1px solid $light-grey;  
+.new-post-input {
+  @include input;
   border-bottom: 1px solid $light-grey;
-  border-right: none;
-  border-left: none;
-  height: 70px;
-
-  &:focus {
-    outline: none;
-  }
 }
 
 textarea {

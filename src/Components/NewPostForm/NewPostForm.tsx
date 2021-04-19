@@ -73,6 +73,7 @@ class NewPostForm extends Component<IProps, IForm> {
           </Link>
         </section>
         <input
+          className='new-post-input'
           type='text'
           placeholder='Title of your post*'
           name='title'

@@ -11,3 +11,14 @@
   margin-left: 10px;
   margin-right: 5px;
 }
+
+@mixin input {
+  border-top: 1px solid $light-grey;  
+  border-right: none;
+  border-left: none;
+  height: 70px;
+
+  &:focus {
+    outline: none;
+  }
+}
