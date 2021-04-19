@@ -24,8 +24,10 @@ const Nav: React.FC<NavProps> = (props) => {
         <img src={bellIcon} alt='bell-icon' className='nav-button-image' />
       </button>
       <Link to='/new-post'>
-        <button className='nav-button' data-cy='add-post-button'>
-          <img src={plusIcon} alt='plus-icon' className='nav-button-image' />
+        <button
+          className='nav-button'
+          data-cy='add-post-button'>
+          <img src={plusIcon} alt='plus-icon' className='nav-button-image add-icon' />
         </button>
       </Link>
       <button className='nav-button'>
