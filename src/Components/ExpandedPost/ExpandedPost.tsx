@@ -47,13 +47,16 @@ class ExpandedPost extends Component<IExpandedPostProps, IExpandedPost> {
     if (this.state.currentPost.message) {
       return (
         <section>
-          <button
-            data-cy='expanded-post-back-button'
-            className='back-btn'
-            onClick={this.returnHome}
-          >
-            <img className='icon' src={backIcon} alt="back icon" />
-          </button>
+          <section className='post-details-header'>
+            <button
+              data-cy='expanded-post-back-button'
+              className='back-btn'
+              onClick={this.returnHome}
+            >
+              <img className='icon' src={backIcon} alt="back icon" />
+            </button>
+            <h1 className='post-details-header__title'>Post Details</h1>
+          </section>
           <Post
             title={this.state.currentPost.post.title}
             content={this.state.currentPost.post.content}
@@ -61,14 +64,14 @@ class ExpandedPost extends Component<IExpandedPostProps, IExpandedPost> {
             timestamp={this.state.currentPost.post.timestamp}
             pid={this.state.currentPost.post.pid}
             replies={this.state.currentPost.post.replies}
-          /> 
-        {this.checkForReplies()}
-        <ReplyForm
-          pid={this.state.currentPost.post.pid}
-          replyCount={this.state.currentPost.post.replies}
-          addReply={this.addReply}
-        />
-      </section>
+          />
+          {this.checkForReplies()}
+          <ReplyForm
+            pid={this.state.currentPost.post.pid}
+            replyCount={this.state.currentPost.post.replies}
+            addReply={this.addReply}
+          />
+        </section>
       )
     } else if (this.state.error) {
       return (

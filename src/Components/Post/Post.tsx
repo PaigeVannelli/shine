@@ -32,15 +32,15 @@ const Post = ({ title, content, author, timestamp, pid, replies }: IPost) => {
       <p className='post-content'>{content}</p>
       <footer className='post-footer'>
         <button className='footer__button'>
-          <img src={heartIcon} alt='share-icon' className='icon' />
+          <img src={heartIcon} alt='favorite' className='icon' />
         </button>
         <Link to={`/${pid}`}>
           <button className='footer__button'>
-            <img src={commentsIcon} alt='share-icon' className='comments icon' />
+            <img src={commentsIcon} alt='comment' className='icon' />
           </button>
         </Link>
         <button className='footer__button'>
-          <img src={shareIcon} alt='share-icon' className='share icon' />
+          <img src={shareIcon} alt='send content' className='icon' />
         </button>
       </footer>
     </article>

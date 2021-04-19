@@ -1,11 +1,25 @@
-// .share {
-  
-  
-//   &:disabled {
-//     background-color: $light-grey;
-//   }
+@import '../../Scss/index.scss';
 
-//   &:enabled {
-//     @include gradient;
-//   }
-// }
+.reply-form {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  width: 100vw;
+
+  &__input {
+    background-color: pink;
+    bottom: 0;
+  }
+
+  &__btn {
+    width: 50%;
+
+    &:disabled {
+    background-color: $light-grey;
+    }
+
+    &:enabled {
+      @include gradient;
+    }
+  }
+}

@@ -79,9 +79,10 @@ class ReplyForm extends Component<IProps, IReplyForm> {
 
   render() {
     return (
-      <form>
+      <form className='reply-form'>
         <input
           type='text'
+          className='reply-form__input'
           placeholder='Add a comment'
           name='body'
           value={this.state.reply.body}
@@ -90,7 +91,7 @@ class ReplyForm extends Component<IProps, IReplyForm> {
         />
         <button
           disabled={this.state.disabled}
-          className='share'
+          className='reply-form__btn'
           onClick={this.submitReply}>
           <img className='icon' src={sendIcon} alt="send icon" />
         </button>
