@@ -113,7 +113,7 @@ describe('Expanded Post View', () => {
     .visit('http://localhost:3000/')
   });
 
-  it.only('Should display the post details', () => {
+  it('Should display the post details', () => {
     cy.get('[data-cy=expanded-view-button]')
     .first()
     .click()
@@ -228,23 +228,3 @@ describe('Search Functionality', () => {
   })
 })
 
-describe('Error Handling', () => {
-  before(() => {
-    cy.intercept('GET', 'https://shine-api.herokuapp.com/api/v1/posts', {
-      method: 'GET',
-      url: 'https://shine-api.herokuapp.com/api/v1/posts',
-      status: 500,
-      response: {
-          message: 'Something went wrong, please try again later',
-          posts: []
-      }
-    })
-  });
-
-  it.only('Should display an error message if data cannot be fetched from the server', () => {
-    cy.visit('http://localhost:3000/')
-    .wait(100)
-    .get('h2')
-    .contains('Failed to fetch')
-  })
-})
