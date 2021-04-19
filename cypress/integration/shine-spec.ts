@@ -122,7 +122,7 @@ describe('Expanded Post View', () => {
     .contains('here')
   })
 
-  it('Should display a detailed post view when post is clicked on', () => {
+  it('Should displays post replies', () => {
     cy.get('[data-cy=expanded-view-button]')
     .first()
     .click()
@@ -152,7 +152,6 @@ describe('Expanded Post View', () => {
     .should('have.length', 2)
     .last()
     .contains('Jedi')
-    // .url().should('eq', 'http://localhost:3000/')
   })
 })
 
