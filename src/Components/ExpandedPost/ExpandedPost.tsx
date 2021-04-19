@@ -3,9 +3,11 @@ import './ExpandedPost.scss';
 import Post from '../Post/Post'
 // import AllReplies from '../AllReplies/AllReplies'
 import ReplyForm from '../ReplyForm/ReplyForm'
-import { getPost } from '../../apiCalls';
+import { IPost } from '../../types'
+import { getPost, addReplyCall } from '../../apiCalls';
 import Loading from '../Loading/Loading'
 import AllReplies from '../AllReplies/AllReplies'
+import backIcon from '../../assets/arrow.svg'
 
 interface ICurrentPost {
   pid: number;
@@ -27,13 +29,13 @@ interface IExpandedPost {
 };
 
 interface IReply {
-  cid: number;
-  uid: number;
-  author: string;
-  timestamp: number;
-  comment: string;
+  key: number,
+  author: string,
+  timestamp: number,
+  body: string,
+  cid: number,
+  uid: number,
 }
-
 interface IExpandedPostProps {
   match: string
 }
@@ -53,22 +55,33 @@ class ExpandedPost extends Component<IExpandedPostProps, IExpandedPost> {
       error: ''
     }
   };
-  
+
   componentDidMount = () => {
     getPost(this.props.match)
-    .then(post => this.setState(prevState => ({
-      ...prevState,
-      currentPost: post,
-      // replies: post.replies
-    })))
-    .catch(error => this.setState({ error: error.message }))
+      .then(post => this.setState(prevState => ({
+        ...prevState,
+        currentPost: post,
+      })))
+      .catch(error => this.setState({ error: error.message }))
   }
 
-  renderPost = () => {
+  returnHome = (event: { preventDefault: () => void; }) => {
+    event.preventDefault();
+    window.location.href = '/'
+  }
+
+  renderExpandedPost = () => {
     if (this.state.currentPost.message) {
       return (
         <section>
-        <Post 
+          <button
+            data-cy='expanded-post-back-button'
+            className='back-btn'
+            onClick={this.returnHome}
+          >
+            <img className='icon' src={backIcon} alt="back icon" />
+          </button>
+          <Post
             title={this.state.currentPost.post.title}
             content={this.state.currentPost.post.content}
             author={this.state.currentPost.post.author}
@@ -101,20 +114,17 @@ class ExpandedPost extends Component<IExpandedPostProps, IExpandedPost> {
     }
   }
 
-  addReply = (newReply: string): void => {
-    // let totalReplies = this.state.replies.concat(newReply)
-    this.setState(prevState => ({
-      ...prevState,
-      replies: this.state.currentPost.replies
-    }))
+  addReply = (newReply: IReply): void => {
+    let updatedCurrentPost = this.state.currentPost
+    updatedCurrentPost.post.replies.push(newReply)
+    this.setState({ currentPost: updatedCurrentPost })
+    addReplyCall(this.state.currentPost.post);
   }
 
   render() {
     return (
       <section>
-        {this.renderPost()}
-        {/* <AllReplies allReplies={this.state.currentPost.post.replies}/> */}
-        <ReplyForm addReply={this.addReply} />
+        {this.renderExpandedPost()}
       </section>
     )
   }

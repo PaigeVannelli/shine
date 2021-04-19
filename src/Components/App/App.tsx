@@ -41,6 +41,12 @@ class App extends Component<{}, IAppState> {
       })
   }
 
+  // returnPidNumber = (): number => {
+  //   // return this.state.allPosts.length;
+  //   const pidNum = this.state.allPosts.length + 1;
+  //   return pidNum
+  // }
+
   renderComponent = () => {
     if (this.state.allPosts.length > 0) {
       return (
@@ -72,7 +78,10 @@ class App extends Component<{}, IAppState> {
           <Route
             exact path="/new-post"
             render={() => {
-              return <NewPostForm addNewPost={this.addNewPost} />
+              return <NewPostForm
+                addNewPost={this.addNewPost}
+              // returnPidNumber={this.returnPidNumber} 
+              />
             }
             }
           />
