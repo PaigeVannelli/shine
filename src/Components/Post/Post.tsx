@@ -3,25 +3,46 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import './Post.scss'
 import { IPost } from '../../types'
-import userPhoto1 from '../../assets/people-1.svg'
+// import userPhoto1 from '../../assets/people-1.svg'
 import bookmarkIcon from '../../assets/bookmark.svg'
 import heartIcon from '../../assets/heart.svg'
 import commentsIcon from '../../assets/comment.svg'
 import shareIcon from '../../assets/three.svg'
+import userPhoto1 from '../../assets/people-1.svg'
+import userPhoto2 from '../../assets/people-2.svg'
+import userPhoto3 from '../../assets/people-3.svg'
+import userPhoto4 from '../../assets/people-4.svg'
+import userPhoto5 from '../../assets/people-5.svg'
+import userPhoto6 from '../../assets/people-6.svg'
 
 
 const Post = ({ title, content, author, timestamp, pid, replies }: IPost) => {
   // let options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' }
   let fDate = new Date(timestamp)
   let timeString = fDate.toLocaleTimeString('en-US')
-
   const formattedDate = new Date(fDate).toLocaleString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })
+
+  let userPhotoSrc;
+
+  if (author === 'Leia Organa') {
+    userPhotoSrc = userPhoto1
+  } else if (title === 'Padmé Amidala') {
+    userPhotoSrc = userPhoto2
+  } else if (title === 'Princess Bubblegum') {
+    userPhotoSrc = userPhoto3
+  } else if (title === 'Marceline') {
+    userPhotoSrc = userPhoto4
+  } else if (title === 'Lara') {
+    userPhotoSrc = userPhoto5
+  } else if (title === 'Ada Lovelace') {
+    userPhotoSrc = userPhoto6
+  }
 
   return (
     <article className='post'>
       <header className='post-header'>
         <div className='user-info-container'>
-          <img src={userPhoto1} alt='user profile pic' className='user-info__photo' />
+          <img src={userPhotoSrc} alt='user profile pic' className='user-info__photo' />
           <div className='user-info'>
             <h1 className='name user-info__name'>{author}</h1>
             <p className='date user-info__date'>{formattedDate}, {timeString}</p>
