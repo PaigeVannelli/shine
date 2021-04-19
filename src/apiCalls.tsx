@@ -27,7 +27,6 @@ export const getPost = (id: string) => {
 
 export const addReplyCall = (newPost: IPost) => {
   console.log('1newPost', newPost)
-
   return fetch(`http://localhost:5000/api/v1/posts/${newPost.pid}`, {
     method: 'PATCH',
     headers: {
