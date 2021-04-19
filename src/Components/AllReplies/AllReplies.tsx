@@ -21,7 +21,7 @@ const AllReplies = ({allReplies}: IAllReplies) => {
   })
 
   return (
-    <section>
+    <section data-cy='replies-section'>
      { replyData }
     </section>
   )

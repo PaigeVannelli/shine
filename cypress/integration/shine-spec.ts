@@ -107,26 +107,33 @@ describe('Form Functionality', () => {
   })
 })
 
-// describe('Form Error Handling', () => {
-//   // before(() => {
-//   //   cy.intercept('http://localhost:5000/api/v1/posts', {fixture: 'posts.json'})
-//   //   .visit('http://localhost:3000/new-post')
-//   // });
+describe('Expanded Post View', () => {
+  before(() => {
+    cy.intercept('http://localhost:5000/api/v1/posts', {fixture: 'posts.json'})
+    .visit('http://localhost:3000/')
+  });
 
-//   it('Should not ', () => {
-//     cy.get('input')
-//     .type('Test title')
-//     .get('textarea')
-//     .type('Test content')
-//     .get('[data-cy=form-submit-button]')
-//     .click()
-//     .get('[data-cy=add-post-button]')
-//     .click()
-//     .visit('http://localhost:3000/')
-//     .get('[data-cy=all-posts-section]')
-//     .children()
-//     .should('have.length', 3)
-//     .last()
-//     .contains('Test')
-//   })
-// })
+  it.only('Should not display a detailed post view when post is clicked on', () => {
+    cy.get('[data-cy=expanded-view-button]')
+    .first()
+    .click()
+    .get('[data-cy=replies-section]')
+    .children()
+    .should('have.length', 2)
+    .first()
+    .contains("Just knowing")
+  })
+
+  // it.only('Should not display a detailed post view when post is clicked on', () => {
+  //   cy.get('[data-cy=expanded-view-button]')
+  //   .first()
+  //   .click()
+  //   .get('[data-cy=replies-section]')
+  //   .children()
+  //   .should('have.length', 2)
+  //   .first()
+  //   .contains("Just knowing")
+  // })
+
+
+})
