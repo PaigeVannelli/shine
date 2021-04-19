@@ -3,8 +3,7 @@ import React, { Component } from 'react'
 import NewPostForm from '../NewPostForm/NewPostForm'
 import Loading from '../Loading/Loading'
 import AllPosts from '../AllPosts/AllPosts'
-// import Searchbar from '../Searchbar/Searchbar'
-import Search from "../../Search";
+import Searchbar from '../Searchbar/Searchbar'
 import Nav from '../Nav/Nav'
 import { IPost } from '../../types'
 import { Route, Switch } from 'react-router-dom';
@@ -40,47 +39,43 @@ class App extends Component<{}, IAppState> {
         if (result.pid) {
           this.setState({ allPosts: [...this.state.allPosts, result], error: '' })
         } else {
-          this.setState({ error: 'Please fill out both fields.' })
+          return this.setState({ error: 'Please fill out both fields.' })
         }
       })
+      .then(data => window.location.assign('/'))
   }
 
   findPostsWithSearchTerm = (searchTerm: string) => {
-      searchTerm = searchTerm.toLowerCase()
+    searchTerm = searchTerm.toLowerCase();
+
     return this.setState({ foundPosts: this.state.allPosts.filter(post => {
-           return post.content.toLowerCase().includes(searchTerm) || post.title.toLowerCase().includes(searchTerm) || post.author.toLowerCase().includes(searchTerm)
-        })})
+      return post.content.toLowerCase().includes(searchTerm) || post.title.toLowerCase().includes(searchTerm) || post.author.toLowerCase().includes(searchTerm);
+    })})
   }
 
   resetFoundPosts = () => {
-    this.setState({ foundPosts: [] })
+    this.setState({ foundPosts: [] });
   }
 
   renderComponent = () => {
     if (this.state.foundPosts.length > 0) {
       return (
         <>
-            <Search findPostsWithSearchTerm={this.findPostsWithSearchTerm} />
-            <AllPosts allPosts={this.state.foundPosts} />
-            <Nav resetFoundPosts={this.resetFoundPosts}/>
+          <Searchbar findPostsWithSearchTerm={this.findPostsWithSearchTerm} />
+          <AllPosts allPosts={this.state.foundPosts} />
+          <Nav resetFoundPosts={this.resetFoundPosts}/>
         </>
       )
     } else if (this.state.allPosts.length > 0) {
       return (
         <>
-          <Search findPostsWithSearchTerm={this.findPostsWithSearchTerm} />
+          <Searchbar findPostsWithSearchTerm={this.findPostsWithSearchTerm} />
           <AllPosts allPosts={this.state.allPosts} />
           <Nav resetFoundPosts={this.resetFoundPosts}/>
         </>
       )
     }
   }
-
-  // findPost = () => {
-  //   const currentPost = this.state.allPosts.find(post => {
-  //     return post.pid ===
-  //   })
-  // }
 
   render() {
     return (
@@ -92,12 +87,14 @@ class App extends Component<{}, IAppState> {
           {!this.state.error && !this.state.allPosts.length &&
             <Loading />
           }
+
         <section className='main-page'>
             <Switch>
               <Route
                 exact path="/"
                 render={this.renderComponent}
               />
+
               <Route
                 exact path="/new-post"
                 render={() => {
@@ -105,6 +102,7 @@ class App extends Component<{}, IAppState> {
                 }
                 }
               />
+
               <Route
                 exact path='/:pid'
                 render={({ match }) => <ExpandedPost match={match.params.pid}/>}
