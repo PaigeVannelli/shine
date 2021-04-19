@@ -40,16 +40,17 @@ class App extends Component<{}, IAppState> {
         if (result.pid) {
           this.setState({ allPosts: [...this.state.allPosts, result], error: '' })
         } else {
-          this.setState({ error: 'Please fill out both fields.' })
+          return this.setState({ error: 'Please fill out both fields.' })
         }
       })
+      .then(data => window.location.assign('/'))
   }
 
   findPostsWithSearchTerm = (searchTerm: string) => {
-      searchTerm = searchTerm.toLowerCase()
+    searchTerm = searchTerm.toLowerCase()
     return this.setState({ foundPosts: this.state.allPosts.filter(post => {
-           return post.content.toLowerCase().includes(searchTerm) || post.title.toLowerCase().includes(searchTerm) || post.author.toLowerCase().includes(searchTerm)
-        })})
+      return post.content.toLowerCase().includes(searchTerm) || post.title.toLowerCase().includes(searchTerm) || post.author.toLowerCase().includes(searchTerm)
+    })})
   }
 
   resetFoundPosts = () => {
