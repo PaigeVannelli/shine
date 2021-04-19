@@ -7,7 +7,6 @@ import sendIcon from '../../assets/send.svg';
 
 interface IProps {
   addNewPost: (newPost: IPost) => void;
-  // returnPidNumber: () => number;
 }
 
 interface IForm {
@@ -17,7 +16,6 @@ interface IForm {
 }
 
 class NewPostForm extends Component<IProps, IForm> {
-
   constructor(props: IProps) {
     super(props);
     this.state = {
@@ -44,8 +42,6 @@ class NewPostForm extends Component<IProps, IForm> {
 
   submitPost = (event: { preventDefault: () => void; }) => {
     event.preventDefault();
-    // const length = this.props.returnAllPostsLength
-    // const newLength = length + 1
     const newPost = {
       timestamp: Date.now(),
       pid: Date.now(),

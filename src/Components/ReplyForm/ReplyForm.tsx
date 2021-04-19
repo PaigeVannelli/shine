@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './ReplyForm.scss';
 import sendIcon from '../../assets/send.svg';
 import { addReplyCall } from '../../apiCalls';
-import { ICurrentPost } from '../../types';
+import { IReply } from '../../types';
 
 interface IProps {
   addReply: (newReply: IReply) => void;
@@ -13,15 +13,6 @@ interface IProps {
 interface IReplyForm {
   reply: IReply,
   disabled: boolean,
-}
-
-interface IReply {
-  key: number,
-  author: string,
-  timestamp: number,
-  body: string,
-  cid: number,
-  uid: number,
 }
 
 class ReplyForm extends Component<IProps, IReplyForm> {
