@@ -45,14 +45,15 @@ class App extends Component<{}, IAppState> {
   }
 
   findPostsWithSearchTerm = (searchTerm: string) => {
-      searchTerm = searchTerm.toLowerCase()
+    searchTerm = searchTerm.toLowerCase();
+
     return this.setState({ foundPosts: this.state.allPosts.filter(post => {
-           return post.content.toLowerCase().includes(searchTerm) || post.title.toLowerCase().includes(searchTerm) || post.author.toLowerCase().includes(searchTerm)
-        })})
+      return post.content.toLowerCase().includes(searchTerm) || post.title.toLowerCase().includes(searchTerm) || post.author.toLowerCase().includes(searchTerm);
+    })})
   }
 
   resetFoundPosts = () => {
-    this.setState({ foundPosts: [] })
+    this.setState({ foundPosts: [] });
   }
 
   renderComponent = () => {
@@ -91,12 +92,14 @@ class App extends Component<{}, IAppState> {
           {!this.state.error && !this.state.allPosts.length &&
             <Loading />
           }
+
         <section className='main-page'>
             <Switch>
               <Route
                 exact path="/"
                 render={this.renderComponent}
               />
+
               <Route
                 exact path="/new-post"
                 render={() => {
@@ -104,6 +107,7 @@ class App extends Component<{}, IAppState> {
                 }
                 }
               />
+
               <Route
                 exact path='/:pid'
                 render={({ match }) => <ExpandedPost match={match.params.pid}/>}

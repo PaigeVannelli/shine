@@ -52,9 +52,10 @@ class NewPostForm extends Component<IProps, IForm> {
       content: this.state.content,
       //Edited merge conflict on 58 and 59
       replies: [],
-      author: ''
+      author: 'Princess Bubblegum'
     }
     this.props.addNewPost(newPost);
+    console.log(newPost)
     window.location.assign('/');
     this.clearInputs();
   }
