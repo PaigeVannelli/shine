@@ -113,6 +113,14 @@ describe('Expanded Post View', () => {
     .visit('http://localhost:3000/')
   });
 
+  // it.only('Should display the post details', () => {
+  //   cy.get('[data-cy=expanded-view-button]')
+  //   .first()
+  //   .click()
+  //   .get('header')
+  //   .contains('here')
+  // })
+
   it('Should not display a detailed post view when post is clicked on', () => {
     cy.get('[data-cy=expanded-view-button]')
     .first()
@@ -124,12 +132,11 @@ describe('Expanded Post View', () => {
     .contains("Just knowing")
   })
 
-  it.only('Should prompt a user to leave a reply if there are no replies', () => {
+  it('Should prompt a user to leave a reply if there are no replies', () => {
     cy.get('[data-cy=expanded-view-button]')
     .last()
     .click()
     .get('[data-cy=add-reply-prompt]')
     .contains("Add a comment below!")
   })
-
 })
