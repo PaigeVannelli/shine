@@ -1,7 +1,7 @@
 @import '../../Scss/index.scss';
 
 .searchbar {
-  height: 3.3em;
+  height: 50px;
   width: 100%;
   border: none;
   display: flex;
@@ -12,6 +12,7 @@
   @include gradient;
   position: fixed;
   top: 0;
+  z-index: 1;
 }
 
 .search-input {

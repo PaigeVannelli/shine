@@ -2,7 +2,7 @@
 
 .nav-bar {
   width: 100%;
-  height: 3em;
+  height: 50px;
   display: flex;
   @include gradient;
   justify-content: space-around;
@@ -12,13 +12,13 @@
 }
 
 .nav-button {
-  height: 2em;
+  // height: 2em;
   background: transparent;
   border: none;
 }
 
 .nav-button-image {
-  height: 2em;
+  height: 25px;
 }
 
 .add-icon {

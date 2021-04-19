@@ -6,7 +6,7 @@
   margin-top: 5px;
   background-color: white;
   border-radius: 10px;
-  border-bottom: 1px solid $dark-grey;
+  border-bottom: 1px solid $light-grey;
   line-height: 1.2;
 }
 
@@ -61,7 +61,6 @@
   justify-content: space-between;
 
   &__button {
-    height: 40px;
     width: 40px;
     background: transparent;
     border: none;
@@ -77,7 +76,7 @@
 .post-content,
 .user-photo, 
 .user-info,
-footer {
+.post-footer {
   @include margin;
 }
 

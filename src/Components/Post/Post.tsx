@@ -30,7 +30,7 @@ const Post = ({ title, content, author, timestamp, pid, replies }: IPost) => {
       </header>
       <h1 className='post-title'>{title}</h1>
       <p className='post-content'>{content}</p>
-      <footer className='footer'>
+      <footer className='post-footer'>
         <button className='footer__button'>
           <img src={heartIcon} alt='share-icon' className='icon' />
         </button>
