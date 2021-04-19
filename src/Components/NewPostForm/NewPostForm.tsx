@@ -44,6 +44,7 @@ class NewPostForm extends Component<IProps, IForm> {
 
   submitPost = (event: { preventDefault: () => void; }) => {
     event.preventDefault();
+
     const newPost = {
       timestamp: Date.now(),
       pid: Date.now(),
@@ -54,9 +55,8 @@ class NewPostForm extends Component<IProps, IForm> {
       replies: [],
       author: 'Princess Bubblegum'
     }
-    this.props.addNewPost(newPost);
-    console.log(newPost)
-    window.location.assign('/');
+    
+    this.props.addNewPost(newPost)
     this.clearInputs();
   }
 

@@ -1,7 +1,7 @@
 import { IPost } from './types';
 
 export const postForm = (newPost: {}) => {
-  return fetch(`http://localhost:5000/api/v1/posts`, {
+  return fetch(`https://shine-api.herokuapp.com/api/v1/posts`, {
     method: 'POST',
     headers: {
       "Content-Type": "application/json"
@@ -14,19 +14,20 @@ export const postForm = (newPost: {}) => {
 }
 
 export const getPosts = () => {
-  return fetch('http://localhost:5000/api/v1/posts')
+  // return fetch(`https://localhost:5000/api/v1/posts`)
+  return fetch('https://shine-api.herokuapp.com/api/v1/posts')
     .then(response => response.json())
 }
 
 export const getPost = (id: string) => {
-  return fetch(`http://localhost:5000/api/v1/posts/${id}`)
+  return fetch(`https://shine-api.herokuapp.com/api/v1/posts/${id}`)
     .then(response => response.json())
   // .then(data => console.log(data))
 }
 
 export const addReplyCall = (newPost: IPost) => {
   console.log('1newPost', newPost)
-  return fetch(`http://localhost:5000/api/v1/posts/${newPost.pid}`, {
+  return fetch(`https://shine-api.herokuapp.com/api/v1/posts/${newPost.pid}`, {
     method: 'PATCH',
     headers: {
       "Content-Type": "application/json"

@@ -39,9 +39,10 @@ class App extends Component<{}, IAppState> {
         if (result.pid) {
           this.setState({ allPosts: [...this.state.allPosts, result], error: '' })
         } else {
-          this.setState({ error: 'Please fill out both fields.' })
+          return this.setState({ error: 'Please fill out both fields.' })
         }
       })
+      .then(data => window.location.assign('/'))
   }
 
   findPostsWithSearchTerm = (searchTerm: string) => {
@@ -75,12 +76,6 @@ class App extends Component<{}, IAppState> {
       )
     }
   }
-
-  // findPost = () => {
-  //   const currentPost = this.state.allPosts.find(post => {
-  //     return post.pid ===
-  //   })
-  // }
 
   render() {
     return (
