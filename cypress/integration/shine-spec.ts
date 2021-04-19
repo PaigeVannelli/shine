@@ -110,6 +110,7 @@ describe('Expanded Post View', () => {
   beforeEach(() => {
     cy.intercept('https://shine-api.herokuapp.com/api/v1/posts', {fixture: 'posts.json'})
     .intercept('https://shine-api.herokuapp.com/api/v1/posts/1001', {fixture: 'replies.json'})
+    .intercept('https://shine-api.herokuapp.com/api/v1/posts/1002', {fixture: 'emptyReplies.json'})
     .visit('http://localhost:3000/')
   });
 
