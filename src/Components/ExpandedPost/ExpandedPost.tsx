@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import './ExpandedPost.scss';
 import Post from '../Post/Post'
-// import AllReplies from '../AllReplies/AllReplies'
 import ReplyForm from '../ReplyForm/ReplyForm'
 import { IReply, ICurrentPost } from '../../types'
 import { getPost, addReplyCall } from '../../apiCalls';
@@ -65,6 +64,7 @@ class ExpandedPost extends Component<IExpandedPostProps, IExpandedPost> {
             pid={this.state.currentPost.post.pid}
             replies={this.state.currentPost.post.replies}
           />
+          <div className='divider-line'> </div>
           {this.checkForReplies()}
           <ReplyForm
             pid={this.state.currentPost.post.pid}
