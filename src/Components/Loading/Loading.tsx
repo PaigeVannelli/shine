@@ -2,7 +2,6 @@ import React from 'react'
 import './Loading.scss';
 import logo from '../../assets/logo.png';
 
-
 const Loading = () => {
   return (
     <section className='logo__container'>

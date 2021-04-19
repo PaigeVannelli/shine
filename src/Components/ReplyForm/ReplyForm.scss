@@ -1,11 +1,34 @@
-// .share {
-  
-  
-//   &:disabled {
-//     background-color: $light-grey;
-//   }
+@import '../../Scss/index.scss';
 
-//   &:enabled {
-//     @include gradient;
-//   }
-// }
+.reply-form {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  bottom: 0;
+  position: fixed;
+  width: 100vw;
+
+  &__input {
+    @include input;
+    margin: 0;
+    padding-left: 15px;
+    border-bottom: none;
+    // width: calc(100vw - 50px)
+    width: 100vw;
+  }
+
+  &__btn {
+    width: 80px;
+    border: none;
+    height: 70px;
+    border-top: 1px solid $light-grey;
+
+    &:disabled {
+    background-color: $light-grey;
+    }
+
+    &:enabled {
+      @include gradient;
+    }
+  }
+}

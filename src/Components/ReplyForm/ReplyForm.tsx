@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import './ReplyForm.scss';
 import sendIcon from '../../assets/send.svg';
-import { addReplyCall } from '../../apiCalls';
 import { IReply } from '../../types';
 
 interface IProps {
@@ -21,7 +20,7 @@ class ReplyForm extends Component<IProps, IReplyForm> {
     this.state = {
       reply: {
         key: 0,
-        author: 'Lara',
+        author: 'Princess Bubblegum',
         timestamp: Date.now(),
         body: '',
         cid: parseInt(`${this.props.pid}-${this.props.replyCount.length + 1}`),
@@ -79,10 +78,11 @@ class ReplyForm extends Component<IProps, IReplyForm> {
 
   render() {
     return (
-      <form>
+      <form className='reply-form'>
         <input
           data-cy='reply-input'
           type='text'
+          className='reply-form__input'
           placeholder='Add a comment'
           name='body'
           value={this.state.reply.body}
@@ -92,7 +92,7 @@ class ReplyForm extends Component<IProps, IReplyForm> {
         <button
           data-cy='reply-button'
           disabled={this.state.disabled}
-          className='share'
+          className='reply-form__btn'
           onClick={this.submitReply}>
           <img className='icon' src={sendIcon} alt="send icon" />
         </button>

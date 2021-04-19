@@ -1,12 +1,13 @@
 import { IReply } from '../../types'
 import React from 'react'
 import Reply from '../Reply/Reply'
+import './AllReplies.scss';
 
 interface IAllReplies {
   allReplies: Array<IReply>
 }
 
-const AllReplies = ({allReplies}: IAllReplies) => {
+const AllReplies = ({ allReplies }: IAllReplies) => {
   const replyData = allReplies.map((reply: IReply) => {
     return (
       <Reply
@@ -21,8 +22,8 @@ const AllReplies = ({allReplies}: IAllReplies) => {
   })
 
   return (
-    <section data-cy='replies-section'>
-     { replyData }
+    <section className='replies-container' data-cy='replies-section'>
+      { replyData}
     </section>
   )
 }

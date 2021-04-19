@@ -22,7 +22,6 @@ export const getPosts = () => {
 export const getPost = (id: string) => {
   return fetch(`https://shine-api.herokuapp.com/api/v1/posts/${id}`)
     .then(response => response.json())
-  // .then(data => console.log(data))
 }
 
 export const addReplyCall = (newPost: IPost) => {

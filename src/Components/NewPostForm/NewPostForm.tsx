@@ -51,11 +51,10 @@ class NewPostForm extends Component<IProps, IForm> {
       uid: 42001,
       title: this.state.title,
       content: this.state.content,
-      //Edited merge conflict on 58 and 59
       replies: [],
       author: 'Princess Bubblegum'
     }
-    
+
     this.props.addNewPost(newPost)
     this.clearInputs();
   }
@@ -70,10 +69,11 @@ class NewPostForm extends Component<IProps, IForm> {
         <section className='header'>
           <h1 className='header__title'>New Post</h1>
           <Link to='/'>
-            <img className='icon' src={closeIcon} alt="close icon" data-cy='close-button'/>
+            <img className='close' src={closeIcon} alt="close icon" data-cy='close-button' />
           </Link>
         </section>
         <input
+          className='new-post-input'
           type='text'
           placeholder='Title of your post*'
           name='title'
@@ -96,7 +96,7 @@ class NewPostForm extends Component<IProps, IForm> {
           className='share'
           onClick={this.submitPost}>
           <img className='icon' src={sendIcon} alt="send icon" />
-          <span>Share</span>
+          <span className='span-text'>Share</span>
         </button>
       </form >
     )

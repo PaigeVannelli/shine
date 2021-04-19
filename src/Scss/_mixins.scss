@@ -7,6 +7,23 @@
   cursor: pointer;
 }
 
-@mixin deactivate {
-  
+@mixin margin {
+  margin-left: 10px;
+  margin-right: 5px;
+}
+
+@mixin input {
+  border-top: 1px solid $light-grey;  
+  border-right: none;
+  border-left: none;
+  height: 70px;
+  @include focus;
+}
+
+@mixin focus {
+  outline: none;
+}
+
+@mixin shadow {
+  box-shadow: 3px 4px 7px 1px rgba(174, 174, 174, 0.35);
 }

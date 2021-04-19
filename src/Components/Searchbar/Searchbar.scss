@@ -1,38 +1,42 @@
 @import '../../Scss/index.scss';
 
 .searchbar {
-  height: 3.3em;
+  height: 50px;
   width: 100%;
   border: none;
   display: flex;
   flex-flow: row nowrap;
-  justify-content: center;
   align-items: center;
-  box-shadow: 1px 1px 1px #ffd435;
   @include gradient;
-  position: fixed;
-  top: 0;
+  z-index: 1;
+  border-bottom: .5px solid $light-grey;
+  @include shadow;
+
+    &:focus {
+      @include focus;
+    }
 }
 
 .search-input {
   height: 2.6em;
-  margin-right: 0;
-  padding: 0 10px;
+  padding: 0 15px;
   width: 80%;
-  // margin-bottom: 5px;
-  border: 2px solid rgb(118, 118, 118);
+  border: 2px solid $dark-grey;
   border-right: none;
   border-radius: 20px 0 0 20px;
+  @include focus;
 }
 
 .search-button {
   height: 2.6em;
   padding: 0 10px;
-  // margin-bottom: 5px;
   background-color: white;
-  border: 2px solid rgb(118, 118, 118);
+  border: 2px solid $dark-grey;
   border-left: none;
   border-radius: 0 20px 20px 0;
+  @include focus;
+  position: fixed;
+  right: 5%;
 }
 
 .search-image {

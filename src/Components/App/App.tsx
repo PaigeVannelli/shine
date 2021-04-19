@@ -19,7 +19,6 @@ export interface IAppState {
 class App extends Component<{}, IAppState> {
   constructor(props: {}) {
     super(props);
-
     this.state = {
       allPosts: [],
       foundPosts: [],
@@ -48,9 +47,11 @@ class App extends Component<{}, IAppState> {
   findPostsWithSearchTerm = (searchTerm: string) => {
     searchTerm = searchTerm.toLowerCase();
 
-    return this.setState({ foundPosts: this.state.allPosts.filter(post => {
-      return post.content.toLowerCase().includes(searchTerm) || post.title.toLowerCase().includes(searchTerm) || post.author.toLowerCase().includes(searchTerm);
-    })})
+    return this.setState({
+      foundPosts: this.state.allPosts.filter(post => {
+        return post.content.toLowerCase().includes(searchTerm) || post.title.toLowerCase().includes(searchTerm) || post.author.toLowerCase().includes(searchTerm);
+      })
+    })
   }
 
   resetFoundPosts = () => {
@@ -63,7 +64,7 @@ class App extends Component<{}, IAppState> {
         <>
           <Searchbar findPostsWithSearchTerm={this.findPostsWithSearchTerm} />
           <AllPosts allPosts={this.state.foundPosts} />
-          <Nav resetFoundPosts={this.resetFoundPosts}/>
+          <Nav resetFoundPosts={this.resetFoundPosts} />
         </>
       )
     } else if (this.state.allPosts.length > 0) {
@@ -71,7 +72,7 @@ class App extends Component<{}, IAppState> {
         <>
           <Searchbar findPostsWithSearchTerm={this.findPostsWithSearchTerm} />
           <AllPosts allPosts={this.state.allPosts} />
-          <Nav resetFoundPosts={this.resetFoundPosts}/>
+          <Nav resetFoundPosts={this.resetFoundPosts} />
         </>
       )
     }
@@ -80,34 +81,34 @@ class App extends Component<{}, IAppState> {
   render() {
     return (
       <main className='app'>
-          {!!this.state.error &&
-            <h2 className="error-feedback">{this.state.error}</h2>
-          }
+        {!!this.state.error &&
+          <h2 className="error-feedback">{this.state.error}</h2>
+        }
 
-          {!this.state.error && !this.state.allPosts.length &&
-            <Loading />
-          }
+        {!this.state.error && !this.state.allPosts.length &&
+          <Loading />
+        }
 
         <section className='main-page'>
-            <Switch>
-              <Route
-                exact path="/"
-                render={this.renderComponent}
-              />
+          <Switch>
+            <Route
+              exact path="/"
+              render={this.renderComponent}
+            />
 
-              <Route
-                exact path="/new-post"
-                render={() => {
-                  return <NewPostForm addNewPost={this.addNewPost} />
-                }
-                }
-              />
+            <Route
+              exact path="/new-post"
+              render={() => {
+                return <NewPostForm addNewPost={this.addNewPost} />
+              }
+              }
+            />
 
-              <Route
-                exact path='/:pid'
-                render={({ match }) => <ExpandedPost match={match.params.pid}/>}
-              />
-            </Switch>
+            <Route
+              exact path='/:pid'
+              render={({ match }) => <ExpandedPost match={match.params.pid} />}
+            />
+          </Switch>
         </section>
       </main>
     )
