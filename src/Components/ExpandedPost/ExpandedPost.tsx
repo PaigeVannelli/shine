@@ -3,7 +3,7 @@ import './ExpandedPost.scss';
 import Post from '../Post/Post'
 // import AllReplies from '../AllReplies/AllReplies'
 import ReplyForm from '../ReplyForm/ReplyForm'
-import { IPost } from '../../types'
+// import { IReply } from '../../types'
 import { getPost, addReplyCall } from '../../apiCalls';
 import Loading from '../Loading/Loading'
 import AllReplies from '../AllReplies/AllReplies'
@@ -87,8 +87,14 @@ class ExpandedPost extends Component<IExpandedPostProps, IExpandedPost> {
             author={this.state.currentPost.post.author}
             timestamp={this.state.currentPost.post.timestamp}
             pid={this.state.currentPost.post.pid}
+            replies={this.state.currentPost.post.replies}
           /> 
         {this.checkForReplies()}
+        <ReplyForm
+          pid={this.state.currentPost.post.pid}
+          replyCount={this.state.currentPost.post.replies}
+          addReply={this.addReply}
+        />
       </section>
       )
     } else if (this.state.error) {
@@ -105,7 +111,7 @@ class ExpandedPost extends Component<IExpandedPostProps, IExpandedPost> {
   checkForReplies = () => {
     if (this.state.currentPost.post.replies.length > 0) {
       return (
-        <AllReplies allReplies={this.state.currentPost.post.replies}/>
+        <AllReplies allReplies={this.state.currentPost.post.replies} />
       )
     } else {
       return (

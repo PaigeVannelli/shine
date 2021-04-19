@@ -42,10 +42,3 @@ export const addReplyCall = (newPost: IPost) => {
     })
 }
 
-
-
-// export default {
-//   getPosts,
-//   postForm,
-//   getPost
-// }

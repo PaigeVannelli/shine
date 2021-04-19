@@ -20,7 +20,7 @@ interface IReply {
   author: string,
   timestamp: number,
   body: string,
-  cid: string,
+  cid: number,
   uid: number,
 }
 
@@ -33,7 +33,7 @@ class ReplyForm extends Component<IProps, IReplyForm> {
         author: 'Lara',
         timestamp: Date.now(),
         body: '',
-        cid: `${this.props.pid}-${this.props.replyCount.length + 1}`,
+        cid: parseInt(`${this.props.pid}-${this.props.replyCount.length + 1}`),
         uid: 0,
       },
       disabled: true,
@@ -80,7 +80,7 @@ class ReplyForm extends Component<IProps, IReplyForm> {
       reply: {
         ...prevState.reply,
         body: '',
-        cid: `${this.props.pid}-${this.props.replyCount.length + 1}`,
+        cid: parseInt(`${this.props.pid}-${this.props.replyCount.length + 1}`),
       }
     })
     )

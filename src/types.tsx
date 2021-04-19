@@ -15,7 +15,7 @@ export interface IReply {
   author: string,
   timestamp: number,
   body: string,
-  cid: number,
+  cid: number | string,
   uid: number,
 }
 

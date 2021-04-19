@@ -9,7 +9,7 @@ interface IReply {
   author: string;
   timestamp: number;
   body?: string
-  cid: number;
+  cid: any;
   uid: number
 }
 interface IAllReplies {
