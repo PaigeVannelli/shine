@@ -31,17 +31,15 @@ const Reply = ({ key, author, timestamp, body, cid, uid }: IReply) => {
   }
 
   return (
-    <article className='reply'>
-      <header className='post-header'>
-        <div className='post-user-info'>
-          <img src={userPhotoSrc} alt='user-profile' className='user-photo' />
-          <div className='user-info'>
-            <h1 className='reply__replier'>{author}</h1>
-            <p className='reply__comment'>{formattedDate}, {timeString}</p>
-            <p>{body}</p>
-          </div>
+    <article className='reply-container'>
+      <section className='reply-info'>
+        <img src={userPhotoSrc} alt='replier' className='icon reply-info__image' />
+        <div className='reply-info__user-container'>
+          <h1 className='reply-info__replier-name'>{author}</h1>
+          <p className='reply-info__date'>{formattedDate}, {timeString}</p>
         </div>
-      </header>
+      </section>
+      <p className='reply__comment'>{body}</p>
     </article>
   )
 }

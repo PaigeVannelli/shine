@@ -1,16 +1,44 @@
 @import '../../Scss/index.scss';
 
-.reply {
-  &__replier {
+// .reply-info {
+//   &__replier {
+//     font-size: 14px;
+//   }
+
+//   &__comment {
+//     margin: 5px 20px 15px 20px;
+//     padding: 10px 20px 10px 20px;
+//     @include gradient;
+//     border-radius: 7px;
+//     border-top-left-radius: 0;
+//     @include shadow;
+//   }
+// }
+
+.reply-info {
+  display: flex;
+  align-items: center;
+
+  &__image {
+  margin-left: 0;
+  }
+
+  &__replier-name {
     font-size: 14px;
   }
 
-  &__comment {
-    margin: 5px 20px 15px 20px;
-    padding: 10px 20px 10px 20px;
-    @include gradient;
-    border-radius: 7px;
-    border-top-left-radius: 0;
-    @include shadow;
+  &__date {
+    font-size: 10px;
   }
 }
+
+.reply__comment {
+  margin: -3px 40px 15px 40px;
+  padding: 10px 20px 10px 20px;
+  @include gradient;
+  border-radius: 15px;
+  border-top-left-radius: 0;
+  @include shadow;
+  border: 1px solid rgb(250, 234, 56);
+}
+
