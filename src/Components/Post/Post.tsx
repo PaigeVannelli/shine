@@ -24,15 +24,15 @@ const Post = ({ title, content, author, timestamp, pid, replies }: IPost) => {
 
   if (author === 'Leia Organa') {
     userPhotoSrc = userPhoto1
-  } else if (title === 'Padmé Amidala') {
+  } else if (author === 'Padmé Amidala') {
     userPhotoSrc = userPhoto2
-  } else if (title === 'Princess Bubblegum') {
+  } else if (author === 'Princess Bubblegum') {
     userPhotoSrc = userPhoto3
-  } else if (title === 'Marceline') {
+  } else if (author === 'Marceline') {
     userPhotoSrc = userPhoto4
-  } else if (title === 'Lara') {
+  } else if (author === 'Lara') {
     userPhotoSrc = userPhoto5
-  } else if (title === 'Ada Lovelace') {
+  } else if (author === 'Ada Lovelace') {
     userPhotoSrc = userPhoto6
   }
 
