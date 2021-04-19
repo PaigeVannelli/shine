@@ -20,7 +20,7 @@ const Reply = ({ key, author, timestamp, body, cid, uid }: IReply) => {
     userPhotoSrc = userPhoto1
   } else if (author === 'Padmé Amidala') {
     userPhotoSrc = userPhoto2
-  } else if (author === 'Pat') {
+  } else if (author === 'Princess Bubblegum') {
     userPhotoSrc = userPhoto3
   } else if (author === 'Marceline') {
     userPhotoSrc = userPhoto4

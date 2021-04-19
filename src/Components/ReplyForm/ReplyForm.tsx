@@ -21,7 +21,7 @@ class ReplyForm extends Component<IProps, IReplyForm> {
     this.state = {
       reply: {
         key: 0,
-        author: 'Lara',
+        author: 'Princess Bubblegum',
         timestamp: Date.now(),
         body: '',
         cid: parseInt(`${this.props.pid}-${this.props.replyCount.length + 1}`),
