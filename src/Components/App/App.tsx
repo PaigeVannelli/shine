@@ -3,8 +3,7 @@ import React, { Component } from 'react'
 import NewPostForm from '../NewPostForm/NewPostForm'
 import Loading from '../Loading/Loading'
 import AllPosts from '../AllPosts/AllPosts'
-// import Searchbar from '../Searchbar/Searchbar'
-import Search from "../../Search";
+import Searchbar from '../Searchbar/Searchbar'
 import Nav from '../Nav/Nav'
 import { IPost } from '../../types'
 import { Route, Switch } from 'react-router-dom';
@@ -60,15 +59,15 @@ class App extends Component<{}, IAppState> {
     if (this.state.foundPosts.length > 0) {
       return (
         <>
-            <Search findPostsWithSearchTerm={this.findPostsWithSearchTerm} />
-            <AllPosts allPosts={this.state.foundPosts} />
-            <Nav resetFoundPosts={this.resetFoundPosts}/>
+          <Searchbar findPostsWithSearchTerm={this.findPostsWithSearchTerm} />
+          <AllPosts allPosts={this.state.foundPosts} />
+          <Nav resetFoundPosts={this.resetFoundPosts}/>
         </>
       )
     } else if (this.state.allPosts.length > 0) {
       return (
         <>
-          <Search findPostsWithSearchTerm={this.findPostsWithSearchTerm} />
+          <Searchbar findPostsWithSearchTerm={this.findPostsWithSearchTerm} />
           <AllPosts allPosts={this.state.allPosts} />
           <Nav resetFoundPosts={this.resetFoundPosts}/>
         </>
