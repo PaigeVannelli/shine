@@ -1,6 +1,5 @@
 import { IPost } from './types';
 
-
 export const postForm = (newPost: {}) => {
   return fetch(`http://localhost:5000/api/v1/posts`, {
     method: 'POST',
