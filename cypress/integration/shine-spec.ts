@@ -13,7 +13,7 @@ describe('Main Page View', () => {
   before(() => {
     // cy.intercept('http://localhost:5000/api/v1/posts', {fixture: 'posts.json'})
     cy.intercept('http://localhost:5000/api/v1/posts', {fixture: 'posts.json'})
-    cy.visit('http://localhost:3000/')
+    .visit('http://localhost:3000/')
   })
   it('Should display all previous posts when users open the app', () => {
     cy.get('[data-cy=all-posts-section]')
@@ -36,31 +36,97 @@ describe('Main Page View', () => {
   })
 });
 
-describe('Form View and Functionality', () => {
+describe('Form View', () => {
   before(() => {
     cy.intercept('http://localhost:5000/api/v1/posts', {fixture: 'posts.json'})
-    cy.visit('http://localhost:3000/')
-    cy.get('[data-cy=add-post-button]')
+    .visit('http://localhost:3000/')
+    .get('[data-cy=add-post-button]')
     .click()
   });
 
   it('Should display the add post form when the add post button is clicked', () => {
     cy.get('section')
     .contains('New Post')
-    cy.get('input')
+    .get('input')
     .should('be.visible')
-    cy.get('textarea')
+    .get('textarea')
     .should('be.visible')
-    cy.get('[data-cy=form-submit-button]')
+    .get('[data-cy=form-submit-button]')
     .contains('Share')
   })
+
+  it('Should display the home page when the X is clicked', () => {
+    cy.get('[data-cy=close-button]')
+    .click()
+    .get('[data-cy=all-posts-section]')
+    .children()
+    .should('have.length', 2)
+    .last()
+    .contains('Jedi')
+  })
+});
+
+describe('Form Functionality', () => {
+  beforeEach(() => {
+    cy.intercept('http://localhost:5000/api/v1/posts', {fixture: 'updatedPosts.json'})
+    .visit('http://localhost:3000/new-post')
+  });
 
   it('Should allow the user to add a new post', () => {
     cy.get('input')
     .type('Test title')
-    cy.get('textarea')
+    .get('textarea')
     .type('Test content')
-    cy.get('[data-cy=form-submit-button]')
-    // .click()
+    .get('[data-cy=form-submit-button]')
+    .click()
+    .get('[data-cy=add-post-button]')
+    .click()
+    .visit('http://localhost:3000/')
+    .get('[data-cy=all-posts-section]')
+    .children()
+    .should('have.length', 3)
+    .last()
+    .contains('Test')
   })
-});
+
+  it('Should not allow user to click the post submit button unless both fields are filled out', () => {
+    cy.get('input')
+    .type('Test title')
+    .get('[data-cy=form-submit-button]')
+    .should('be.disabled')
+    .get('input')
+    .clear()
+    .get('textarea')
+    .type('Test content')
+    .get('[data-cy=form-submit-button]')
+    .should('be.disabled')
+    .get('input')
+    .type('Test title')
+    .get('[data-cy=form-submit-button]')
+    .should('not.be.disabled')
+  })
+})
+
+// describe('Form Error Handling', () => {
+//   // before(() => {
+//   //   cy.intercept('http://localhost:5000/api/v1/posts', {fixture: 'posts.json'})
+//   //   .visit('http://localhost:3000/new-post')
+//   // });
+
+//   it('Should not ', () => {
+//     cy.get('input')
+//     .type('Test title')
+//     .get('textarea')
+//     .type('Test content')
+//     .get('[data-cy=form-submit-button]')
+//     .click()
+//     .get('[data-cy=add-post-button]')
+//     .click()
+//     .visit('http://localhost:3000/')
+//     .get('[data-cy=all-posts-section]')
+//     .children()
+//     .should('have.length', 3)
+//     .last()
+//     .contains('Test')
+//   })
+// })
