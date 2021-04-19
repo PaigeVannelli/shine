@@ -5,7 +5,7 @@
   flex-direction: column;
   margin-top: 5px;
   background-color: white;
-  border-radius: 10px;
+  // border-radius: 10px;
   border-bottom: 1px solid $light-grey;
   line-height: 1.2;
   width: 100vw;
@@ -16,6 +16,7 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 10px;
 }
 
 .post-user-info {
@@ -46,7 +47,7 @@
   height: 22px;
   background: transparent;
   border: none;
-  margin: 5px 7px 0 0;
+  margin-right: 5px;
 
   &__bookmark {
   height: 22px;
@@ -62,10 +63,14 @@
   justify-content: space-between;
 
   &__button {
-    width: 40px;
+    width: 45px;
     background: transparent;
     border: none;
   }
+}
+
+.post-footer {
+  margin: 5px 0 5px 0;
 }
 
 .icon {
