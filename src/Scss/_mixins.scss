@@ -22,3 +22,7 @@
     outline: none;
   }
 }
+
+@mixin shadow {
+  box-shadow: 3px 4px 7px 1px rgba(174, 174, 174, 0.35);
+}

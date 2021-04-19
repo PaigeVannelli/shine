@@ -3,18 +3,25 @@
 .reply-form {
   display: flex;
   flex-direction: row;
+  align-items: flex-end;
   bottom: 0;
   position: absolute;
   width: 100vw;
 
   &__input {
-    background-color: pink;
+    @include input;
+    margin: 0;
+    padding-left: 15px;
+    border-bottom: none;
     // width: calc(100vw - 50px)
     width: 100vw;
   }
 
   &__btn {
-    width: 50px;
+    width: 80px;
+    border: none;
+    height: 70px;
+    border-top: 1px solid $light-grey;
 
     &:disabled {
     background-color: $light-grey;
