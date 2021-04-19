@@ -7,10 +7,10 @@
   display: flex;
   flex-flow: row nowrap;
   align-items: center;
-  box-shadow: 1px 1px 1px #ffd435;
   @include gradient;
   z-index: 1;
   border-bottom: 1px solid $light-grey;
+  @include shadow;
 
     &:focus {
       @include focus;
@@ -19,7 +19,7 @@
 
 .search-input {
   height: 2.6em;
-  padding: 0 10px;
+  padding: 0 15px;
   width: 80%;
   border: 2px solid $dark-grey;
   border-right: none;
