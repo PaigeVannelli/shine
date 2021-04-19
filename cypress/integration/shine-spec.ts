@@ -141,12 +141,24 @@ describe('Expanded Post View', () => {
     .get('[data-cy=add-reply-prompt]')
     .contains("Add a comment below!")
   })
+
+  it.only('Should allow user to return to the main page', () => {
+    cy.get('[data-cy=expanded-view-button]')
+    .first()
+    .click()
+    .get('[data-cy=expanded-post-back-button]')
+    .click()
+    .get('[data-cy=all-posts-section]')
+    .children()
+    .should('have.length', 2)
+    .last()
+    .contains('Jedi')
+    // .url().should('eq', 'http://localhost:3000/')
+  })
 })
 
 describe('New Reply Functionality', () => {
   before(() => {
-    // cy.intercept('http://localhost:5000/api/v1/posts', {fixture: 'updatedPosts.json'})
-    // .intercept('http://localhost:5000/api/v1/posts/1001', {fixture: 'replies.json'})
     cy.intercept('http://localhost:5000/api/v1/posts/1001', {fixture: 'replies.json'})
     .visit('http://localhost:3000/1001')
     .get('[data-cy=expanded-view-button]')
@@ -154,7 +166,7 @@ describe('New Reply Functionality', () => {
     .click()
   });
 
-  it.only('Should allow the user to add a new reply', () => {
+  it('Should allow the user to add a new reply', () => {
     cy.get('[data-cy=reply-input]')
     .type('Test reply')
     .intercept('http://localhost:5000/api/v1/posts/1001', {fixture: 'testReplies.json'})
@@ -166,8 +178,8 @@ describe('New Reply Functionality', () => {
     .contains('Test reply')
   })
 
-  // it('Should not allow user to click the post submit button unless both fields are filled out', () => {
-  //   cy.get('[data-cy=reply-button]')
-  //   .should('be.disabled')
-  // })
+  it('Should not allow user to click the reply submit button unless reply field is filled out', () => {
+    cy.get('[data-cy=reply-button]')
+    .should('be.disabled')
+  })
 })
