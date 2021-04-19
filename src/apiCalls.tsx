@@ -15,6 +15,7 @@ export const postForm = (newPost: {}) => {
 }
 
 export const getPosts = () => {
+  // return fetch(`https://localhost:5000/api/v1/posts`)
   return fetch('https://shine-api.herokuapp.com/api/v1/posts')
     .then(response => response.json())
 }

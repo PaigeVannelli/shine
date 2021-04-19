@@ -10,8 +10,11 @@ import heartIcon from '../../assets/heart.svg'
 import commentsIcon from '../../assets/send.svg'
 
 const Post = ({ title, content, author, timestamp, pid, replies }: IPost) => {
-  // const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }
-  const formattedDate = new Date(timestamp).toLocaleDateString('en-GB', { timeZone: 'UTC' })
+  // let options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' }
+  let fDate = new Date(timestamp)
+  let timeString = fDate.toLocaleTimeString('en-US')
+
+  const formattedDate = new Date(fDate).toLocaleString('en-US', {weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'})
 
   return (
     <article className='post'>
@@ -20,7 +23,7 @@ const Post = ({ title, content, author, timestamp, pid, replies }: IPost) => {
           <img src={userPhoto1} alt='user-profile-photo' className='user-photo' />
           <div className='user-info'>
             <h1 className='name'>{author}</h1>
-            <p className='date'>{formattedDate}</p>
+            <p className='date'>{formattedDate}, {timeString}</p>
           </div>
         </div>
         <button className='bookmark-button'>
