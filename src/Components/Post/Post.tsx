@@ -5,9 +5,10 @@ import './Post.scss'
 import { IPost } from '../../types'
 import userPhoto1 from '../../assets/people-1.svg'
 import bookmarkIcon from '../../assets/bookmark.svg'
-// import shareIcon from '../../assets/share.svg'
 import heartIcon from '../../assets/heart.svg'
-import commentsIcon from '../../assets/send.svg'
+import commentsIcon from '../../assets/comment.svg'
+import shareIcon from '../../assets/three.svg'
+
 
 const Post = ({ title, content, author, timestamp, pid, replies }: IPost) => {
   // const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }
@@ -17,29 +18,29 @@ const Post = ({ title, content, author, timestamp, pid, replies }: IPost) => {
     <article className='post'>
       <header className='post-header'>
         <div className='post-user-info'>
-          <img src={userPhoto1} alt='user-profile-photo' className='user-photo' />
+          <img src={userPhoto1} alt='user profile pic' className='user-photo' />
           <div className='user-info'>
-            <h1 className='name'>{author}</h1>
-            <p className='date'>{formattedDate}</p>
+            <h1 className='user-info__name'>{author}</h1>
+            <p className='user-info__date'>{formattedDate}</p>
           </div>
         </div>
-        <button className='bookmark-button'>
-          <img src={bookmarkIcon} alt='bookmark-icon' className='bookmark' />
+        <button className='bookmark'>
+          <img src={bookmarkIcon} alt='bookmark__icon' className='bookmark' />
         </button>
       </header>
       <h1 className='post-title'>{title}</h1>
       <p className='post-content'>{content}</p>
-      <footer>
-        <button className='footer-button'>
+      <footer className='footer'>
+        <button className='footer__button'>
           <img src={heartIcon} alt='share-icon' className='icon' />
         </button>
         <Link to={`/${pid}`}>
-          <button className='footer-button'>
+          <button className='footer__button'>
             <img src={commentsIcon} alt='share-icon' className='comments icon' />
           </button>
         </Link>
-        <button className='footer-button'>
-          <img src={heartIcon} alt='heart-icon' className='heart icon' />
+        <button className='footer__button'>
+          <img src={shareIcon} alt='share-icon' className='share icon' />
         </button>
       </footer>
     </article>
