@@ -142,7 +142,7 @@ describe('Expanded Post View', () => {
     .contains("Add a comment below!")
   })
 
-  it.only('Should allow user to return to the main page', () => {
+  it('Should allow user to return to the main page', () => {
     cy.get('[data-cy=expanded-view-button]')
     .first()
     .click()
@@ -181,5 +181,29 @@ describe('New Reply Functionality', () => {
   it('Should not allow user to click the reply submit button unless reply field is filled out', () => {
     cy.get('[data-cy=reply-button]')
     .should('be.disabled')
+  })
+})
+
+describe('Search Functionality', () => {
+  before(() => {
+    cy.intercept('http://localhost:5000/api/v1/posts/1001', {fixture: 'replies.json'})
+    .visit('http://localhost:3000/')
+  });
+
+  it.only('Should allow the user to search posts by title, content or author', () => {
+    // cy.get('[data-cy=reply-input]')
+    // .type('Test reply')
+    // .intercept('http://localhost:5000/api/v1/posts/1001', {fixture: 'testReplies.json'})
+    // .get('[data-cy=reply-button]')
+    // .click()
+    // .get('[data-cy=replies-section]')
+    // .children()
+    // .last()
+    // .contains('Test reply')
+  })
+
+  it('Should not allow user to click the reply submit button unless reply field is filled out', () => {
+    // cy.get('[data-cy=reply-button]')
+    // .should('be.disabled')
   })
 })
