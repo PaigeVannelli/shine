@@ -1,9 +1,9 @@
 export interface IPost {
   pid?: number;
   uid?: number;
-  title?: string;
-  content?: string;
-  author?: string;
+  title: string;
+  content: string;
+  author: string;
   timestamp?: any;
   key?: any;
   replies?: Array<IReply>;

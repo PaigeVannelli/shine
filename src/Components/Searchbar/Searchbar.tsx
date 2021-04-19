@@ -9,6 +9,7 @@ interface ISearchbar {
 class Searchbar extends Component<{}, ISearchbar> {
   constructor(props: {}) {
     super(props)
+
     this.state = {
       searchInput: ''
     }
@@ -24,7 +25,7 @@ class Searchbar extends Component<{}, ISearchbar> {
           placeholder='Body of your post*'
           name='content'
           // value={this.state.searchInput}
-          // onChange={event => this.handleChange(event)}
+          // onChange={this.handleChange}
         />
         <button className='search-button'>
           <img className='search-image' alt='search-icon' src={search}/>
