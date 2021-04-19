@@ -1,56 +1,31 @@
 import React, { Component } from 'react';
-// import { RouteComponentProps } from 'react-router-dom'
 import './ExpandedPost.scss';
 import Post from '../Post/Post'
 // import AllReplies from '../AllReplies/AllReplies'
 import ReplyForm from '../ReplyForm/ReplyForm'
-import { IPost } from '../../types'
+import { IReply, ICurrentPost } from '../../types'
 import { getPost, addReplyCall } from '../../apiCalls';
 import Loading from '../Loading/Loading'
 import AllReplies from '../AllReplies/AllReplies'
 import backIcon from '../../assets/arrow.svg'
 
-interface ICurrentPost {
-  pid: number;
-  uid: number;
-  author: string;
-  timestamp: number;
-  title: string;
-  content: string;
-  comments: Array<IReply | undefined>
-  replies: Array<IReply>
-}
-
 interface IExpandedPost {
-  // replies: Array<any>;
   currentPost: {
     [key: string]: ICurrentPost,
   };
+  error: string
 };
 
-interface IReply {
-  key: number,
-  author: string,
-  timestamp: number,
-  body: string,
-  cid: string,
-  uid: number,
-}
 interface IExpandedPostProps {
   match: string
 }
-
-// type TParams = { 
-//   pid: string, 
-//   histroy: any, 
-//   location: any
-// }
 
 class ExpandedPost extends Component<IExpandedPostProps, IExpandedPost> {
   constructor(props: IExpandedPostProps) {
     super(props)
     this.state = {
-      currentPost: {}
+      currentPost: {},
+      error: ''
     }
   };
 
@@ -60,6 +35,7 @@ class ExpandedPost extends Component<IExpandedPostProps, IExpandedPost> {
         ...prevState,
         currentPost: post,
       })))
+      .catch(error => this.setState({ error: error.message }))
   }
 
   returnHome = (event: { preventDefault: () => void; }) => {
@@ -85,18 +61,34 @@ class ExpandedPost extends Component<IExpandedPostProps, IExpandedPost> {
             timestamp={this.state.currentPost.post.timestamp}
             pid={this.state.currentPost.post.pid}
             replies={this.state.currentPost.post.replies}
-          />
-          <AllReplies allReplies={this.state.currentPost.post.replies} />
-          <ReplyForm
-            pid={this.state.currentPost.post.pid}
-            replyCount={this.state.currentPost.post.replies}
-            addReply={this.addReply}
-          />
-        </section >
+          /> 
+        {this.checkForReplies()}
+        <ReplyForm
+          pid={this.state.currentPost.post.pid}
+          replyCount={this.state.currentPost.post.replies}
+          addReply={this.addReply}
+        />
+      </section>
+      )
+    } else if (this.state.error) {
+      return (
+        <h1>{this.state.error}</h1>
       )
     } else {
       return (
         <Loading />
+      )
+    }
+  }
+
+  checkForReplies = () => {
+    if (this.state.currentPost.post.replies.length > 0) {
+      return (
+        <AllReplies allReplies={this.state.currentPost.post.replies} />
+      )
+    } else {
+      return (
+        <h1>Add a comment below!</h1>
       )
     }
   }

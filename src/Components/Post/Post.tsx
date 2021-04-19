@@ -5,14 +5,12 @@ import './Post.scss'
 import { IPost } from '../../types'
 import userPhoto1 from '../../assets/people-1.svg'
 import bookmarkIcon from '../../assets/bookmark.svg'
-import shareIcon from '../../assets/share.svg'
+// import shareIcon from '../../assets/share.svg'
 import heartIcon from '../../assets/heart.svg'
 import commentsIcon from '../../assets/send.svg'
 
 const Post = ({ title, content, author, timestamp, pid, replies }: IPost) => {
   // const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }
-
-  // const formattedDate = new Date(timestamp).toLocaleDateString('en-US')
   const formattedDate = new Date(timestamp).toLocaleDateString('en-GB', { timeZone: 'UTC' })
 
   return (

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './ReplyForm.scss';
 import sendIcon from '../../assets/send.svg';
 import { addReplyCall } from '../../apiCalls';
-import { ICurrentPost } from '../../types';
+import { IReply } from '../../types';
 
 interface IProps {
   addReply: (newReply: IReply) => void;
@@ -15,15 +15,6 @@ interface IReplyForm {
   disabled: boolean,
 }
 
-interface IReply {
-  key: number,
-  author: string,
-  timestamp: number,
-  body: string,
-  cid: string,
-  uid: number,
-}
-
 class ReplyForm extends Component<IProps, IReplyForm> {
   constructor(props: IProps) {
     super(props);
@@ -33,7 +24,7 @@ class ReplyForm extends Component<IProps, IReplyForm> {
         author: 'Lara',
         timestamp: Date.now(),
         body: '',
-        cid: `${this.props.pid}-${this.props.replyCount.length + 1}`,
+        cid: parseInt(`${this.props.pid}-${this.props.replyCount.length + 1}`),
         uid: 0,
       },
       disabled: true,
@@ -80,7 +71,7 @@ class ReplyForm extends Component<IProps, IReplyForm> {
       reply: {
         ...prevState.reply,
         body: '',
-        cid: `${this.props.pid}-${this.props.replyCount.length + 1}`,
+        cid: parseInt(`${this.props.pid}-${this.props.replyCount.length + 1}`),
       }
     })
     )
