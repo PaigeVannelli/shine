@@ -12,10 +12,16 @@
   border-top: .5px solid $light-grey;
 }
 
-.nav-button {
-  // height: 2em;
-  background: transparent;
-  border: none;
+// .nav-button {
+//   // height: 2em;
+//   background: transparent;
+//   border: none;
+// }
+
+.activated-nav {
+  border-bottom: 3px solid black;
+  transition: transform 300ms;
+  transition: all 0.2s ease-in-out;
 }
 
 .nav-button-image {
