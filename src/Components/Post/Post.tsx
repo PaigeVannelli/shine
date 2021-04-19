@@ -11,8 +11,11 @@ import shareIcon from '../../assets/three.svg'
 
 
 const Post = ({ title, content, author, timestamp, pid, replies }: IPost) => {
-  // const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }
-  const formattedDate = new Date(timestamp).toLocaleDateString('en-GB', { timeZone: 'UTC' })
+  // let options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' }
+  let fDate = new Date(timestamp)
+  let timeString = fDate.toLocaleTimeString('en-US')
+
+  const formattedDate = new Date(fDate).toLocaleString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })
 
   return (
     <article className='post'>
@@ -20,8 +23,8 @@ const Post = ({ title, content, author, timestamp, pid, replies }: IPost) => {
         <div className='user-info-container'>
           <img src={userPhoto1} alt='user profile pic' className='user-info__photo' />
           <div className='user-info'>
-            <h1 className='user-info__name'>{author}</h1>
-            <p className='user-info__date'>{formattedDate}</p>
+            <h1 className='name user-info__name'>{author}</h1>
+            <p className='date user-info__date'>{formattedDate}, {timeString}</p>
           </div>
         </div>
         <button className='bookmark'>
@@ -43,7 +46,7 @@ const Post = ({ title, content, author, timestamp, pid, replies }: IPost) => {
           <img src={shareIcon} alt='send content' className='icon' />
         </button>
       </footer>
-    </article>
+    </article >
   )
 }
 
