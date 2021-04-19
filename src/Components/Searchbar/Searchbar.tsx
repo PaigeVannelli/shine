@@ -19,14 +19,14 @@ const Searchbar: React.FC<SearchProps> = (props) => {
     return (
         <form className='searchbar'>
             <input
-                data-cy='searchbar-input'
+                data-cy='search-input'
                 className='search-input'
                 type='text'
                 placeholder='Search'
                 name='content'
                 ref={searchInputRef}
             />
-            <button className='search-button' onClick={handleSubmit}>
+            <button className='search-button' data-cy='search-button' onClick={handleSubmit}>
                 <img className='search-image' alt='search-icon' src={search} />
             </button>
         </form>

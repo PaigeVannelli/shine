@@ -55,7 +55,7 @@ class NewPostForm extends Component<IProps, IForm> {
       replies: [],
       author: 'Princess Bubblegum'
     }
-    
+
     this.props.addNewPost(newPost)
     this.clearInputs();
   }
@@ -70,7 +70,7 @@ class NewPostForm extends Component<IProps, IForm> {
         <section className='header'>
           <h1 className='header__title'>New Post</h1>
           <Link to='/'>
-            <img className='close' src={closeIcon} alt="close icon" />
+            <img className='close' src={closeIcon} alt="close icon" data-cy='close-button' />
           </Link>
         </section>
         <input

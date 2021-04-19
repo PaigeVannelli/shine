@@ -22,7 +22,7 @@ const AllReplies = ({ allReplies }: IAllReplies) => {
   })
 
   return (
-    <section className='replies-container'>
+    <section className='replies-container' data-cy='replies-section'>
       { replyData}
     </section>
   )

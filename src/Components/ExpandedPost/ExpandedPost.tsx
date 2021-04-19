@@ -91,7 +91,7 @@ class ExpandedPost extends Component<IExpandedPostProps, IExpandedPost> {
       )
     } else {
       return (
-        <h1>Add a comment below!</h1>
+        <h1 data-cy='add-reply-prompt'>Add a comment below!</h1>
       )
     }
   }
