@@ -59,9 +59,9 @@ describe('Form View', () => {
     .click()
     .get('[data-cy=all-posts-section]')
     .children()
-    // .should('have.length', 2)
-    // .last()
-    // .contains('Jedi')
+    .should('have.length', 2)
+    .last()
+    .contains('Jedi')
   })
 });
 
@@ -110,7 +110,6 @@ describe('Expanded Post View', () => {
   beforeEach(() => {
     cy.intercept('https://shine-api.herokuapp.com/api/v1/posts', {fixture: 'posts.json'})
     .intercept('https://shine-api.herokuapp.com/api/v1/posts/1001', {fixture: 'replies.json'})
-    // .intercept('https://shine-api.herokuapp.com/api/v1/posts/1001', {fixture: 'emptyReplies.json'})
     .visit('http://localhost:3000/')
   });
 
@@ -122,15 +121,15 @@ describe('Expanded Post View', () => {
   //   .contains('here')
   // })
 
-  it('Should display a detailed post view when post is clicked on', () => {
+  it.only('Should display a detailed post view when post is clicked on', () => {
     cy.get('[data-cy=expanded-view-button]')
     .first()
     .click()
     .get('[data-cy=replies-section]')
     .children()
-    // .should('have.length', 2)
-    // .first()
-    // .contains("Just knowing")
+    .should('have.length', 2)
+    .first()
+    .contains("Just knowing")
   })
 
   it('Should prompt a user to leave a reply if there are no replies', () => {
@@ -184,24 +183,19 @@ describe('New Reply Functionality', () => {
 
 describe('Search Functionality', () => {
   before(() => {
-    cy.intercept('https://shine-api.herokuapp.com/api/v1/posts/', {fixture: 'posts.json'})
-    // .intercept('https://shine-api.herokuapp.com/api/v1/posts/1001', {fixture: 'replies.json'})
+    cy.intercept('https://shine-api.herokuapp.com/api/v1/posts', {fixture: 'posts.json'})
     .visit('http://localhost:3000/')
   });
 
-  it.only('Should allow the user to search posts by title, content or author', () => {
+  it('Should allow the user to search posts by title, content or author', () => {
     cy.get('[data-cy=search-input]')
-    .type('You')
+    .type('You are all')
     .get('[data-cy=search-button]')
     .click()
     .get('[data-cy=all-posts-section]')
     .children()
-    .first()
+    .should('have.length', 1)
     .contains("You are all")
-    .get('[data-cy=all-posts-section]')
-    .children()
-    .last()
-    .contains('You should be')
   })
 
   it('Should show all posts if no posts meet search criteria', () => {
@@ -211,26 +205,26 @@ describe('Search Functionality', () => {
     .click()
     .get('[data-cy=all-posts-section]')
     .children()
-    // .should('have.length', 3)
-    // .last()
-    // .contains('Bonnibel')
+    .should('have.length', 2)
+    .last()
+    .contains('Jedi')
   })
 
   it('Should show all posts if searchbar is clear', () => {
     cy.get('[data-cy=search-input]')
-    .type('You')
+    .type('You are all')
     .get('[data-cy=search-button]')
     .click()
     .get('[data-cy=all-posts-section]')
     .children()
-    .should('have.length', 2)
+    .should('have.length', 1)
     .get('[data-cy=search-input]')
     .clear()
     .get('[data-cy=search-button]')
     .click()
     .get('[data-cy=all-posts-section]')
     .children()
-    .should('have.length', 3)
+    .should('have.length', 2)
   })
 })
 
