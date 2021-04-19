@@ -69,7 +69,7 @@ class NewPostForm extends Component<IProps, IForm> {
         <section className='header'>
           <h1 className='header__title'>New Post</h1>
           <Link to='/'>
-            <img className='icon' src={closeIcon} alt="close icon" />
+            <img className='close' src={closeIcon} alt="close icon" />
           </Link>
         </section>
         <input
@@ -95,7 +95,7 @@ class NewPostForm extends Component<IProps, IForm> {
           className='share'
           onClick={this.submitPost}>
           <img className='icon' src={sendIcon} alt="send icon" />
-          <span>Share</span>
+          <span className='span-text'>Share</span>
         </button>
       </form >
     )
