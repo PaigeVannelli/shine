@@ -1,6 +1,5 @@
 import { IPost } from './types';
 
-
 export const postForm = (newPost: {}) => {
   return fetch(`https://shine-api.herokuapp.com/api/v1/posts`, {
     method: 'POST',

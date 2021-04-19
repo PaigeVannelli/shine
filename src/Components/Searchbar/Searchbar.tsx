@@ -1,39 +1,37 @@
-import React, { Component } from 'react'
-import './Searchbar.scss'
-import search from '../../assets/search.svg'
+import React, { useRef } from 'react';
+import './Searchbar.scss';
+import search from '../../assets/search.svg';
 
-interface ISearchbar {
-  searchInput: string
+type SearchProps = {
+    findPostsWithSearchTerm: (searchTerm: string) => void;
 }
 
-class Searchbar extends Component<{}, ISearchbar> {
-  constructor(props: {}) {
-    super(props)
+const Searchbar: React.FC<SearchProps> = (props) => {
+    const searchInputRef = useRef<HTMLInputElement | null>(null);
 
-    this.state = {
-      searchInput: ''
+    const handleSubmit = (event: React.FormEvent) => {
+        event.preventDefault();
+        const enteredText = searchInputRef.current!.value;
+        props.findPostsWithSearchTerm(enteredText)
+        searchInputRef.current!.value = ''
     }
-  }
 
-  render() {
     return (
-      <form className='searchbar'>
-        <input
-          data-cy='searchbar-input'
-          className='search-input'
-          type='text'
-          placeholder='Body of your post*'
-          name='content'
-          // value={this.state.searchInput}
-          // onChange={this.handleChange}
-        />
-        <button className='search-button'>
-          <img className='search-image' alt='search-icon' src={search}/>
-        </button>
-      </form>
-    )
-  }
-}
+        <form className='searchbar'>
+            <input
+                data-cy='searchbar-input'
+                className='search-input'
+                type='text'
+                placeholder='Body of your post*'
+                name='content'
+                ref={searchInputRef}
 
+            />
+            <button className='search-button' onClick={handleSubmit}>
+                <img className='search-image' alt='search-icon' src={search}/>
+            </button>
+        </form>
+    )
+}
 
 export default Searchbar

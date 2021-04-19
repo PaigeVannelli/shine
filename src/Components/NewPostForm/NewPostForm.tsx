@@ -55,8 +55,8 @@ class NewPostForm extends Component<IProps, IForm> {
       replies: [],
       author: 'Princess Bubblegum'
     }
+    
     this.props.addNewPost(newPost)
-        // .then(data => window.location.assign('/'));
     this.clearInputs();
   }
 
