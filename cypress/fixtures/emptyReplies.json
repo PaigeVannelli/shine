@@ -1,0 +1,12 @@
+{
+  "message": "Success!",
+    "post": {
+      "pid": 1001,
+      "uid": 42001,
+      "timestamp": 1618485896651,
+      "title": "I'm here 4 U",
+      "author": "Leia Organa",
+      "content": "You are all bad asses. I believe in you. LMK how I can help you shine!",
+      "replies": []
+    }
+}

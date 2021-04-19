@@ -81,6 +81,7 @@ class ReplyForm extends Component<IProps, IReplyForm> {
     return (
       <form>
         <input
+          data-cy='reply-input'
           type='text'
           placeholder='Add a comment'
           name='body'
@@ -89,6 +90,7 @@ class ReplyForm extends Component<IProps, IReplyForm> {
           onKeyUp={this.toggleButton}
         />
         <button
+          data-cy='reply-button'
           disabled={this.state.disabled}
           className='share'
           onClick={this.submitReply}>

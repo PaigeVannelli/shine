@@ -66,7 +66,7 @@ describe('Form View', () => {
   })
 });
 
-describe('Form Functionality', () => {
+describe('New Post Functionality', () => {
   beforeEach(() => {
     cy.intercept('http://localhost:5000/api/v1/posts', {fixture: 'updatedPosts.json'})
     .visit('http://localhost:3000/new-post')
@@ -108,8 +108,10 @@ describe('Form Functionality', () => {
 })
 
 describe('Expanded Post View', () => {
-  before(() => {
+  beforeEach(() => {
     cy.intercept('http://localhost:5000/api/v1/posts', {fixture: 'posts.json'})
+    .intercept('http://localhost:5000/api/v1/posts/1001', {fixture: 'replies.json'})
+    .intercept('http://localhost:5000/api/v1/posts/1002', {fixture: 'emptyReplies.json'})
     .visit('http://localhost:3000/')
   });
 
@@ -121,7 +123,7 @@ describe('Expanded Post View', () => {
   //   .contains('here')
   // })
 
-  it('Should not display a detailed post view when post is clicked on', () => {
+  it('Should display a detailed post view when post is clicked on', () => {
     cy.get('[data-cy=expanded-view-button]')
     .first()
     .click()
@@ -139,4 +141,33 @@ describe('Expanded Post View', () => {
     .get('[data-cy=add-reply-prompt]')
     .contains("Add a comment below!")
   })
+})
+
+describe('New Reply Functionality', () => {
+  before(() => {
+    // cy.intercept('http://localhost:5000/api/v1/posts', {fixture: 'updatedPosts.json'})
+    // .intercept('http://localhost:5000/api/v1/posts/1001', {fixture: 'replies.json'})
+    cy.intercept('http://localhost:5000/api/v1/posts/1001', {fixture: 'replies.json'})
+    .visit('http://localhost:3000/1001')
+    .get('[data-cy=expanded-view-button]')
+    .first()
+    .click()
+  });
+
+  it.only('Should allow the user to add a new reply', () => {
+    cy.get('[data-cy=reply-input]')
+    .type('Test reply')
+    .intercept('http://localhost:5000/api/v1/posts/1001', {fixture: 'testReplies.json'})
+    .get('[data-cy=reply-button]')
+    .click()
+    .get('[data-cy=replies-section]')
+    .children()
+    .last()
+    .contains('Test reply')
+  })
+
+  // it('Should not allow user to click the post submit button unless both fields are filled out', () => {
+  //   cy.get('[data-cy=reply-button]')
+  //   .should('be.disabled')
+  // })
 })
