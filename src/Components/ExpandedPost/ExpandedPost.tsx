@@ -104,7 +104,7 @@ class ExpandedPost extends Component<IExpandedPostProps, IExpandedPost> {
     let updatedCurrentPost = this.state.currentPost
     updatedCurrentPost.post.replies.push(newReply)
     this.setState({ currentPost: updatedCurrentPost })
-    addReplyCall('1001', this.state.currentPost);
+    addReplyCall(this.state.currentPost.post);
   }
 
   render() {
