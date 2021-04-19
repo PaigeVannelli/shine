@@ -5,6 +5,8 @@ export interface IPost {
   content?: string;
   author?: string;
   timestamp?: any;
+  key?: any;
+  replies?: Array<IReply>;
   // date?: string;
 }
 

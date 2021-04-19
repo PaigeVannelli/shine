@@ -84,6 +84,7 @@ class ExpandedPost extends Component<IExpandedPostProps, IExpandedPost> {
             author={this.state.currentPost.post.author}
             timestamp={this.state.currentPost.post.timestamp}
             pid={this.state.currentPost.post.pid}
+            replies={this.state.currentPost.post.replies}
           />
           <AllReplies allReplies={this.state.currentPost.post.replies} />
           <ReplyForm
