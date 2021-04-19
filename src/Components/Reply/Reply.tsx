@@ -8,7 +8,7 @@ const Reply = ({key, author, timestamp, body, cid, uid}: IReply) => {
   return (
     <article>
       <h1>{author}</h1>
-        <h5>{formattedDate}, {timeString}</h5>
+      <h5>{formattedDate}, {timeString}</h5>
       <p>{body}</p>
     </article>
   )
