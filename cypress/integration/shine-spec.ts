@@ -113,15 +113,15 @@ describe('Expanded Post View', () => {
     .visit('http://localhost:3000/')
   });
 
-  // it.only('Should display the post details', () => {
-  //   cy.get('[data-cy=expanded-view-button]')
-  //   .first()
-  //   .click()
-  //   .get('header')
-  //   .contains('here')
-  // })
+  it.only('Should display the post details', () => {
+    cy.get('[data-cy=expanded-view-button]')
+    .first()
+    .click()
+    .get('h1')
+    .contains('here')
+  })
 
-  it.only('Should display a detailed post view when post is clicked on', () => {
+  it('Should display a detailed post view when post is clicked on', () => {
     cy.get('[data-cy=expanded-view-button]')
     .first()
     .click()
@@ -228,37 +228,23 @@ describe('Search Functionality', () => {
   })
 })
 
-// describe('Error Handling', () => {
-//   before(() => {
-//     cy.intercept('GET', 'https://shine-api.herokuapp.com/api/v1/posts', {
-//       method: 'GET',
-//       url: 'https://shine-api.herokuapp.com/api/v1/posts',
-//       status: 500,
-//       response: {
-//           message: 'Something went wrong, please try again later'
-//       }
-//     })
-//   });
+describe('Error Handling', () => {
+  before(() => {
+    cy.intercept('GET', 'https://shine-api.herokuapp.com/api/v1/posts', {
+      method: 'GET',
+      url: 'https://shine-api.herokuapp.com/api/v1/posts',
+      status: 500,
+      response: {
+          message: 'Something went wrong, please try again later',
+          posts: []
+      }
+    })
+  });
 
-//   it('Should display an error message if data cannot be fetched from the server', () => {
-//     cy.visit('http://localhost:3000/')
-//     .wait(100)
-//     .get('h1')
-//     // .contains('Failed to fetch')
-//   })
-// })
-
-// describe('Loading Component', () => {
-//   before(() => {
-//     cy.intercept('https://shine-api.herokuapp.com/api/v1/posts', {fixture: 'loadingPosts.json'})
-//     .visit('http://localhost:3000/')
-//   });
-
-//   it.only('Should display a loading page while posts are being loaded', () => {
-//     // cy.visit('http://localhost:3000/')
-//     // .wait(100)
-//     // .get('h1')
-//     // .contains('Failed to fetch')
-//   })
-
-// })
+  it.only('Should display an error message if data cannot be fetched from the server', () => {
+    cy.visit('http://localhost:3000/')
+    .wait(100)
+    .get('h2')
+    .contains('Failed to fetch')
+  })
+})
