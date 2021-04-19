@@ -38,7 +38,7 @@ const Post = ({ title, content, author, timestamp, pid, replies }: IPost) => {
         </button>
         <Link to={`/${pid}`}>
           <button className='footer-button'>
-            <img src={commentsIcon} alt='share-icon' className='comments icon' />
+            <img src={commentsIcon} alt='share-icon' className='comments icon' data-cy='expanded-view-button'/>
           </button>
         </Link>
         <button className='footer-button'>

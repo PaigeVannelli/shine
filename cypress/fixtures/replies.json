@@ -1,0 +1,27 @@
+{
+  "message": "Success!",
+    "post": {
+      "pid": 1001,
+      "uid": 42001,
+      "timestamp": 1618485896651,
+      "title": "I'm here 4 U",
+      "author": "Leia Organa",
+      "content": "You are all bad asses. I believe in you. LMK how I can help you shine!",
+      "replies": [
+        {
+          "cid": 1000,
+          "uid": 42002,
+          "author": "Padmé Amidala",
+          "timestamp": 1618487224495,
+          "body": "Just knowing you're here helps."
+        },
+        {
+          "cid": 999,
+          "uid": 42003,
+          "author": "Marceline",
+          "timestamp": 1618487224495,
+          "body": "Yeah, I want you to be proud. I want you to be proud of me!"
+        }
+      ]
+    }
+}
