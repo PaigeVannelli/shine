@@ -3,54 +3,27 @@ import './ExpandedPost.scss';
 import Post from '../Post/Post'
 // import AllReplies from '../AllReplies/AllReplies'
 import ReplyForm from '../ReplyForm/ReplyForm'
-// import { IReply } from '../../types'
+import { IReply, ICurrentPost } from '../../types'
 import { getPost, addReplyCall } from '../../apiCalls';
 import Loading from '../Loading/Loading'
 import AllReplies from '../AllReplies/AllReplies'
 import backIcon from '../../assets/arrow.svg'
 
-interface ICurrentPost {
-  pid: number;
-  uid: number;
-  author: string;
-  timestamp: number;
-  title: string;
-  content: string;
-  comments: Array<IReply | undefined>
-  replies: Array<IReply>
-}
-
 interface IExpandedPost {
-  // replies: Array<any>;
   currentPost: {
     [key: string]: ICurrentPost,
   };
   error: string
 };
 
-interface IReply {
-  key: number,
-  author: string,
-  timestamp: number,
-  body: string,
-  cid: number,
-  uid: number,
-}
 interface IExpandedPostProps {
   match: string
 }
-
-// type TParams = { 
-//   pid: string, 
-//   histroy: any, 
-//   location: any
-// }
 
 class ExpandedPost extends Component<IExpandedPostProps, IExpandedPost> {
   constructor(props: IExpandedPostProps) {
     super(props)
     this.state = {
-      // replies: [],
       currentPost: {},
       error: ''
     }
@@ -115,7 +88,7 @@ class ExpandedPost extends Component<IExpandedPostProps, IExpandedPost> {
       )
     } else {
       return (
-        <h1>It's quiet... too quiet. Add a comment below!</h1>
+        <h1>Add a comment below!</h1>
       )
     }
   }

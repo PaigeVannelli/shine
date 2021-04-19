@@ -7,7 +7,6 @@ export interface IPost {
   timestamp?: any;
   key?: any;
   replies?: Array<IReply>;
-  // date?: string;
 }
 
 export interface IReply {
@@ -15,7 +14,7 @@ export interface IReply {
   author: string,
   timestamp: number,
   body: string,
-  cid: number | string,
+  cid: number,
   uid: number,
 }
 
