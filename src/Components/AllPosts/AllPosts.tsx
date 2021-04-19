@@ -5,7 +5,6 @@ import { IPost, IAllPosts } from '../../types'
 
 
 const AllPosts = ({ allPosts }: IAllPosts) => {
-  // const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }
   const postData = allPosts.map((post: IPost) => {
     return (
       <Post

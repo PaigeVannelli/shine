@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import './ReplyForm.scss';
 import sendIcon from '../../assets/send.svg';
-import { addReplyCall } from '../../apiCalls';
 import { IReply } from '../../types';
 
 interface IProps {

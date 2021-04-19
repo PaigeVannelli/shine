@@ -51,7 +51,6 @@ class NewPostForm extends Component<IProps, IForm> {
       uid: 42001,
       title: this.state.title,
       content: this.state.content,
-      //Edited merge conflict on 58 and 59
       replies: [],
       author: 'Princess Bubblegum'
     }

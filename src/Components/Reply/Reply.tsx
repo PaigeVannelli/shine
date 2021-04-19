@@ -7,7 +7,6 @@ import userPhoto3 from '../../assets/people-3.svg'
 import userPhoto4 from '../../assets/people-4.svg'
 import userPhoto5 from '../../assets/people-5.svg'
 import userPhoto6 from '../../assets/people-6.svg'
-import bookmarkIcon from "../../assets/bookmark.svg";
 import React from "react";
 
 const Reply = ({ key, author, timestamp, body, cid, uid }: IReply) => {

@@ -3,7 +3,6 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import './Post.scss'
 import { IPost } from '../../types'
-// import userPhoto1 from '../../assets/people-1.svg'
 import bookmarkIcon from '../../assets/bookmark.svg'
 import heartIcon from '../../assets/heart.svg'
 import commentsIcon from '../../assets/comment.svg'
@@ -17,7 +16,6 @@ import userPhoto6 from '../../assets/people-6.svg'
 
 
 const Post = ({ title, content, author, timestamp, pid, replies }: IPost) => {
-  // let options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' }
   let fDate = new Date(timestamp)
   let timeString = fDate.toLocaleTimeString('en-US')
   const formattedDate = new Date(fDate).toLocaleString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })
