@@ -13,6 +13,7 @@ interface IProps {
 interface IForm {
   title: string;
   content: string;
+  author: string;
   disabled: boolean;
 }
 
@@ -23,7 +24,8 @@ class NewPostForm extends Component<IProps, IForm> {
     this.state = {
       title: '',
       content: '',
-      disabled: true,
+      author: '',
+      disabled: true
     }
   }
 
@@ -52,7 +54,9 @@ class NewPostForm extends Component<IProps, IForm> {
       uid: 42001,
       title: this.state.title,
       content: this.state.content,
+      //Edited merge conflict on 58 and 59
       replies: []
+      author: 'Princess Bubblegum'
     }
     this.props.addNewPost(newPost);
     window.location.assign('/');
