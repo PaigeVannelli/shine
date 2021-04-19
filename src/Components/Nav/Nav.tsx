@@ -8,12 +8,18 @@ import starIcon from '../../assets/star.svg'
 import userIcon from '../../assets/user.svg'
 import './Nav.scss'
 
-const Nav = () => {
+type NavProps = {
+    resetFoundPosts: () => void;
+}
+
+const Nav: React.FC<NavProps> = (props) => {
   return (
     <footer className='nav-bar' data-cy='nav-bar'>
-      <button className='nav-button'>
-        <img src={homeIcon} alt='home-icon' className='nav-button-image' />
-      </button>
+      <Link to='/' onClick={props.resetFoundPosts}>
+        <button className='nav-button'>
+          <img src={homeIcon} alt='home-icon' className='nav-button-image' />
+        </button>
+      </Link>
       <button className='nav-button'>
         <img src={bellIcon} alt='bell-icon' className='nav-button-image' />
       </button>

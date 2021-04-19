@@ -12,6 +12,7 @@ interface IProps {
 interface IForm {
   title: string;
   content: string;
+  author: string;
   disabled: boolean;
 }
 
@@ -22,6 +23,7 @@ class NewPostForm extends Component<IProps, IForm> {
     this.state = {
       title: '',
       content: '',
+      author: '',
       disabled: true
     }
   }
@@ -47,7 +49,8 @@ class NewPostForm extends Component<IProps, IForm> {
       pid: Date.now(),
       uid: 42005,
       title: this.state.title,
-      content: this.state.content 
+      content: this.state.content,
+      author: 'Princess Bubblegum'
     }
     this.props.addNewPost(newPost);
     window.location.assign('/');

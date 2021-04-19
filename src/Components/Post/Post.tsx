@@ -17,7 +17,8 @@ const Post = ({title, content, author, timestamp, pid}: IPost) => {
 
   return (
     <article className='post'>
-      <header className='post-header'> 
+      {/* <PostHeader /> */}
+      <header className='post-header'>
         <div className='post-user-info'>
           <img src={userPhoto1} alt='user-profile-photo' className='user-photo'/>
           <div className='user-info'>
