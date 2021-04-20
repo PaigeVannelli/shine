@@ -7,9 +7,9 @@ import userPhoto3 from '../../assets/people-3.svg'
 import userPhoto4 from '../../assets/people-4.svg'
 import userPhoto5 from '../../assets/people-5.svg'
 import userPhoto6 from '../../assets/people-6.svg'
-import React from "react";
+// import React from "react";
 
-const Reply = ({ key, author, timestamp, body, cid, uid }: IReply) => {
+const Reply = ({ author, timestamp, body, cid }: IReply) => {
   let fDate = new Date(timestamp)
   let timeString = fDate.toLocaleTimeString('en-US')
   const formattedDate = new Date(fDate).toLocaleString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })
@@ -30,7 +30,7 @@ const Reply = ({ key, author, timestamp, body, cid, uid }: IReply) => {
   }
 
   return (
-    <article className='reply-container'>
+    <article className='reply-container' key={cid}>
       <section className='reply-info'>
         <img src={userPhotoSrc} alt='replier' className='icon reply-info__image' />
         <div className='reply-info__user-container'>

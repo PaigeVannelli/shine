@@ -14,7 +14,6 @@ export const postForm = (newPost: {}) => {
 }
 
 export const getPosts = () => {
-  // return fetch(`https://localhost:5000/api/v1/posts`)
   return fetch('https://shine-api.herokuapp.com/api/v1/posts')
     .then(response => response.json())
 }
@@ -25,7 +24,6 @@ export const getPost = (id: string) => {
 }
 
 export const addReplyCall = (newPost: IPost) => {
-  console.log('1newPost', newPost)
   return fetch(`https://shine-api.herokuapp.com/api/v1/posts/${newPost.pid}`, {
     method: 'PATCH',
     headers: {
@@ -34,10 +32,7 @@ export const addReplyCall = (newPost: IPost) => {
     body: JSON.stringify(newPost)
   })
     .then(response => {
-      console.log('2newPost', newPost)
-      console.log(response)
       return response.json()
-
     })
 }
 
