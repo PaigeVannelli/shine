@@ -13,15 +13,16 @@
 - [Wireframes](#wireframes)
 - [Functionality](#functionality)
   - [General](#general)
+  - [Adding a Post](#adding-a-post)
   - [Search](#search)
-  - [Reply](#reply)
   - [Error Handling](#error-handling)
+  - [Accessibility](#accessibility)
 - [Contact the Contributers](#contact-the-contributers)
 
 
 ## About the Project
 
-Currently, only 14% of the total software engineering workforce is women. Women also leave the tech industry at a 45% higher rate than men(https://lnkd.in/eG7ssiA). Shine, or SHE in Engineering, is a mobile application that will serve as a platform for women in (or interested in) software engineering to support one another. Shine provides a safe space for women to post their questions or concerns and receive feedback from other women.
+Currently, [only 14%](https://lnkd.in/eG7ssiA) of the total software engineering workforce is women. Women also leave the tech industry at a 45% higher rate than men. Shine, or SHE in Engineering, is a mobile application that will serve as a platform for women in (or interested in) software engineering to support one another. Shine provides a safe space for women to post their questions or concerns and receive feedback from other women.
 
 This project allowed our team to select a technology that is not taught in the Turing curriculum. Our team chose to study TypeScript and Express. Through research, struggle, and grit, we were able to create Shine and learn a lot about our own individual learning processes.
 
@@ -29,9 +30,6 @@ Project spec ->
 https://frontend.turing.edu/projects/module-3/stretch.html
 
 #### Final Product:
-##### Loading Page:
-![](src/assets/shine_loading.png)
-
 ##### Home Page:
 ![](src/assets/shine_home.png)
 
@@ -87,14 +85,14 @@ Sketch was utilized to create wireframes, low fidelity, and high fidelity protot
 
 #### General
 Shine is a mobile application that supports women in software engineering or interested in becoming a software engineer. A user can add a post to the home page where other users can reply to the posed question. 
-<img src="https://media.giphy.com/media/OiXZuoIeE3yjG159kf/giphy.gif" width="80%">
+<img src="https://media.giphy.com/media/OiXZuoIeE3yjG159kf/giphy.gif">
 
 #### Adding a Post
-<img src="https://media.giphy.com/media/HuX1Vlff648hRVV0cl/giphy.gif" width="80%">
+<img src="https://media.giphy.com/media/HuX1Vlff648hRVV0cl/giphy.gif">
 
 #### Search
 Users can also search through previously posted questions by using the search bar.
-<img src="https://media.giphy.com/media/uCYtsaDcTB8Fzijk0N/giphy.gif" width="80%">
+<img src="https://media.giphy.com/media/uCYtsaDcTB8Fzijk0N/giphy.gif">
 
 #### Error Handling
 Error handling was considered when building the website. A loading screen will appear when any content is not appearing and is still rendering. When a user wants to submit a post or reply, they must fill out the required fields in order for the button to activate. The user will know that the button is activated because it turns a gradient yellow. As an extra precaution, error messages have been built in just in case the button is activated when it shouldn't be.
