@@ -108,18 +108,18 @@ Shine received a 100% from Lighthouse on Accessibility. Users can tab throughout
 [<img src="https://img.shields.io/badge/LinkedIn-anneke--miers-informational?style=for-the-badge&labelColor=black&logo=linkedin&logoColor=0077b5&&color=0FBBD6"/>][linkedin]
 [<img src="https://img.shields.io/badge/Github-aemiers-informational?style=for-the-badge&labelColor=black&logo=github&color=8B0BD5"/>][github]
 
-[<img src="https://img.shields.io/badge/LinkedIn-matt--umland-informational?style=for-the-badge&labelColor=black&logo=linkedin&logoColor=0077b5&&color=0FBBD6"/>][linkedin2]
-[<img src="https://img.shields.io/badge/Github-mattumland-informational?style=for-the-badge&labelColor=black&logo=github&color=8B0BD5"/>][github2]
+[<img src="https://img.shields.io/badge/LinkedIn-nikkipetersencsm-informational?style=for-the-badge&labelColor=black&logo=linkedin&logoColor=0077b5&&color=0FBBD6"/>][linkedin2]
+[<img src="https://img.shields.io/badge/Github-piknikki-informational?style=for-the-badge&labelColor=black&logo=github&color=8B0BD5"/>][github2]
 
-[<img src="https://img.shields.io/badge/LinkedIn-matt--umland-informational?style=for-the-badge&labelColor=black&logo=linkedin&logoColor=0077b5&&color=0FBBD6"/>][linkedin3]
-[<img src="https://img.shields.io/badge/Github-mattumland-informational?style=for-the-badge&labelColor=black&logo=github&color=8B0BD5"/>][github3]
+[<img src="https://img.shields.io/badge/LinkedIn-paigevannelli-informational?style=for-the-badge&labelColor=black&logo=linkedin&logoColor=0077b5&&color=0FBBD6"/>][linkedin3]
+[<img src="https://img.shields.io/badge/Github-PaigeVannelli-informational?style=for-the-badge&labelColor=black&logo=github&color=8B0BD5"/>][github3]
 
 <!-- Personal Definitions  -->
 [linkedin]: https://www.linkedin.com/in/anneke-miers/
 [github]: https://github.com/aemiers
 
-[linkedin2]: https://www.linkedin.com/in/matt-umland-he-him-4264455b/
-[github2]: https://github.com/mattumland
+[linkedin2]: https://www.linkedin.com/in/nikkipetersencsm/
+[github2]: https://github.com/piknikki
 
-[linkedin2]: https://www.linkedin.com/in/matt-umland-he-him-4264455b/
-[github2]: https://github.com/mattumland
+[linkedin3]: https://www.linkedin.com/in/paigevannelli/
+[github3]: https://github.com/PaigeVannelli
