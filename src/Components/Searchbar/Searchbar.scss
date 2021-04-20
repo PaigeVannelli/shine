@@ -20,7 +20,7 @@
 .search-input {
   height: 2.6em;
   padding: 0 15px;
-  width: 80%;
+  width: 85%;
   border: 2px solid $dark-grey;
   border-right: none;
   border-radius: 20px 0 0 20px;
@@ -37,6 +37,7 @@
   @include focus;
   position: fixed;
   right: 5%;
+  padding-left: 50px;
 }
 
 .search-image {
