@@ -31,7 +31,8 @@ https://frontend.turing.edu/projects/module-3/stretch.html
 
 #### Final Product:
 ##### Home Page:
-![](src/assets/shine_home.png)
+<img src="src/assets/shine_home.png" style="width:50px;"/>
+
 
 ##### Replies Page:
 ![](src/assets/shine_replies.png)
