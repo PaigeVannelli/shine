@@ -53,6 +53,8 @@ View the code ->
 Front-End:
 https://github.com/PaigeVannelli/shine
 
+Run: npm start
+
 API:
 https://github.com/piknikki/shine-api
 
