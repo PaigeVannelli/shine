@@ -1,4 +1,4 @@
-# Shine
+# Shine: Mobile Application
 <p align="center">
 <img src="./src/assets/logo.png" alt="Shine Logo" width="200">
 </p>  
@@ -48,17 +48,28 @@ https://frontend.turing.edu/projects/module-3/stretch.html
 8. Leverage SASS to DRY up CSS.
 
 ## Installation
+
+Best viewed on mobile devices.
+
 View the code ->
 
 Front-End:
 https://github.com/PaigeVannelli/shine
 
-Run: npm start
-
 API:
 https://github.com/piknikki/shine-api
 
-Deployed Link ->
+Run:
+git clone
+npm start
+
+
+
+Deployed Links ->
+Front-End:
+https://shine-deployed.herokuapp.com/
+
+API: 
 https://shine-api.herokuapp.com/api/v1/posts/
 
 ## Technologies Used
