@@ -23,7 +23,7 @@ class ReplyForm extends Component<IProps, IReplyForm> {
         author: 'Princess Bubblegum',
         timestamp: Date.now(),
         body: '',
-        cid: parseInt(`${this.props.pid}-${this.props.replyCount.length + 1}`),
+        cid: Date.now(),
         uid: 0,
       },
       disabled: true,
